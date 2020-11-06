@@ -14,6 +14,9 @@ const LoginPage = () => {
 function handleClick() {
   history.push("/");
 }
+function handleClickDashboard(){
+  history.push("/dashboard")
+}
 
     return(        
         <div>
@@ -28,6 +31,8 @@ function handleClick() {
           <br>
           </br>
           <Button variant="contained" onClick={handleClick}>Go to Home</Button>
+          <br/>
+          <Button variant="contained" onClick={handleClickDashboard}>Go to Dashboard</Button>
         </header>
       </div>
     );

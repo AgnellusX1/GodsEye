@@ -4,16 +4,19 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect, } from 'react-router-dom'
 
 // Pages
+// Here is where all the pages are connected to each other
+
 import MainPage from './components/Home'
 import PageNotFound from './components/404'
 import LoginPage from './components/Login'
-
+import Dashboard from './components/Dashboard'
 class App extends Component {
   render() {
     return (
     <Router>
       <Switch>
       <Route exact path="/" component={MainPage}/>
+      <Route exact path="/dashboard" component={Dashboard}/>
       <Route exact path="/login" component={LoginPage}/>
       <Route exact path="/404" component={PageNotFound}/>
       <Redirect to="/404"/>
