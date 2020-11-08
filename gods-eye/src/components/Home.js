@@ -35,6 +35,9 @@ const MainPage = () => {
     history.push("/login");
   }
 
+  function handleClickFull() {
+    history.push("/full");
+  }
 
   const handle = useFullScreenHandle();
 
@@ -64,6 +67,8 @@ const MainPage = () => {
         <button onClick={handle.enter}>
           fullscreen
               </button>
+
+        <Button variant="contained" onClick={handleClickFull}>Go to Full</Button>
 
         <FullScreen handle={handle}>
 
