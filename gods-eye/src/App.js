@@ -10,6 +10,7 @@ import MainPage from './components/Home'
 import PageNotFound from './components/404'
 import LoginPage from './components/Login'
 import Dashboard from './components/Dashboard'
+import questionpg from './components/questionpg'
 class App extends Component {
   render() {
     return (
@@ -17,6 +18,7 @@ class App extends Component {
       <Switch>
       <Route exact path="/" component={MainPage}/>
       <Route exact path="/dashboard" component={Dashboard}/>
+      <Route exact path="/questionpg" component={questionpg}/>
       <Route exact path="/login" component={LoginPage}/>
       <Route exact path="/404" component={PageNotFound}/>
       <Redirect to="/404"/>
