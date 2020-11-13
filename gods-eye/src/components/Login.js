@@ -15,25 +15,19 @@ function handleClick() {
   history.push("/");
 }
 function handleClickDashboard(){
-  history.push("/dashboard")
+  history.push("/Dashboard")
 }
 
     return(        
         <div>
         <header className="App-header">
-          <p>Welcome Admin</p>
+          <p>Welcome Student</p>
           <br>
           </br>
-          Enter Admin Name<input placeholder='Admin Name' type="text" name="aname"></input>
-          <br>
-          </br>
-          Enter Admin Email<input placeholder='Admin Password' type="text" name="aemail"></input>
-          <br>
-          </br>
-          <Button variant="contained" onClick={handleClick}>Go to Home</Button>
-          <br/>
-          <Button variant="contained" onClick={handleClickDashboard}>Go to Dashboard</Button>
-        </header>
+          Enter Exam Link<input placeholder='examlink' type="text" name="elink"></input>
+          <br></br>
+          <Button variant="contained" onClick={handleClickDashboard}>Validate</Button>
+          </header>
       </div>
     );
     }

@@ -34,6 +34,9 @@ const MainPage = () => {
   function handleClick() {
     history.push("/login");
   }
+  function Clickadmin() {
+    history.push("/admin");
+  }
 
 
   const handle = useFullScreenHandle();
@@ -58,12 +61,18 @@ const MainPage = () => {
         >
           Learn React
               </a>
+        <br></br>
 
-        <Button variant="contained" onClick={handleClick}>Go to Login</Button>
+        <Button variant="contained" onClick={handleClick}>Go to ExamLogin </Button>
+        <br></br>
+        
+        <Button variant="contained" onClick={Clickadmin}>Go to Admin</Button>
+        <br></br>
 
         <button onClick={handle.enter}>
           fullscreen
               </button>
+              <br></br>
 
         <FullScreen handle={handle}>
 
