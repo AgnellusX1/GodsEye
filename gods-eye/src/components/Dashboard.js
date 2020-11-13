@@ -45,6 +45,7 @@ const WebcamCapture = () => {
         </h3>
 
         <div id="root"></div>
+            <Button variant="contained" onClick={onSignIn} color="primary">Login</Button>
         </center>
     </div>
     )

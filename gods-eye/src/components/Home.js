@@ -4,10 +4,6 @@ import logo from './../logo.svg';
 import './../App.css';
 import Button from '@material-ui/core/Button';
 
-import LoginPage from './Login'
-
-import { FullScreen, useFullScreenHandle } from "react-full-screen";
-
 
 const MainPage = () => {
   //Disable Right click
@@ -42,8 +38,6 @@ const MainPage = () => {
     history.push("/full");
   }
 
-  const handle = useFullScreenHandle();
-
   function uleft() {
     alert("hi")
   }
@@ -53,42 +47,18 @@ const MainPage = () => {
 
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        
         <p>
           Welcome to GodsEye
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-              </a>
-        <br></br>
+        <small>
+          Ai enabled Virtual Examination System
+        </small>
 
-        <Button variant="contained" onClick={handleClick}>Go to ExamLogin </Button>
-        <br></br>
-        
-        <Button variant="contained" onClick={Clickadmin}>Go to Admin</Button>
-        <br></br>
-
-        <button onClick={handle.enter}>
-          fullscreen
-              </button>
-              <br></br>
+        <br/>
+        <Button variant="contained" onClick={handleClick}>All the Best</Button>
 
         {/* <Button variant="contained" onClick={handleClickFull}>Go to Full</Button> */}
-
-        <FullScreen handle={handle}>
-
-          <div className="full-screenable-node" style={{ background: "green" }}>
-            Second
-          <button onClick={handle}>
-              Switch
-          </button>
-          </div>
-
-        </FullScreen>
       </header>
     </div>
   );
