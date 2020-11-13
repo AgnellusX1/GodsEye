@@ -14,14 +14,15 @@ import questionpg from './components/questionpg'
 
 class App extends Component {
   render() {
+    return(
     <Router>
       <Switch>
       <Route exact path="/" component={MainPage}/>
-      <Route exact path="/full" component={FullPg}/>
+      {/* <Route exact path="/full" component={FullPg}/> */}
       <Route exact path="/dashboard" component={Dashboard}/>
       <Route exact path="/questionpg" component={questionpg}/>
       <Route exact path="/login" component={LoginPage}/>
-      <Route exact path="/admin" component={Adminpage}/>
+      {/* <Route exact path="/admin" component={Adminpage}/> */}
       <Route exact path="/404" component={PageNotFound}/>
       <Redirect to="/404"/>
       </Switch>

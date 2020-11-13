@@ -31,7 +31,7 @@ function handleClickquestionpg(){
           Enter Exam Link<input placeholder='examlink' type="text" name="elink"></input>
           <br></br>
           <Button variant="contained" onClick={handleClickDashboard}>Validate</Button>
-          </header>
+          
           Enter Admin Name<input placeholder='Admin Name' type="text" name="aname"></input>
           <br>
           </br>
