@@ -18,6 +18,10 @@ function handleClickDashboard(){
   history.push("/Dashboard")
 }
 
+function handleClickquestionpg(){
+  history.push("/questionpg")
+}
+
     return(        
         <div>
         <header className="App-header">
@@ -28,6 +32,18 @@ function handleClickDashboard(){
           <br></br>
           <Button variant="contained" onClick={handleClickDashboard}>Validate</Button>
           </header>
+          Enter Admin Name<input placeholder='Admin Name' type="text" name="aname"></input>
+          <br>
+          </br>
+          Enter Admin Email<input placeholder='Admin Password' type="text" name="aemail"></input>
+          <br>
+          </br>
+          <Button variant="contained" onClick={handleClick}>Go to Home</Button>
+          <br/>
+          <Button variant="contained" onClick={handleClickDashboard}>Go to Dashboard</Button>
+          <br/>
+          <Button variant="contained" onClick={handleClickquestionpg}>Go to Question Page</Button>
+        </header>
       </div>
     );
     }
