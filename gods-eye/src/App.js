@@ -11,12 +11,15 @@ import PageNotFound from './components/404'
 import LoginPage from './components/Login'
 import Dashboard from './components/Dashboard'
 import questionpg from './components/questionpg'
+import FullPg from './components/Full'
+
 class App extends Component {
   render() {
     return (
     <Router>
       <Switch>
       <Route exact path="/" component={MainPage}/>
+      <Route exact path="/full" component={FullPg}/>
       <Route exact path="/dashboard" component={Dashboard}/>
       <Route exact path="/questionpg" component={questionpg}/>
       <Route exact path="/login" component={LoginPage}/>

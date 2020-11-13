@@ -11,10 +11,10 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 const MainPage = () => {
   //Disable Right click
-  document.addEventListener("contextmenu", (event) => {
-    event.preventDefault();
-    alert("This action is not allowed..and has been recorded")
-  });
+  // document.addEventListener("contextmenu", (event) => {
+  //   event.preventDefault();
+  //   alert("This action is not allowed..and has been recorded")
+  // });
 
   // function blurrie(){
   //   alert("Dumb")
@@ -35,6 +35,9 @@ const MainPage = () => {
     history.push("/login");
   }
 
+  function handleClickFull() {
+    history.push("/full");
+  }
 
   const handle = useFullScreenHandle();
 
@@ -64,6 +67,8 @@ const MainPage = () => {
         <button onClick={handle.enter}>
           fullscreen
               </button>
+
+        {/* <Button variant="contained" onClick={handleClickFull}>Go to Full</Button> */}
 
         <FullScreen handle={handle}>
 
