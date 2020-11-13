@@ -1,55 +1,53 @@
-import React ,{Component, Fragment} from 'react';
-import {Helmet} from 'react-helmet';
-import Button from '@material-ui/core/Button';
-import './questionpg.css';
+import React, { Component } from 'react'
 
-
-class questionpg extends Component{
-    constructor(props){
-    super(props);
-
-}
-
-increaseCount = () =>{
-    this.setState({
-        counter: 5
-    });
-};
-
-render () 
-{
-
-    return(
-        <Fragment>
-            <Helmet><title>Exam page </title></Helmet>
-            <div className = "questions">
-                <div className = "lifeline-container">
-                    <p>
-                        <span className = "mdi mdi-set-center mdi-24px lifeline-icon"></span><span className = "lifeline">2</span>
-                    </p>
-                    <p>
-                        <span className = "mdi mdi-lightbulb-on-outline mdi-24px lifeline-icon"></span><span className ="lifeline">5</span>
-                    </p>
-                </div>
-                <div>
-                    <p>
-                        <span className = "left">1  of  25</span>
-                        <p align = "right"> 2:15 <span className = "mdi mdi-clock-outline mdi-24px"></span></p>
-                        <div className = "timer-box">Time left: 00:00</div>
-                    </p>
-                </div>
-                <p align="center"><iframe src="https://docs.google.com/forms/d/1-CCjcOLHh8M4r167Yh7z_5N4O7fy3XncZbamfJwM8Wk/edit?ts=5fa79ea2&gxids=7757/" width="500" height="500"></iframe></p>
-                
-
-                   
-            </div>
-        </Fragment>
-    );
-
+export default class Timer extends Component {
+    state = {
         
+        minutes: 1,
+        seconds: 0,
+    }
 
+    componentDidMount() {
+        this.myInterval = setInterval(() => {
+            const { seconds, minutes } = this.state
+
+            if (seconds > 0) {
+                this.setState(({ seconds }) => ({
+                    seconds: seconds - 1
+                }))
+            }
+            if (seconds === 0) {
+                if (minutes === 0) {
+                    clearInterval(this.myInterval)
+                } else {
+                    this.setState(({ minutes }) => ({
+                        minutes: minutes - 1,
+                        seconds: 59
+                    }))
+                }
+            } 
+        }, 1000)
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.myInterval)
+    }
+
+    render() {
+        const { minutes, seconds } = this.state
+        return (
+            <div>
+                { minutes === 0 && seconds === 0
+                    ? <h1>Time Up!</h1>
+                    : <h1>Time Remaining: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
+                }
+                <p align="center"><iframe src="https://docs.google.com/forms/d/1-CCjcOLHh8M4r167Yh7z_5N4O7fy3XncZbamfJwM8Wk/edit?ts=5fa79ea2&gxids=7757/" width="500" height="500"></iframe></p>
+            </div>
+            
+        )
+        
+    }
+    
 }
 
-}
 
-export default questionpg;
