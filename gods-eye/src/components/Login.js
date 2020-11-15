@@ -31,7 +31,7 @@ const LoginPage = () => {
     setName(profile.getName());
     setEmail(profile.getEmail());
     setUrl(profile.getImageUrl());
-    // history.push("/dashboard")
+    history.push("/instructions")
   };
 
   const onFaliure = (res) => {
@@ -64,15 +64,15 @@ const LoginPage = () => {
       </head>
       <header className="App-header">
         <h1>Login</h1>
-        <FormGroup>
+        {/* <FormGroup>
           <TextField id="standard-basic" name="username" label="UserName" />
           <TextField id="standard-password-input" name="password" type="password" label="Password" />
           <br />
           <Button variant="contained" onClick={handleClickDashboard} color="primary">Login</Button>
-        </FormGroup>
-        <br></br>
+        </FormGroup> */}
+        {/* <br></br> */}
 
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        {/* <div class="g-signin2" data-onsuccess="onSignIn"></div> */}
 
 
 
@@ -84,11 +84,11 @@ const LoginPage = () => {
           onFailure={onFaliure}
           prompt="select_account"
           cookiePolicy={'single_host_origin'}
-          isSignedIn={true}
+          isSignedIn={false}
         />
 
 
-        <br/>
+        {/* <br/>
 
         <h3>
             Dashboard
@@ -99,7 +99,7 @@ const LoginPage = () => {
         <h4>
             Email: {email}
         </h4>
-        <img src={url} alt={name}></img>
+        <img src={url} alt={name}></img> */}
 
         {/* Enter Admin Name<input placeholder='Admin Name' type="text" name="aname"></input>
           <br>

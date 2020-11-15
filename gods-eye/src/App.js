@@ -7,10 +7,12 @@ import { BrowserRouter as Router, Switch, Route, Redirect, } from 'react-router-
 // Here is where all the pages are connected to each other
 
 import MainPage from './components/Home'
-import PageNotFound from './components/404'
 import LoginPage from './components/Login'
+import Instructions from './components/Instructions'
 import Dashboard from './components/Dashboard'
-import questionpg from './components/questionpg'
+import Questionpg from './components/Questionpg'
+import ThankyouPage from './components/Thankyou'
+import PageNotFound from './components/404'
 
 class App extends Component {
   render() {
@@ -18,10 +20,13 @@ class App extends Component {
     <Router>
       <Switch>
       <Route exact path="/" component={MainPage}/>
+      <Route exact path="/login" component={LoginPage}/>
+      <Route exact path="/instructions" component={Instructions}/>
       {/* <Route exact path="/full" component={FullPg}/> */}
       <Route exact path="/dashboard" component={Dashboard}/>
-      <Route exact path="/questionpg" component={questionpg}/>
-      <Route exact path="/login" component={LoginPage}/>
+      <Route exact path="/questionpg" component={Questionpg}/>
+      <Route exact path="/thankyou" component={ThankyouPage}/>
+      
       {/* <Route exact path="/admin" component={Adminpage}/> */}
       <Route exact path="/404" component={PageNotFound}/>
       <Redirect to="/404"/>
