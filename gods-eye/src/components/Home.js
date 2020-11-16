@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom'
-import logo from './../logo.svg';
+import logo from './../logo.png';
 import './../App.css';
 import Button from '@material-ui/core/Button';
 
@@ -46,7 +46,7 @@ const MainPage = () => {
     <div>
 
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} alt="logo" />
         
         <p>
           Welcome to GodsEye
