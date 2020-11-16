@@ -16,11 +16,17 @@ function onAccept(){
             Instructions
         </h3>
         <small>
-            The Instructions will appper here
+            Click here to proceed!
         </small>
         </center>
         <br />
         <Button variant="contained" onClick={onAccept}>I Accept</Button>
+
+
+
+
+
+
     </div>
     )
 }

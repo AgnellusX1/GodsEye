@@ -14,6 +14,7 @@ import Questionpg from './components/Questionpg'
 import ThankyouPage from './components/Thankyou'
 import PageNotFound from './components/404'
 
+
 class App extends Component {
   render() {
     return(
@@ -22,6 +23,7 @@ class App extends Component {
       <Route exact path="/" component={MainPage}/>
       <Route exact path="/login" component={LoginPage}/>
       <Route exact path="/instructions" component={Instructions}/>
+      
       {/* <Route exact path="/full" component={FullPg}/> */}
       <Route exact path="/dashboard" component={Dashboard}/>
       <Route exact path="/questionpg" component={Questionpg}/>
