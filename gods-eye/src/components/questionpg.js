@@ -41,7 +41,7 @@ export default class Timer extends Component {
                     ? <h1>Time Up!</h1>
                     : <h1>Time Remaining: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
                 }
-                <p align="center"><iframe src="https://docs.google.com/forms/d/1-CCjcOLHh8M4r167Yh7z_5N4O7fy3XncZbamfJwM8Wk/edit?ts=5fa79ea2&gxids=7757/" width="500" height="500"></iframe></p>
+                <p align="center"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfE59T1OL3G22S8b_CFqHUtPd4mdxYIQyj6CEcShw1XdJ_0ow/viewform?embedded=true" width="640" height="1338" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe></p>
             </div>
             
         )

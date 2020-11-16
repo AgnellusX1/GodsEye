@@ -1,7 +1,7 @@
 import React from 'react';
 import Webcam from "react-webcam";
 import ReactDOM from 'react-dom';
-import QuestionPage from './Questionpg'
+import QuestionPage from './Questionpg';
 import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 
