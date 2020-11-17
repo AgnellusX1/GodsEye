@@ -7,6 +7,14 @@ import Button from '@material-ui/core/Button';
 
 const MainPage = () => {
   //Disable Right click
+
+
+  if (document.addEventListener) {
+    document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+    }, false);
+  }
+
   // document.addEventListener("contextmenu", (event) => {
   //   event.preventDefault();
   //   alert("This action is not allowed..and has been recorded")
