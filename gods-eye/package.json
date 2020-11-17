@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^7.2.1",
     "firebase": "^8.0.1",
     "react": "^16.13.1",
+    "react-beforeunload": "^2.4.0",
     "react-compound-timer": "^1.2.0",
     "react-countdown-circle-timer": "^2.3.7",
     "react-dom": "^16.13.1",

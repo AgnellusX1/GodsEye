@@ -8,6 +8,39 @@ import screenfull from 'screenfull'
 // const WebcamComponent = () => <Webcam />;
 const Dashboard = () => {
 
+  //Disable Right click
+  if (document.addEventListener) {
+    document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+    }, false);
+  }
+
+
+  // Alert on Tab Changed within the Same browser Window
+  function handleVisibilityChange() {
+    if (document.hidden) {
+      alert("You changed tab within the same browser window");
+      // the page is hidden
+    } else {
+      // the page is visible
+    }
+  }
+  document.addEventListener("visibilitychange", handleVisibilityChange, false);
+
+
+  window.addEventListener('beforeunload', (event) => {
+    if (!(window.confirm("DO YOU really want to exit a fun page like this?"))) {
+        event.preventDefault();
+    }
+});
+
+window.onbeforeunload = (event) => {
+  if (!(window.confirm("DO YOU really want to exit a fun page like this?"))) {
+      event.preventDefault();
+  }
+};
+
+
 
   // FullScreen
   // if (screenfull.isEnabled) {
@@ -23,17 +56,17 @@ const Dashboard = () => {
   // }
 
 
-    //   if (screenfull.isEnabled) {
-    //     screenfull.on('change', () => {
-    //         if (screenfull.isFullscreen){
+  //   if (screenfull.isEnabled) {
+  //     screenfull.on('change', () => {
+  //         if (screenfull.isFullscreen){
 
-    //         }else{
-    //             screenfull.request();
-    //         }
+  //         }else{
+  //             screenfull.request();
+  //         }
 
-    //         // console.log('Am I fullscreen?', screenfull.isFullscreen ? 'Yes' : 'No');
-    //     });
-    // }
+  //         // console.log('Am I fullscreen?', screenfull.isFullscreen ? 'Yes' : 'No');
+  //     });
+  // }
 
 
   //Disable Right click

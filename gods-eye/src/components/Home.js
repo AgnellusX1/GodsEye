@@ -6,14 +6,25 @@ import Button from '@material-ui/core/Button';
 
 
 const MainPage = () => {
+
   //Disable Right click
-
-
   if (document.addEventListener) {
     document.addEventListener('contextmenu', function (e) {
       e.preventDefault();
     }, false);
   }
+
+  // Alert on Tab Changed within the Same browser Window
+  function handleVisibilityChange() {
+    if (document.hidden) {
+      alert("You changed tab within the same browser window");
+      // the page is hidden
+    } else {
+      // the page is visible
+    }
+  }
+
+  document.addEventListener("visibilitychange", handleVisibilityChange, false);
 
   // document.addEventListener("contextmenu", (event) => {
   //   event.preventDefault();
@@ -57,7 +68,7 @@ const MainPage = () => {
 
       <header className="App-header">
         <img src={logo} alt="logo" />
-        
+
         <p>
           Welcome to GodsEye
         </p>
@@ -65,10 +76,10 @@ const MainPage = () => {
           Ai enabled Virtual Examination System
         </small>
 
-        <br/>
+        <br />
         <Button variant="contained" onClick={handleClick}>All the Best</Button>
-<br />
-        
+        <br />
+
 
         {/* <Button variant="contained" onClick={handleClickFull}>Go to Full</Button> */}
       </header>

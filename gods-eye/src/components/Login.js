@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input'
@@ -16,6 +16,26 @@ const client_id = "544104470592-tmud4b78eecjhd58aft6qrg84jfoqq9h.apps.googleuser
 
 const LoginPage = () => {
 
+
+  //Disable Right click
+  if (document.addEventListener) {
+    document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+    }, false);
+  }
+
+  // Alert on Tab Changed within the Same browser Window
+  function handleVisibilityChange() {
+    if (document.hidden) {
+      alert("You changed tab within the same browser window");
+      // the page is hidden
+    } else {
+      // the page is visible
+    }
+  }
+
+  document.addEventListener("visibilitychange", handleVisibilityChange, false);
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [url, setUrl] = useState("");
@@ -27,7 +47,7 @@ const LoginPage = () => {
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-    
+
     setName(profile.getName());
     setEmail(profile.getEmail());
     setUrl(profile.getImageUrl());
@@ -45,7 +65,7 @@ const LoginPage = () => {
   }
   function handleClickDashboard() {
     history.push("/dashboard")
-    
+
   }
 
   function handleClickquestionpg() {
