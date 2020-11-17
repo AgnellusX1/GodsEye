@@ -30,6 +30,8 @@ const MainPage = () => {
   function handleClick() {
     history.push("/login");
   }
+
+
   function Clickadmin() {
     history.push("/admin");
   }
@@ -57,6 +59,8 @@ const MainPage = () => {
 
         <br/>
         <Button variant="contained" onClick={handleClick}>All the Best</Button>
+<br />
+        
 
         {/* <Button variant="contained" onClick={handleClickFull}>Go to Full</Button> */}
       </header>
