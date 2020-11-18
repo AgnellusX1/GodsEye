@@ -25,7 +25,7 @@ export default class Timer extends Component {
     state = {
         
         minutes: 0 ,
-        seconds: 10,
+        seconds: 15,
     }
 
     componentDidMount() {
