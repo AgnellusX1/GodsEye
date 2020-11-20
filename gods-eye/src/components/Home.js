@@ -1,12 +1,31 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom'
-import logo from './../logo.svg';
+import logo from './../logo.png';
 import './../App.css';
 import Button from '@material-ui/core/Button';
 
 
 const MainPage = () => {
+
   //Disable Right click
+  if (document.addEventListener) {
+    document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+    }, false);
+  }
+
+  // Alert on Tab Changed within the Same browser Window
+  function handleVisibilityChange() {
+    if (document.hidden) {
+      alert("You changed tab within the same browser window");
+      // the page is hidden
+    } else {
+      // the page is visible
+    }
+  }
+
+  document.addEventListener("visibilitychange", handleVisibilityChange, false);
+
   // document.addEventListener("contextmenu", (event) => {
   //   event.preventDefault();
   //   alert("This action is not allowed..and has been recorded")
@@ -48,8 +67,8 @@ const MainPage = () => {
     <div>
 
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        
+        <img src={logo} alt="logo" />
+
         <p>
           Welcome to GodsEye
         </p>
@@ -57,10 +76,10 @@ const MainPage = () => {
           Ai enabled Virtual Examination System
         </small>
 
-        <br/>
+        <br />
         <Button variant="contained" onClick={handleClick}>All the Best</Button>
-<br />
-        
+        <br />
+
 
         {/* <Button variant="contained" onClick={handleClickFull}>Go to Full</Button> */}
       </header>

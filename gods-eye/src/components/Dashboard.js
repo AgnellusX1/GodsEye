@@ -1,12 +1,88 @@
 import React from 'react';
 import Webcam from "react-webcam";
-import ReactDOM from 'react-dom';
 import QuestionPage from './Questionpg';
 import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
+import screenfull from 'screenfull'
 
 // const WebcamComponent = () => <Webcam />;
 const Dashboard = () => {
+
+  //Disable Right click
+  if (document.addEventListener) {
+    document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+    }, false);
+  }
+
+
+  // Alert on Tab Changed within the Same browser Window
+  function handleVisibilityChange() {
+    if (document.hidden) {
+      alert("You changed tab within the same browser window");
+      // the page is hidden
+    } else {
+      // the page is visible
+    }
+  }
+  document.addEventListener("visibilitychange", handleVisibilityChange, false);
+
+
+  window.addEventListener('beforeunload', (event) => {
+    if (!(window.confirm("DO YOU really want to exit a fun page like this?"))) {
+        event.preventDefault();
+    }
+});
+
+window.onbeforeunload = (event) => {
+  if (!(window.confirm("DO YOU really want to exit a fun page like this?"))) {
+      event.preventDefault();
+  }
+};
+
+
+
+  // FullScreen
+  // if (screenfull.isEnabled) {
+  //   console.log("yes")
+  //   screenfull.request();
+  // }else{
+  //   console.log("no")
+  // }
+
+  // if (document.fullscreenEnabled){
+  //   document.getElementById("Dash").requestFullscreen()
+  //   // screenfull.request();
+  // }
+
+
+  //   if (screenfull.isEnabled) {
+  //     screenfull.on('change', () => {
+  //         if (screenfull.isFullscreen){
+
+  //         }else{
+  //             screenfull.request();
+  //         }
+
+  //         // console.log('Am I fullscreen?', screenfull.isFullscreen ? 'Yes' : 'No');
+  //     });
+  // }
+
+
+  //Disable Right click
+
+  // if (document.addEventListener) {
+  //   document.addEventListener('contextmenu', function(e) {
+  //     alert("You've tried to open context menu"); //here you draw your own menu
+  //     e.preventDefault();
+  //   }, false);
+  // }
+  //  else {
+  //   document.attachEvent('oncontextmenu', function() {
+  //     alert("You've tried to open context menu");
+  //     window.event.returnValue = false;
+  //   });
+  // }
 
   const history = useHistory();
   function onAccept() {
@@ -23,7 +99,7 @@ const Dashboard = () => {
 
 
   return (
-    <div className="App-header">
+    <div className="App-header" id="Dash">
       <center>
         <header>
           <h3>
