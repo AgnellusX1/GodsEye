@@ -1,22 +1,35 @@
 import React, { Component } from 'react'
-
 import { useHistory } from 'react-router-dom'
 import { Redirect } from 'react-router-dom';
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    // const button = document.querySelector("button");
-    // const timeLimitMinutes = 1; // low number for demo; change to 20 for application
-    // const timeLimitMilliseconds = timeLimitMinutes * 60 * 1000;
-    //   // For this demo we are not going to serve a response page, so don't try to.
-    // button.addEventListener("submit", submitEvent => submitEvent.preventDefault());
-    //   // attach our custom submit to both the button and to the timeout
-    // button.addEventListener("click", submitForm)
-    // window.setTimeout(submitForm, timeLimitMilliseconds)
+//  <script>
+//       const button = document.querySelector("button");
+//       const timeLimitMinutes = 0;
+//        button.addEventListener("submit", submitEvent => submitEvent.preventDefault());
+//       // attach our custom submit to both the button and to the timeout
+//       button.addEventListener("click", submitForm)
+//       window.setTimeout(submitForm, timeLimitMilliseconds)
 
+//        function submitForm() {
+//         button.setAttribute("disabled", true);
+//         document.querySelector("h1").textContent = "Quiz submitted";
+//         // for demo: submitting just a single answer.
+//         // research Apps Script documentation for rules on submitting forms, certain values not allowed
+//         // consider a helper function `makeForm()` that returns a safe object to submit.
+//         const answer = document.querySelector("input").value;
+//         google.script.run.doPost({ answer });
+//       }
+//     </script>
 
 function Goto() {
-    alert("Saved and Submitted.");
-    return <Redirect to="/thankyou" />
-}
+    alert("1 MINUTE LEFT, Submitting time!!");
+    
+    }
+    function endit(){
+
+        return <Redirect to ="/thankyou"/>
+    }
 
 
 //Disable Right click
@@ -36,6 +49,8 @@ function handleVisibilityChange() {
     }
 }
 
+
+
 document.addEventListener("visibilitychange", handleVisibilityChange, false);
 
 export default class Timer extends Component {
@@ -44,8 +59,8 @@ export default class Timer extends Component {
 
     state = {
         
-        minutes: 0 ,
-        seconds: 15,
+        minutes: 1 ,
+        seconds: 25,
     }
 
     componentDidMount() {
@@ -71,28 +86,11 @@ export default class Timer extends Component {
         }, 1000)
     }
 
-    //      function submitform(){
-    //                     if( minutes === 0 && seconds === 0) // Calling validate function.
-    //                     { 
-    //                         //alert('Submitting.....');
-    //                         // document.getElementById("https://docs.google.com/forms/d/e/1FAIpQLSfE59T1OL3G22S8b_CFqHUtPd4mdxYIQyj6CEcShw1XdJ_0ow/viewform?embedded=true").submit();
-
-
-    //                         history.push('/thankyou')
-    //                     }
-    //                 }
-    // }
+   
 
     componentWillUnmount() {
         clearInterval(this.myInterval)
     }
-
-    render() 
-    {
-
-
-
-
 
     render() {
 
@@ -100,21 +98,30 @@ export default class Timer extends Component {
         return (
             <div>
 
-                {
+                 {
 
-                    minutes === 0 && seconds === 0 ? Goto() : <h1>Time Remaining: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
-
+                    minutes === 1 && seconds === 0 ? Goto() :  <h1>Time Remaining: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
+                    // if (minutes === 0 && seconds === 0) {
+                    //     return <Redirect to="/thankyou" />
+                    // }
                 }
-
-                <p align="center"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfE59T1OL3G22S8b_CFqHUtPd4mdxYIQyj6CEcShw1XdJ_0ow/viewform?embedded=true" width="640" height="1338" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe></p>
-
-
-
+               
+                {
+                    minutes === 0 && seconds === 0 ? endit() : null
+                }
+                
+                
+                <p align="center"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfE59T1OL3G22S8b_CFqHUtPd4mdxYIQyj6CEcShw1XdJ_0ow/viewform?embedded=true" id = 'form' width="640" height="1338" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe></p>
+                
+                
             </div>
 
         )
 
     }
+    
+
+    
 
 }
 
