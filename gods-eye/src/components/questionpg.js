@@ -1,32 +1,13 @@
 import React, { Component } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Redirect } from 'react-router-dom';
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-//  <script>
-//       const button = document.querySelector("button");
-//       const timeLimitMinutes = 0;
-//        button.addEventListener("submit", submitEvent => submitEvent.preventDefault());
-//       // attach our custom submit to both the button and to the timeout
-//       button.addEventListener("click", submitForm)
-//       window.setTimeout(submitForm, timeLimitMilliseconds)
-
-//        function submitForm() {
-//         button.setAttribute("disabled", true);
-//         document.querySelector("h1").textContent = "Quiz submitted";
-//         // for demo: submitting just a single answer.
-//         // research Apps Script documentation for rules on submitting forms, certain values not allowed
-//         // consider a helper function `makeForm()` that returns a safe object to submit.
-//         const answer = document.querySelector("input").value;
-//         google.script.run.doPost({ answer });
-//       }
-//     </script>
 
 function Goto() {
     alert("1 MINUTE LEFT, Submitting time!!");
     
     }
-    function endit(){
+function endit(){
 
         return <Redirect to ="/thankyou"/>
     }
@@ -98,12 +79,10 @@ export default class Timer extends Component {
         return (
             <div>
 
-                 {
+                {
 
                     minutes === 1 && seconds === 0 ? Goto() :  <h1>Time Remaining: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
-                    // if (minutes === 0 && seconds === 0) {
-                    //     return <Redirect to="/thankyou" />
-                    // }
+                    
                 }
                
                 {
