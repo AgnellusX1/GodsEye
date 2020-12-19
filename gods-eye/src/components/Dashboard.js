@@ -1,9 +1,8 @@
 import React from 'react';
 import Webcam from "react-webcam";
-import QuestionPage from './Questionpg';
+import QuestionPage from './Questions';
 import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
-import screenfull from 'screenfull'
 
 // const WebcamComponent = () => <Webcam />;
 const Dashboard = () => {
@@ -28,61 +27,6 @@ const Dashboard = () => {
   document.addEventListener("visibilitychange", handleVisibilityChange, false);
 
 
-  window.addEventListener('beforeunload', (event) => {
-    if (!(window.confirm("DO YOU really want to exit a fun page like this?"))) {
-        event.preventDefault();
-    }
-});
-
-window.onbeforeunload = (event) => {
-  if (!(window.confirm("DO YOU really want to exit a fun page like this?"))) {
-      event.preventDefault();
-  }
-};
-
-
-
-  // FullScreen
-  // if (screenfull.isEnabled) {
-  //   console.log("yes")
-  //   screenfull.request();
-  // }else{
-  //   console.log("no")
-  // }
-
-  // if (document.fullscreenEnabled){
-  //   document.getElementById("Dash").requestFullscreen()
-  //   // screenfull.request();
-  // }
-
-
-  //   if (screenfull.isEnabled) {
-  //     screenfull.on('change', () => {
-  //         if (screenfull.isFullscreen){
-
-  //         }else{
-  //             screenfull.request();
-  //         }
-
-  //         // console.log('Am I fullscreen?', screenfull.isFullscreen ? 'Yes' : 'No');
-  //     });
-  // }
-
-
-  //Disable Right click
-
-  // if (document.addEventListener) {
-  //   document.addEventListener('contextmenu', function(e) {
-  //     alert("You've tried to open context menu"); //here you draw your own menu
-  //     e.preventDefault();
-  //   }, false);
-  // }
-  //  else {
-  //   document.attachEvent('oncontextmenu', function() {
-  //     alert("You've tried to open context menu");
-  //     window.event.returnValue = false;
-  //   });
-  // }
 
   const history = useHistory();
   function onAccept() {
@@ -124,7 +68,7 @@ window.onbeforeunload = (event) => {
             />
             <button onClick={capture}>Capture photo</button>
             {imgSrc && (
-              <img
+              <img alt="Here you see"
                 src={imgSrc}
               />
             )}
@@ -147,24 +91,3 @@ window.onbeforeunload = (event) => {
   )
 }
 export default Dashboard;
-
-  // ReactDOM.render(<WebcamCapture />, document.getElementById("root"));
-/*const Dashboard = () => {
-    return (<div>
-        <center>
-        <h3>
-            Dashboard
-        </h3>
-
-        <div id="root"></div>
-            <Button variant="contained" onClick={onSignIn} color="primary">Login</Button>
-        </center>
-    </div>
-    )
-}
-ReactDOM.render(
-    <Webcam />,
-    document.getElementById('root')
-  );*/
-
-// export default WebcamCapture;

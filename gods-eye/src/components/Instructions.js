@@ -41,10 +41,6 @@ const Instructions = () => {
             <Button variant="contained" onClick={onAccept}>I Accept</Button>
 
 
-
-
-
-
         </div>
     )
 }

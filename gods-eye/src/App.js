@@ -10,7 +10,7 @@ import MainPage from './components/Home'
 import LoginPage from './components/Login'
 import Instructions from './components/Instructions'
 import Dashboard from './components/Dashboard'
-import Questionpg from './components/Questionpg'
+import QuestionsPage from './components/Questions'
 import ThankyouPage from './components/Thankyou'
 import PageNotFound from './components/404'
 
@@ -24,12 +24,10 @@ class App extends Component {
       <Route exact path="/login" component={LoginPage}/>
       <Route exact path="/instructions" component={Instructions}/>
       
-      {/* <Route exact path="/full" component={FullPg}/> */}
       <Route exact path="/dashboard" component={Dashboard}/>
-      <Route exact path="/questionpg" component={Questionpg}/>
+      <Route exact path="/questionpg" component={QuestionsPage}/>
       <Route exact path="/thankyou" component={ThankyouPage}/>
       
-      {/* <Route exact path="/admin" component={Adminpage}/> */}
       <Route exact path="/404" component={PageNotFound}/>
       <Redirect to="/404"/>
       </Switch>
@@ -39,21 +37,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-// return <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>

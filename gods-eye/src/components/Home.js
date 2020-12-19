@@ -26,41 +26,11 @@ const MainPage = () => {
 
   document.addEventListener("visibilitychange", handleVisibilityChange, false);
 
-  // document.addEventListener("contextmenu", (event) => {
-  //   event.preventDefault();
-  //   alert("This action is not allowed..and has been recorded")
-  // });
-
-  // function blurrie(){
-  //   alert("Dumb")
-  // }
-
-  // document.onblur=blurrie()
-
-  // window.addEventListener('beforeunload',function(e){
-  //   e.preventDefault();
-  //   alert("LOL u dead")
-  //   e.returnValue="";
-  // })
-
 
   const history = useHistory();
 
   function handleClick() {
     history.push("/login");
-  }
-
-
-  function Clickadmin() {
-    history.push("/admin");
-  }
-
-  function handleClickFull() {
-    history.push("/full");
-  }
-
-  function uleft() {
-    alert("hi")
   }
 
   return (
@@ -80,8 +50,6 @@ const MainPage = () => {
         <Button variant="contained" onClick={handleClick}>All the Best</Button>
         <br />
 
-
-        {/* <Button variant="contained" onClick={handleClickFull}>Go to Full</Button> */}
       </header>
     </div>
   );

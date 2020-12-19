@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { useHistory } from 'react-router-dom'
 import { Redirect } from 'react-router-dom';
 
 
@@ -103,5 +102,3 @@ export default class Timer extends Component {
     
 
 }
-
-

@@ -1,11 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom'
-import Button from '@material-ui/core/Button';
-import Input from '@material-ui/core/Input'
-import FormGroup from '@material-ui/core/FormGroup'
-import { TextField } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import { red } from '@material-ui/core/colors';
 
 // Firebase Imports
 import firebaseConfig from '../firebase.config';
@@ -36,10 +30,6 @@ const LoginPage = () => {
 
   document.addEventListener("visibilitychange", handleVisibilityChange, false);
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [url, setUrl] = useState("");
-
 
   const onSuccess = (googleUser) => {
     var profile = googleUser.getBasicProfile();
@@ -48,9 +38,6 @@ const LoginPage = () => {
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 
-    setName(profile.getName());
-    setEmail(profile.getEmail());
-    setUrl(profile.getImageUrl());
     history.push("/instructions")
   };
 
@@ -59,18 +46,6 @@ const LoginPage = () => {
   };
 
   const history = useHistory();
-
-  function handleClick() {
-    history.push("/");
-  }
-  function handleClickDashboard() {
-    history.push("/dashboard")
-
-  }
-
-  function handleClickquestionpg() {
-    history.push("/questionpg")
-  }
 
 
   return (
@@ -84,17 +59,6 @@ const LoginPage = () => {
       </head>
       <header className="App-header">
         <h1>Login</h1>
-        {/* <FormGroup>
-          <TextField id="standard-basic" name="username" label="UserName" />
-          <TextField id="standard-password-input" name="password" type="password" label="Password" />
-          <br />
-          <Button variant="contained" onClick={handleClickDashboard} color="primary">Login</Button>
-        </FormGroup> */}
-        {/* <br></br> */}
-
-        {/* <div class="g-signin2" data-onsuccess="onSignIn"></div> */}
-
-
 
         <GoogleLogin
 
@@ -106,39 +70,6 @@ const LoginPage = () => {
           cookiePolicy={'single_host_origin'}
           isSignedIn={false}
         />
-
-
-        {/* <br/>
-
-        <h3>
-            Dashboard
-        </h3>
-        <h4>
-            Name: {name}
-        </h4>
-        <h4>
-            Email: {email}
-        </h4>
-        <img src={url} alt={name}></img> */}
-
-        {/* Enter Admin Name<input placeholder='Admin Name' type="text" name="aname"></input>
-          <br>
-          </br>
-          Enter Exam Link<input placeholder='examlink' type="text" name="elink"></input>
-          <br></br>
-          <Button variant="contained" onClick={handleClickDashboard}>Validate</Button>
-          
-          Enter Admin Name<input placeholder='Admin Name' type="text" name="aname"></input>
-          <br>
-          </br>
-          Enter Admin Email<input placeholder='Admin Password' type="text" name="aemail"></input>
-          <br>
-          </br>
-          <Button variant="contained" onClick={handleClick}>Go to Home</Button>
-          <br/>
-          <Button variant="contained" onClick={handleClickDashboard}>Go to Dashboard</Button>
-          <br/>
-          <Button variant="contained" onClick={handleClickquestionpg}>Go to Question Page</Button> */}
       </header>
     </div>
   );
