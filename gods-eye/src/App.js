@@ -13,6 +13,8 @@ import Dashboard from './components/Dashboard'
 import QuestionsPage from './components/Questions'
 import ThankyouPage from './components/Thankyou'
 import PageNotFound from './components/404'
+import ValidatePage from './components/Validate'
+import SystemCheckPage from './components/SystemCheck'
 
 
 class App extends Component {
@@ -22,8 +24,9 @@ class App extends Component {
       <Switch>
       <Route exact path="/" component={MainPage}/>
       <Route exact path="/login" component={LoginPage}/>
+      <Route exact path="/validate" component={ValidatePage}/>
+      <Route exact path="/systemcheck" component={SystemCheckPage}/>
       <Route exact path="/instructions" component={Instructions}/>
-      
       <Route exact path="/dashboard" component={Dashboard}/>
       <Route exact path="/questionpg" component={QuestionsPage}/>
       <Route exact path="/thankyou" component={ThankyouPage}/>
