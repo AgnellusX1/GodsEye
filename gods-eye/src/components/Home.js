@@ -33,6 +33,10 @@ const MainPage = () => {
     history.push("/login");
   }
 
+  function handleClickDetect(){
+    history.push("/detections")
+  }
+
   return (
     <div>
 
@@ -49,7 +53,9 @@ const MainPage = () => {
         <br />
         <Button variant="contained" onClick={handleClick}>All the Best</Button>
         <br />
-
+        <br />
+        <Button variant="contained" onClick={handleClickDetect}>Detections</Button>
+        <br />
       </header>
     </div>
   );
