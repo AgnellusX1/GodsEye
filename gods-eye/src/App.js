@@ -16,6 +16,7 @@ import PageNotFound from './components/404'
 import ValidatePage from './components/Validate'
 import SystemCheckPage from './components/SystemCheck'
 import DetectionsPage from './components/Detections'
+import DetectionPage2 from './components/Detections2'
 
 
 class App extends Component {
@@ -30,6 +31,7 @@ class App extends Component {
       <Route exact path="/instructions" component={Instructions}/>
       <Route exact path="/dashboard" component={Dashboard}/>
       <Route exact path="/detections" component={DetectionsPage}/>
+      <Route exact path="/detections2" component={DetectionPage2}/>
       <Route exact path="/questionpg" component={QuestionsPage}/>
       <Route exact path="/thankyou" component={ThankyouPage}/>
       
