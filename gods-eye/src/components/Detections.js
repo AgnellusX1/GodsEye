@@ -85,7 +85,7 @@ class Detection extends React.Component {
         alert("Laptop Detected");
       }
         
-      else if(predictions[i].class != "person")
+      else if(predictions[i].class !== "person")
       {
         alert("No Face Detected");
       }
