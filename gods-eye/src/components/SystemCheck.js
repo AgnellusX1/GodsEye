@@ -3,43 +3,149 @@ import React from 'react'
 import {useHistory} from 'react-router-dom';
 const SystemCheck = () => {
 
-  //Disable Right click
-  if (document.addEventListener) {
-    document.addEventListener('contextmenu', function (e) {
-      e.preventDefault();
-    }, false);
+if (navigator.mediaDevices && navigator.mediaDevices.enumerateDevices) {
+  // Firefox 38+ seems having support of enumerateDevicesx
+  navigator.enumerateDevices = function(callback) {
+      navigator.mediaDevices.enumerateDevices().then(callback);
+  };
+}
+
+var MediaDevices = [];
+var isHTTPs = Location.protocol === 'https:';
+var canEnumerate = false;
+
+if (typeof MediaStreamTrack !== 'undefined' && 'getSources' in MediaStreamTrack) {
+  canEnumerate = true;
+} else if (navigator.mediaDevices && !!navigator.mediaDevices.enumerateDevices) {
+  canEnumerate = true;
+}
+
+var hasMicrophone = false;
+var hasSpeakers = false;
+var hasWebcam = false;
+
+var isMicrophoneAlreadyCaptured = false;
+var isWebcamAlreadyCaptured = false;
+
+function checkDeviceSupport(callback) {
+  if (!canEnumerate) {
+      return;
   }
 
-  // Alert on Tab Changed within the Same browser Window
-  function handleVisibilityChange() {
-    if (document.hidden) {
-      alert("You changed tab within the same browser window");
-      // the page is hidden
-    } else {
-      // the page is visible
-    }
+  if (!navigator.enumerateDevices && window.MediaStreamTrack && window.MediaStreamTrack.getSources) {
+      navigator.enumerateDevices = window.MediaStreamTrack.getSources.bind(window.MediaStreamTrack);
   }
 
-  document.addEventListener("visibilitychange", handleVisibilityChange, false);
+  if (!navigator.enumerateDevices && navigator.enumerateDevices) {
+      navigator.enumerateDevices = navigator.enumerateDevices.bind(navigator);
+  }
 
+  if (!navigator.enumerateDevices) {
+      if (callback) {
+          callback();
+      }
+      return;
+  }
 
-// List cameras and microphones.
-navigator.mediaDevices.enumerateDevices()
-.then(function(devices) {
-  devices.forEach(function(device) {
-    console.log(device.kind + ": " + device.label +" id = " + device.deviceId);
+  MediaDevices = [];
+  navigator.enumerateDevices(function(devices) {
+      devices.forEach(function(_device) {
+          var device = {};
+          for (var d in _device) {
+              device[d] = _device[d];
+          }
+
+          if (device.kind === 'audio') {
+              device.kind = 'audioinput';
+          }
+
+          if (device.kind === 'video') {
+              device.kind = 'videoinput';
+          }
+
+          var skip;
+          MediaDevices.forEach(function(d) {
+              if (d.id === device.id && d.kind === device.kind) {
+                  skip = true;
+              }
+          });
+
+          if (skip) {
+              return;
+          }
+
+          if (!device.deviceId) {
+              device.deviceId = device.id;
+          }
+
+          if (!device.id) {
+              device.id = device.deviceId;
+          }
+
+          if (!device.label) {
+              device.label = 'Please invoke getUserMedia once.';
+              if (!isHTTPs) {
+                  device.label = 'HTTPs is required to get label of this ' + device.kind + ' device.';
+              }
+          } else {
+              if (device.kind === 'videoinput' && !isWebcamAlreadyCaptured) {
+                  isWebcamAlreadyCaptured = true;
+              }
+
+              if (device.kind === 'audioinput' && !isMicrophoneAlreadyCaptured) {
+                  isMicrophoneAlreadyCaptured = true;
+              }
+          }
+
+          if (device.kind === 'audioinput') {
+              hasMicrophone = true;
+          }
+
+          if (device.kind === 'audiooutput') {
+              hasSpeakers = true;
+          }
+
+          if (device.kind === 'videoinput') {
+              hasWebcam = true;
+          }
+
+          // there is no 'videoouput' in the spec.
+
+          MediaDevices.push(device);
+      });
+
+      if (callback) {
+          callback();
+      }
   });
-})
-.catch(function(err) {
-  console.log(err.name + ": " + err.message);
+}
+
+// check for microphone/camera support!
+checkDeviceSupport(function() {
+    console.log('hasWebCam: ', hasWebcam);
+    console.log('hasMicrophone: ', hasMicrophone);
+    console.log('isMicrophoneAlreadyCaptured: ', isMicrophoneAlreadyCaptured);
+    console.log('isWebcamAlreadyCaptured: ', isWebcamAlreadyCaptured);
 });
 
 
-  const history=useHistory();
+var elem = document.documentElement;
 
-  function handleClick(){
+/* View in fullscreen */
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+    history.push("/instructions")
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+    history.push("/instructions")
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
     history.push("/instructions")
   }
+}
+  const history=useHistory();
+
 
   return (<div>
     <center>
@@ -55,7 +161,7 @@ navigator.mediaDevices.enumerateDevices()
       <p>
           The Permissions include: WebCamera, ScreenShare, Audio
       </p>
-      <Button variant="contained" onClick={handleClick}>On Successful Check of the System</Button>
+      <Button variant="contained" onClick={openFullscreen}>On Successful Check of the System</Button>
     </center>
   </div>
   )
