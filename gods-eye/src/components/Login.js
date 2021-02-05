@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom'
+import auth from './Auth';
 
 // Firebase Imports
 import firebaseConfig from '../firebase.config';
@@ -38,7 +39,9 @@ const LoginPage = () => {
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 
-    history.push("/validate")
+    auth.login(()=>{
+      history.push("/validate")
+    });
   };
 
   const onFaliure = (res) => {

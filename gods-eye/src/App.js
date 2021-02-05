@@ -18,6 +18,7 @@ import SystemCheckPage from './components/SystemCheck'
 import DetectionsPage from './components/Detections'
 import DetectionPage2 from './components/Detections2'
 import FullScreenAlertPage from './components/FullScreenAlert'
+import { ProtectedRoute } from './components/Protected.Route';
 
 
 class App extends Component {
@@ -30,7 +31,7 @@ class App extends Component {
       <Route exact path="/validate" component={ValidatePage}/>
       <Route exact path="/systemcheck" component={SystemCheckPage}/>
       <Route exact path="/instructions" component={Instructions}/>
-      <Route exact path="/dashboard" component={Dashboard}/>
+      <ProtectedRoute exact path="/dashboard" component={Dashboard}/>
       <Route exact path="/detections" component={DetectionsPage}/>
       <Route exact path="/detections2" component={DetectionPage2}/>
       <Route exact path="/questionpg" component={QuestionsPage}/>
