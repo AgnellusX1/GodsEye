@@ -17,6 +17,7 @@ import ValidatePage from './components/Validate'
 import SystemCheckPage from './components/SystemCheck'
 import DetectionsPage from './components/Detections'
 import DetectionPage2 from './components/Detections2'
+import FullScreenAlertPage from './components/FullScreenAlert'
 
 
 class App extends Component {
@@ -34,6 +35,7 @@ class App extends Component {
       <Route exact path="/detections2" component={DetectionPage2}/>
       <Route exact path="/questionpg" component={QuestionsPage}/>
       <Route exact path="/thankyou" component={ThankyouPage}/>
+      <Route exact path="/fullscreenalert"component={FullScreenAlertPage}/>
       
       <Route exact path="/404" component={PageNotFound}/>
       <Redirect to="/404"/>

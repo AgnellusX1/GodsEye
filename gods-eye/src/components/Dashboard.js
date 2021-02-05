@@ -42,6 +42,23 @@ const Dashboard = () => {
   }, [webcamRef, setImgSrc]);
 
 
+  if (document.fullscreenElement){
+    console.log("In Full");
+  }else{
+    history.push('fullscreenalert')
+  }
+
+  document.addEventListener('fullscreenchange', (event) => {
+    // document.fullscreenElement will point to the element that
+    // is in fullscreen mode if there is one. If there isn't one,
+    // the value of the property is null.
+    if (document.fullscreenElement) {
+      console.log(`Element: ${document.fullscreenElement.id} entered full-screen mode.`);
+    } else {
+      history.push("/fullscreenalert")
+    }
+  });
+
   return (
     <div className="App-header" id="Dash">
       <center>
