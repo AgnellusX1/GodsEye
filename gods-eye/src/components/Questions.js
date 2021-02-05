@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom';
-
-
+import "./Dashboard.css"
+import "./formvalid"
+var form_link=sessionStorage.getItem("form_link")
+console.log(form_link)
+//console.log(fl)
 function Goto() {
     alert("1 MINUTE LEFT, Submitting time!!");
     
@@ -27,7 +30,8 @@ function handleVisibilityChange() {
     } else {
         // the page is visible
     }
-}
+};
+
 
 
 
@@ -39,7 +43,7 @@ export default class Timer extends Component {
 
     state = {
         
-        minutes: 1 ,
+        minutes: 20 ,
         seconds: 25,
     }
 
@@ -76,7 +80,7 @@ export default class Timer extends Component {
 
         const { minutes, seconds } = this.state
         return (
-            <div>
+            <div className="timesec">
 
                 {
 
@@ -88,11 +92,13 @@ export default class Timer extends Component {
                     minutes === 0 && seconds === 0 ? endit() : null
                 }
                 
-                
-                <p align="center"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfE59T1OL3G22S8b_CFqHUtPd4mdxYIQyj6CEcShw1XdJ_0ow/viewform?embedded=true" id = 'form' width="640" height="1338" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe></p>
-                
-                
+            
+            <div className="qsection"><iframe src={form_link} id = 'form' width="640" height="1338" frameBorder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
+            </div>
+               
+                
+            
 
         )
 

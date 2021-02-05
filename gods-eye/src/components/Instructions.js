@@ -5,7 +5,7 @@ const Instructions = () => {
 
     const history = useHistory();
     function onAccept() {
-        history.push('/dashboard')
+        history.push('/formvalid')
     }
 
     //Disable Right click

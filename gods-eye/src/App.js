@@ -19,7 +19,8 @@ import DetectionsPage from './components/Detections'
 import DetectionPage2 from './components/Detections2'
 import FullScreenAlertPage from './components/FullScreenAlert'
 import { ProtectedRoute } from './components/Protected.Route';
-
+import Admin from './components/Admin'
+import Formvalid from './components/formvalid.js'
 
 class App extends Component {
   render() {
@@ -37,6 +38,8 @@ class App extends Component {
       <Route exact path="/questionpg" component={QuestionsPage}/>
       <Route exact path="/thankyou" component={ThankyouPage}/>
       <Route exact path="/fullscreenalert"component={FullScreenAlertPage}/>
+      <Route exact path="/admin" component={Admin}/>
+      <Route exact path="/formvalid" component={Formvalid}/>
       
       <Route exact path="/404" component={PageNotFound}/>
       <Redirect to="/404"/>
