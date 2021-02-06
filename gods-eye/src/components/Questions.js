@@ -6,7 +6,10 @@ var form_link=sessionStorage.getItem("form_link")
 console.log(form_link)
 //console.log(fl)
 function Goto() {
-    alert("1 MINUTE LEFT, Submitting time!!");
+    // alert("1 MINUTE LEFT, Submitting time!!");
+    // window.location.href = "index.js";
+   document.getElementById("timer").style.color = "red";
+
     
     }
 function endit(){
@@ -42,9 +45,10 @@ export default class Timer extends Component {
 
 
     state = {
-        
-        minutes: 20 ,
-        seconds: 25,
+
+        minutes: 1 ,
+        seconds: 2,
+
     }
 
     componentDidMount() {
@@ -79,14 +83,16 @@ export default class Timer extends Component {
     render() {
 
         const { minutes, seconds } = this.state
+        const col  = {color:'red'};
         return (
             <div className="timesec">
 
-                {
-
-                    minutes === 1 && seconds === 0 ? Goto() :  <h1>Time Remaining: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
                     
+                {
+                    
+                    minutes < 1  ? <h1 style={col}>Time Remaining: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1> : <h1>Time Remaining: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
                 }
+                
                
                 {
                     minutes === 0 && seconds === 0 ? endit() : null
@@ -94,10 +100,7 @@ export default class Timer extends Component {
                 
             
             <div className="qsection"><iframe src={form_link} id = 'form' width="640" height="1338" frameBorder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-            </div>
-            </div>
-               
-                
+
             
 
         )
