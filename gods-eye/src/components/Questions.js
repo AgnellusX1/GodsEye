@@ -7,10 +7,7 @@ console.log(form_link)
 //console.log(fl)
 function Goto() {
     // alert("1 MINUTE LEFT, Submitting time!!");
-    // window.location.href = "index.js";
-   document.getElementById("timer").style.color = "red";
 
-    
     }
 function endit(){
 
