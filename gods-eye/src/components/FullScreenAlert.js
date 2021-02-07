@@ -26,15 +26,15 @@ const FullScreenAlert = () => {
   const history = useHistory();
   function back2exam() {
     if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-        history.push("/dashboard")
-      } else if (elem.webkitRequestFullscreen) { /* Safari */
-        elem.webkitRequestFullscreen();
-        history.push("/dashboard")
-      } else if (elem.msRequestFullscreen) { /* IE11 */
-        elem.msRequestFullscreen();
-        history.push("/dashboard")
-      }
+      elem.requestFullscreen();
+      history.push("/dashboard")
+    } else if (elem.webkitRequestFullscreen) { /* Safari */
+      elem.webkitRequestFullscreen();
+      history.push("/dashboard")
+    } else if (elem.msRequestFullscreen) { /* IE11 */
+      elem.msRequestFullscreen();
+      history.push("/dashboard")
+    }
   }
 
   return (<div>
@@ -45,10 +45,10 @@ const FullScreenAlert = () => {
       <small>
         This acton has been recorded
         </small>
-        <p>
-            Another Atempt to do so will get you debared from the test
+      <p>
+        Another Atempt to do so will get you debared from the test
         </p>
-        <Button variant='contained' onClick={back2exam}>I Understand, get me back to Exam</Button>
+      <Button variant='contained' onClick={back2exam}>I Understand, get me back to Exam</Button>
     </center>
   </div>
   )

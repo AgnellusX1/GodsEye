@@ -22,22 +22,22 @@ const ValidatePage = () => {
 
   document.addEventListener("visibilitychange", handleVisibilityChange, false);
 
-const history=useHistory();
+  const history = useHistory();
 
-function handleClick(){
-  history.push("/systemcheck");
-}
+  function handleClick() {
+    history.push("/systemcheck");
+  }
 
   return (<div>
     <center>
       <h3>
         Validate Page
     </h3>
-    <p>
+      <p>
         When the user Successfully Signs in, the user will have to do a Validation by capturing his initial photo into the System
     </p>
-    <Button variant="contained" onClick={handleClick}>
-    Photo Captured Successfully
+      <Button variant="contained" onClick={handleClick}>
+        Photo Captured Successfully
     </Button>
     </center>
   </div>

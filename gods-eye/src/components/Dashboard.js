@@ -36,15 +36,10 @@ const Dashboard = () => {
   const webcamRef = React.useRef(null);
   const [imgSrc, setImgSrc] = React.useState(null);
 
-  const capture = React.useCallback(() => {
-    const imageSrc = webcamRef.current.getScreenshot();
-    setImgSrc(imageSrc);
-  }, [webcamRef, setImgSrc]);
 
-
-  if (document.fullscreenElement){
+  if (document.fullscreenElement) {
     console.log("In Full");
-  }else{
+  } else {
     history.push('fullscreenalert')
   }
 
@@ -83,7 +78,6 @@ const Dashboard = () => {
               ref={webcamRef}
               screenshotFormat="image/jpeg"
             />
-            <button onClick={capture}>Capture photo</button>
             {imgSrc && (
               <img alt="Here you see"
                 src={imgSrc}

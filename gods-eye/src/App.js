@@ -24,27 +24,27 @@ import Formvalid from './components/formvalid.js'
 
 class App extends Component {
   render() {
-    return(
-    <Router>
-      <Switch>
-      <Route exact path="/" component={MainPage}/>
-      <Route exact path="/login" component={LoginPage}/>
-      <Route exact path="/validate" component={ValidatePage}/>
-      <Route exact path="/systemcheck" component={SystemCheckPage}/>
-      <Route exact path="/instructions" component={Instructions}/>
-      <ProtectedRoute exact path="/dashboard" component={Dashboard}/>
-      <Route exact path="/detections" component={DetectionsPage}/>
-      <Route exact path="/detections2" component={DetectionPage2}/>
-      <Route exact path="/questionpg" component={QuestionsPage}/>
-      <Route exact path="/thankyou" component={ThankyouPage}/>
-      <Route exact path="/fullscreenalert"component={FullScreenAlertPage}/>
-      <Route exact path="/admin" component={Admin}/>
-      <Route exact path="/formvalid" component={Formvalid}/>
-      
-      <Route exact path="/404" component={PageNotFound}/>
-      <Redirect to="/404"/>
-      </Switch>
-    </Router>
+    return (
+      <Router>
+        <Switch>
+          <Route exact path="/" component={MainPage} />
+          <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/validate" component={ValidatePage} />
+          <Route exact path="/systemcheck" component={SystemCheckPage} />
+          <Route exact path="/instructions" component={Instructions} />
+          <ProtectedRoute exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/detections" component={DetectionsPage} />
+          <Route exact path="/detections2" component={DetectionPage2} />
+          <Route exact path="/questionpg" component={QuestionsPage} />
+          <Route exact path="/thankyou" component={ThankyouPage} />
+          <Route exact path="/fullscreenalert" component={FullScreenAlertPage} />
+          <Route exact path="/admin" component={Admin} />
+          <Route exact path="/formvalid" component={Formvalid} />
+
+          <Route exact path="/404" component={PageNotFound} />
+          <Redirect to="/404" />
+        </Switch>
+      </Router>
     );
   }
 }

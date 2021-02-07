@@ -2,17 +2,12 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom';
 import "./Dashboard.css"
 import "./formvalid"
-var form_link=sessionStorage.getItem("form_link")
+var form_link = sessionStorage.getItem("form_link")
 console.log(form_link)
-//console.log(fl)
-function Goto() {
-    // alert("1 MINUTE LEFT, Submitting time!!");
+function endit() {
 
-    }
-function endit(){
-
-        return <Redirect to ="/thankyou"/>
-    }
+    return <Redirect to="/thankyou" />
+}
 
 
 //Disable Right click
@@ -39,16 +34,15 @@ document.addEventListener("visibilitychange", handleVisibilityChange, false);
 
 export default class Timer extends Component {
 
-
-
     state = {
 
-        minutes: 1 ,
-        seconds: 2,
+        minutes: 30,
+        seconds: 0,
 
     }
 
     componentDidMount() {
+
         // const history = useHistory();
         this.myInterval = setInterval(() => {
             const { seconds, minutes } = this.state
@@ -71,7 +65,7 @@ export default class Timer extends Component {
         }, 1000)
     }
 
-   
+
 
     componentWillUnmount() {
         clearInterval(this.myInterval)
@@ -80,31 +74,28 @@ export default class Timer extends Component {
     render() {
 
         const { minutes, seconds } = this.state
-        const col  = {color:'red'};
+        const col = { color: 'red' };
         return (
             <div className="timesec">
 
-                    
+
                 {
-                    
-                    minutes < 1  ? <h1 style={col}>Time Remaining: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1> : <h1>Time Remaining: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
+
+                    minutes < 1 ? <h1 style={col}>Time Remaining: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1> : <h1>Time Remaining: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
                 }
-                
-               
+
+
                 {
                     minutes === 0 && seconds === 0 ? endit() : null
                 }
-                
-            
-            <div className="qsection"><iframe src={form_link} id = 'form' width="640" height="1338" frameBorder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
-            
+
+                <div className="qsection"><iframe src={form_link} id='form' width="640" height="1338" frameBorder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                </div>
+            </div>
 
         )
 
     }
-    
-
-    
 
 }

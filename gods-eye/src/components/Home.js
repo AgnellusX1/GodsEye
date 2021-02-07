@@ -7,40 +7,20 @@ import Button from '@material-ui/core/Button';
 
 const MainPage = () => {
 
-  //Disable Right click
-  if (document.addEventListener) {
-    document.addEventListener('contextmenu', function (e) {
-      e.preventDefault();
-    }, false);
-  }
-
-  // Alert on Tab Changed within the Same browser Window
-  function handleVisibilityChange() {
-    if (document.hidden) {
-      alert("You changed tab within the same browser window");
-      // the page is hidden
-    } else {
-      // the page is visible
-    }
-  }
-
-  document.addEventListener("visibilitychange", handleVisibilityChange, false);
-
-
   const history = useHistory();
 
   function handleClick() {
     history.push("/login");
   }
 
-  function handleClickDetect(){
+  function handleClickDetect() {
     history.push("/detections")
   }
 
-  function handleClickDetect2(){
+  function handleClickDetect2() {
     history.push("/detections2")
   }
-  function handleClickAdmin(){
+  function handleClickAdmin() {
     history.push("/admin")
   }
 

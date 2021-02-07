@@ -72,25 +72,21 @@ class Detection extends React.Component {
       const textHeight = parseInt(font, 10); // base 10
       ctx.fillRect(x, y, textWidth + 4, textHeight + 4);
       for (let i = 0; i < predictions.length; i++) {
-      if (predictions[i].class === "cell phone")
-      {
-        alert("Cell phone detected");
+        if (predictions[i].class === "cell phone") {
+          alert("Cell phone detected");
+        }
+        else if (predictions[i].class === "book") {
+          alert("Book detected");
+        }
+        else if (predictions[i].class === "laptop") {
+          alert("Laptop Detected");
+        }
+
+        else if (predictions[i].class !== "person") {
+          alert("No Face Detected");
+        }
+
       }
-      else if( predictions[i].class === "book" )
-      {
-        alert("Book detected");
-      }
-      else if(predictions[i].class === "laptop")
-      {
-        alert("Laptop Detected");
-      }
-        
-      else if(predictions[i].class !== "person")
-      {
-        alert("No Face Detected");
-      }
-      
-  }
     });
 
     predictions.forEach(prediction => {
