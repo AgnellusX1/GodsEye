@@ -27,6 +27,10 @@ const Dashboard = () => {
   document.addEventListener("visibilitychange", handleVisibilityChange, false);
 
 
+  // To make sure the user does not open any other App or lose Focus from the test Window
+  window.onblur = function() {
+    alert("Focus here");
+  }
 
   const history = useHistory();
   function onAccept() {
