@@ -1,6 +1,19 @@
 import { Button } from '@material-ui/core';
 import React from 'react'
+<<<<<<< Updated upstream
 import { useHistory } from 'react-router-dom';
+=======
+import {useHistory} from 'react-router-dom';
+//import NetworkSpeed from 'network-speed';
+//const {NetworkSpeed} = require('network-speed').Url;  // ES5
+//const testNetworkSpeed = new NetworkSpeed();
+//import networkSpeed from 'react-native-network-speed';
+import browser from 'browser-detect';
+import SpeedTester from 'browser-speed-test';
+
+
+ 
+>>>>>>> Stashed changes
 const SystemCheck = () => {
 
     if (navigator.mediaDevices && navigator.mediaDevices.enumerateDevices) {
@@ -169,6 +182,7 @@ const SystemCheck = () => {
 
 
 
+<<<<<<< Updated upstream
 
     const history = useHistory();
 
@@ -177,6 +191,49 @@ const SystemCheck = () => {
         <center>
             <h3>
                 SystemCheck Page
+=======
+// check for microphone/camera support!
+checkDeviceSupport(function() {
+    console.log('hasWebCam: ', hasWebcam);
+    console.log('hasMicrophone: ', hasMicrophone);
+    console.log('isMicrophoneAlreadyCaptured: ', isMicrophoneAlreadyCaptured);
+    console.log('isWebcamAlreadyCaptured: ', isWebcamAlreadyCaptured);
+});
+
+
+var elem = document.documentElement;
+
+/* View in fullscreen */
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+    history.push("/instructions")
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+    history.push("/instructions")
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+    history.push("/instructions")
+  }
+}
+//browser speed test
+const tester = new SpeedTester({ });
+tester.start();
+
+//Browser detection
+const result = browser();
+console.log(result);
+
+
+  const history=useHistory();
+
+
+
+  return (<div>
+    <center>
+      <h3>
+        SystemCheck Page
+>>>>>>> Stashed changes
         </h3>
             <p>
                 Here the Page will Check the System and Ask for Permissions
@@ -187,10 +244,18 @@ const SystemCheck = () => {
             <p>
                 The Permissions include: WebCamera, ScreenShare, Audio
       </p>
+<<<<<<< Updated upstream
             <Button variant="contained" onClick={openFullscreen}>On Successful Check of the System</Button>
         </center>
     </div>
     )
+=======
+      <Button variant="contained" onClick={openFullscreen}>On Successful Check of the System</Button>
+    </center>
+    <Button variant="contained" onClick={openFullscreen}>On Successful Check of the </Button>
+  </div>
+  )
+>>>>>>> Stashed changes
 }
 
 
