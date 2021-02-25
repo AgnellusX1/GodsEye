@@ -24,59 +24,49 @@ const ValidatePage = () => {
 
   document.addEventListener("visibilitychange", handleVisibilityChange, false);
 
-  const history = useHistory();
 
-  function handleClick() {
-    history.push("/systemcheck");
-  }
 
 //for capturing image
-const webcamRef = React.useRef(null);
-  const [imgSrc, setImgSrc] = React.useState(null);
-  //webcamRef.start()
-  //.then(result =>{
-    //console.log("webcam started");
-  //})
-  //.catch(err => {
-    //console.log(err);
-//});
+  const webcamRef = React.useRef(null)
+  const [camOpen, setCamOpen] = React.useState(false)
+  const [imgSrc, setImgSrc] = React.useState(null)
+
 
   const capture = React.useCallback(() => {
-    const imageSrc = webcamRef.current.getScreenshot();
-    setImgSrc(imageSrc);
-  }, [webcamRef, setImgSrc]);
+    if (webcamRef){
+      const imageSrc = webcamRef.current.getScreenshot()
+      setImgSrc(imageSrc)
+    }}, [webcamRef, setImgSrc, webcamRef])
+const history=useHistory();
+
+function handleClick(){
+  history.push("/systemcheck");
+}
+ 
 
   return (<div>
     <center>
       <h3>
         Validate Page
     </h3>
-      <p>
+    <p>
         When the user Successfully Signs in, the user will have to do a Validation by capturing his initial photo into the System
     </p>
-<<<<<<< Updated upstream
-      <Button variant="contained" onClick={handleClick}>
-        Photo Captured Successfully
-    </Button>
-=======
     <p>The lighting in the room must be bright enough to be considered “daylight” quality. Overhead lighting is preferred. If overhead lighting is not available, the source of light must not be behind you.</p>
     <Webcam className="Cam-live"
               audio={false}
               ref={webcamRef}
               screenshotFormat="image/jpeg"
             />
-            <center><button onClick={capture}>Capture photo</button>
             {imgSrc && (
               <img alt="Here"
                 src={imgSrc}
               />
-            )}</center>
+            )}
+            <center><button onClick={capture}>Capture photo</button></center>
             
-            <center> <Button variant="contained" onClick={handleClick}>
-            Photo Captured Successfully
-            </Button></center>
+            <center> <Button variant="contained" onClick={handleClick}>Photo Captured Successfully</Button></center>
     
->>>>>>> Stashed changes
     </center>
   </div>
   )
