@@ -1,6 +1,6 @@
 import { Button } from '@material-ui/core';
 import React from 'react'
-import { useHistory } from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 //import NetworkSpeed from 'network-speed';
 //const {NetworkSpeed} = require('network-speed').Url;  // ES5
 //const testNetworkSpeed = new NetworkSpeed();
@@ -205,10 +205,11 @@ function openFullscreen() {
 //browser speed test
 const tester = new SpeedTester({ });
 tester.start();
+console.log('Browserspeed:', tester)
 
 //Browser detection
 const result = browser();
-console.log(result);
+console.log('Browserdetect:',result);
 
 
   const history=useHistory();
