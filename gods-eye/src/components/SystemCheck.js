@@ -4,11 +4,8 @@ import {useHistory} from 'react-router-dom';
 //import NetworkSpeed from 'network-speed';
 //const {NetworkSpeed} = require('network-speed').Url;  // ES5
 //const testNetworkSpeed = new NetworkSpeed();
-//import networkSpeed from 'react-native-network-speed';
 import browser from 'browser-detect';
 import SpeedTester from 'browser-speed-test';
-
-
  
 const SystemCheck = () => {
 
@@ -211,8 +208,11 @@ console.log('Browserspeed:', tester)
 const result = browser();
 console.log('Browserdetect:',result);
 
+//Network speed
+console.log('Networkspeed',`${navigator.connection.downlink}Mbps`);
 
-  const history=useHistory();
+
+const history=useHistory();
 
 
 
