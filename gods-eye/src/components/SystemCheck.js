@@ -1,9 +1,6 @@
 import { Button } from '@material-ui/core';
 import React from 'react'
 import {useHistory} from 'react-router-dom';
-//import NetworkSpeed from 'network-speed';
-//const {NetworkSpeed} = require('network-speed').Url;  // ES5
-//const testNetworkSpeed = new NetworkSpeed();
 import browser from 'browser-detect';
 import SpeedTester from 'browser-speed-test';
  
@@ -150,31 +147,7 @@ const SystemCheck = () => {
             history.push("/instructions")
         }
     }
-    // var downloadSize = 4995374;
-    // var end_time = new Date().getTime(); 
-    // displaySpeed();
-
-
-    // function displaySpeed() { 
-
-
-    //                 var timeDuration = (end_time - time_start) / 1000; 
-    //                 var loadedBits = downloadSize * 8; 
-
-    //                 /* Converts a number into string 
-    //                    using toFixed(2) rounding to 2 */
-    //                 var bps = (loadedBits / timeDuration).toFixed(2); 
-    //                 var speedInKbps = (bps / 1024 * 1024).toFixed(2); 
-    //                 var speedInMbps = (speedInKbps / 1024 * 1024).toFixed(2); 
-    //                 alert("Your internet connection speed is: \n" 
-    //                       + bps + " bps\n" + speedInKbps  
-    //                       + " kbps\n" + speedInMbps + " Mbps\n"); 
-    //             } 
-    //             var time_start = new Date().getTime();
-
-
-
-
+   
 // check for microphone/camera support!
 checkDeviceSupport(function() {
     console.log('hasWebCam: ', hasWebcam);
@@ -209,8 +182,9 @@ const result = browser();
 console.log('Browserdetect:',result);
 
 //Network speed
-console.log('Networkspeed',`${navigator.connection.downlink}Mbps`);
-
+const net = `${navigator.connection.downlink} Mbps`
+console.log('Networkspeed', net);
+<div id="debugDiv"></div>
 
 const history=useHistory();
 
@@ -230,8 +204,21 @@ const history=useHistory();
             <p>
                 The Permissions include: WebCamera, ScreenShare, Audio
       </p>
+       
+
       <Button variant="contained" onClick={openFullscreen}>On Successful Check of the System</Button>
     </center>
+
+        
+
+        <center>
+            <pre>{"The Browser you are using is " + JSON.stringify(result,null,2 ) }</pre>
+            <pre>{"Your Browser Speed is " + JSON.stringify(tester,null,2 ) }</pre>
+            <pre>{"Your Network Speed is " + JSON.stringify(net,null,2 ) }</pre>
+            
+            
+        </center>
+        
   </div>
   )
 }
