@@ -123,30 +123,8 @@ const SystemCheck = () => {
         });
     }
 
-    // check for microphone/camera support!
-    checkDeviceSupport(function () {
-        console.log('hasWebCam: ', hasWebcam);
-        console.log('hasMicrophone: ', hasMicrophone);
-        console.log('isMicrophoneAlreadyCaptured: ', isMicrophoneAlreadyCaptured);
-        console.log('isWebcamAlreadyCaptured: ', isWebcamAlreadyCaptured);
-    });
-
-
-    var elem = document.documentElement;
-
-    /* View in fullscreen */
-    function openFullscreen() {
-        if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-            history.push("/instructions")
-        } else if (elem.webkitRequestFullscreen) { /* Safari */
-            elem.webkitRequestFullscreen();
-            history.push("/instructions")
-        } else if (elem.msRequestFullscreen) { /* IE11 */
-            elem.msRequestFullscreen();
-            history.push("/instructions")
-        }
-    }
+   
+    
    
 // check for microphone/camera support!
 checkDeviceSupport(function() {
