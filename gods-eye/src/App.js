@@ -13,8 +13,8 @@ import Dashboard from './components/Dashboard'
 import QuestionsPage from './components/Questions'
 import ThankyouPage from './components/Thankyou'
 import PageNotFound from './components/404'
-import ValidatePage from './components/Validate'
 import SystemCheckPage from './components/SystemCheck'
+import ValidatePage from './components/Validate'
 import DetectionsPage from './components/Detections'
 import DetectionPage2 from './components/Detections2'
 import FullScreenAlertPage from './components/FullScreenAlert'
@@ -29,8 +29,8 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={MainPage} />
           <Route exact path="/login" component={LoginPage} />
-          <Route exact path="/validate" component={ValidatePage} />
           <Route exact path="/systemcheck" component={SystemCheckPage} />
+          <Route exact path="/validate" component={ValidatePage} />   
           <Route exact path="/instructions" component={Instructions} />
           <ProtectedRoute exact path="/dashboard" component={Dashboard} />
           <Route exact path="/detections" component={DetectionsPage} />

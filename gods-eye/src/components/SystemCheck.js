@@ -23,12 +23,17 @@ const SystemCheck = () => {
         canEnumerate = true;
     }
 
+ 
+
     var hasMicrophone = false;
     var hasSpeakers = false;
     var hasWebcam = false;
 
     var isMicrophoneAlreadyCaptured = false;
     var isWebcamAlreadyCaptured = false;
+
+
+    
 
     function checkDeviceSupport(callback) {
         if (!canEnumerate) {
@@ -49,6 +54,8 @@ const SystemCheck = () => {
             }
             return;
         }
+
+
 
         MediaDevices = [];
         navigator.enumerateDevices(function (devices) {
@@ -116,62 +123,32 @@ const SystemCheck = () => {
 
                 MediaDevices.push(device);
             });
-
+                
             if (callback) {
                 callback();
             }
         });
     }
 
-    // check for microphone/camera support!
-    checkDeviceSupport(function () {
-        console.log('hasWebCam: ', hasWebcam);
-        console.log('hasMicrophone: ', hasMicrophone);
-        console.log('isMicrophoneAlreadyCaptured: ', isMicrophoneAlreadyCaptured);
-        console.log('isWebcamAlreadyCaptured: ', isWebcamAlreadyCaptured);
-    });
-
-
-    var elem = document.documentElement;
-
-    /* View in fullscreen */
-    function openFullscreen() {
-        if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-            history.push("/instructions")
-        } else if (elem.webkitRequestFullscreen) { /* Safari */
-            elem.webkitRequestFullscreen();
-            history.push("/instructions")
-        } else if (elem.msRequestFullscreen) { /* IE11 */
-            elem.msRequestFullscreen();
-            history.push("/instructions")
-        }
-    }
-   
-// check for microphone/camera support!
-checkDeviceSupport(function() {
-    console.log('hasWebCam: ', hasWebcam);
-    console.log('hasMicrophone: ', hasMicrophone);
-    console.log('isMicrophoneAlreadyCaptured: ', isMicrophoneAlreadyCaptured);
-    console.log('isWebcamAlreadyCaptured: ', isWebcamAlreadyCaptured);
-});
-
-
-var elem = document.documentElement;
-
-/* View in fullscreen */
-function openFullscreen() {
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-    history.push("/instructions")
-  } else if (elem.webkitRequestFullscreen) { /* Safari */
-    elem.webkitRequestFullscreen();
-    history.push("/instructions")
-  } else if (elem.msRequestFullscreen) { /* IE11 */
-    elem.msRequestFullscreen();
-    history.push("/instructions")
-  }
+function handleClick(){
+  history.push("/validate");
 }
+    
+//     var elem = document.documentElement;
+
+// /* View in fullscreen */
+// function openFullscreen() {
+//   if (elem.requestFullscreen) {
+//     elem.requestFullscreen();
+//     history.push("/instructions")
+//   } else if (elem.webkitRequestFullscreen) { /* Safari */
+//     elem.webkitRequestFullscreen();
+//     history.push("/instructions")
+//   } else if (elem.msRequestFullscreen) { /* IE11 */
+//     elem.msRequestFullscreen();
+//     history.push("/instructions")
+//   }
+// }
 //browser speed test
 const tester = new SpeedTester({ });
 tester.start();
@@ -206,10 +183,10 @@ const history=useHistory();
       </p>
        
 
-      <Button variant="contained" onClick={openFullscreen}>On Successful Check of the System</Button>
+      {/* <Button variant="contained" onClick={openFullscreen}>On Successful Check of the System</Button> */}
     </center>
 
-        
+        <center> <Button variant="contained" onClick={handleClick}>On Successful Check of the System</Button></center>
 
         <center>
             <pre>{"The Browser you are using is " + JSON.stringify(result,null,2 ) }</pre>

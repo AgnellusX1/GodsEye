@@ -37,10 +37,27 @@ const ValidatePage = () => {
       const imageSrc = webcamRef.current.getScreenshot()
       setImgSrc(imageSrc)
     }}, [webcamRef, setImgSrc, webcamRef])
+    
 const history=useHistory();
 
+
+var elem = document.documentElement;
+
+/* View in fullscreen */
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+    history.push("/instructions")
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+    history.push("/instructions")
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+    history.push("/instructions")
+  }
+}
 function handleClick(){
-  history.push("/systemcheck");
+  history.push("/instructions");
 }
  
 
@@ -64,8 +81,8 @@ function handleClick(){
               />
             )}
             <center><button onClick={capture}>Capture photo</button></center>
-            
-            <center> <Button variant="contained" onClick={handleClick}>Photo Captured Successfully</Button></center>
+            <Button variant="contained" onClick={openFullscreen}>Photo Captured Successfully</Button>
+            {/* <center> <Button variant="contained" onClick={handleClick}>Photo Captured Successfully</Button></center> */}
     
     </center>
   </div>

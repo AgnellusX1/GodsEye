@@ -38,7 +38,7 @@ const LoginPage = () => {
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 
     auth.login(() => {
-      history.push("/validate")
+      history.push("/systemcheck")
     });
   };
 
