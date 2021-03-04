@@ -149,6 +149,7 @@ function handleClick(){
 //     history.push("/instructions")
 //   }
 // }
+
 //browser speed test
 const tester = new SpeedTester({ });
 tester.start();

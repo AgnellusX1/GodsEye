@@ -29,7 +29,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={MainPage} />
           <Route exact path="/login" component={LoginPage} />
-          <Route exact path="/systemcheck" component={SystemCheckPage} />
+          <Route exact path="SystemCheck" component={SystemCheckPage} />
           <Route exact path="/validate" component={ValidatePage} />   
           <Route exact path="/instructions" component={Instructions} />
           <ProtectedRoute exact path="/dashboard" component={Dashboard} />

@@ -82,6 +82,7 @@ function handleClick(){
             )}
             <center><button onClick={capture}>Capture photo</button></center>
             <Button variant="contained" onClick={openFullscreen}>Photo Captured Successfully</Button>
+            
             {/* <center> <Button variant="contained" onClick={handleClick}>Photo Captured Successfully</Button></center> */}
     
     </center>
