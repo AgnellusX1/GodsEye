@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import swal from 'sweetalert';
 
 import * as cocoSsd from "@tensorflow-models/coco-ssd";
 import "@tensorflow/tfjs";
@@ -40,7 +41,6 @@ class Detection extends React.Component {
 
 
 
-
   detectFrame = (video, model) => {
     model.detect(video).then(predictions => {
       this.renderPredictions(predictions);
@@ -73,19 +73,17 @@ class Detection extends React.Component {
       ctx.fillRect(x, y, textWidth + 4, textHeight + 4);
       for (let i = 0; i < predictions.length; i++) {
         if (predictions[i].class === "cell phone") {
-          alert("Cell phone detected");
+          swal("Cell Phone Detected", "Action has been Recorded", "error");
         }
         else if (predictions[i].class === "book") {
-          alert("Book detected");
+          swal("Notebook Detected", "Action has been Recorded", "error");
         }
         else if (predictions[i].class === "laptop") {
-          alert("Laptop Detected");
+          swal("Laptop Detected", "Action has been Recorded", "error");
         }
-
         else if (predictions[i].class !== "person") {
-          alert("No Face Detected");
+          swal("Face Not Visible", "Action has been Recorded", "error");
         }
-
       }
     });
 

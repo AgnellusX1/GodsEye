@@ -1,9 +1,10 @@
 import React from 'react';
 import Webcam from "react-webcam";
 import QuestionPage from './Questions';
-import Detection from './Detections'
-  ; import { Button } from '@material-ui/core';
+import Detection from './Detections';
+import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
+import swal from 'sweetalert';
 
 // const WebcamComponent = () => <Webcam />;
 const Dashboard = () => {
@@ -19,7 +20,7 @@ const Dashboard = () => {
   // Alert on Tab Changed within the Same browser Window
   function handleVisibilityChange() {
     if (document.hidden) {
-      alert("You changed tab within the same browser window");
+      swal("Changed Tab Detected", "Action has been Recorded", "error");
       // the page is hidden
     } else {
       // the page is visible
@@ -30,7 +31,7 @@ const Dashboard = () => {
 
   // To make sure the user does not open any other App or lose Focus from the test Window
   window.onblur = function () {
-    alert("Focus here");
+    swal("You left the Secure Exam Window", "Action has been Recorded", "error");
   }
 
   const history = useHistory();
@@ -91,7 +92,7 @@ const Dashboard = () => {
 
           </div>
           {/* Can Section ends Here */}
-          
+
           {/* Detection Section Starts here*/}
           <Detection>
 

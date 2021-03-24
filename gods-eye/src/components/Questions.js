@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom';
 import "./Dashboard.css"
 import "./formvalid"
+import swal from 'sweetalert';
 var form_link = sessionStorage.getItem("form_link")
 console.log(form_link)
 function endit() {
@@ -20,7 +21,7 @@ if (document.addEventListener) {
 // Alert on Tab Changed within the Same browser Window
 function handleVisibilityChange() {
     if (document.hidden) {
-        alert("You changed tab within the same browser window");
+        swal("Tab Change Detected", "Action has been Recorded", "error");
         // the page is hidden
     } else {
         // the page is visible

@@ -1,6 +1,8 @@
 import React from 'react'
 import Button from '@material-ui/core/Button';
 import { useHistory } from 'react-router-dom'
+import swal from 'sweetalert';
+
 const FullScreenAlert = () => {
 
   //Disable Right click
@@ -13,7 +15,7 @@ const FullScreenAlert = () => {
   // Alert on Tab Changed within the Same browser Window
   function handleVisibilityChange() {
     if (document.hidden) {
-      alert("You changed tab within the same browser window");
+      swal("Tab Change Detected", "You clicked the button!", "error");
       // the page is hidden
     } else {
       // the page is visible

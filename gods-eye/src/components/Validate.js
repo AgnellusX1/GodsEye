@@ -1,7 +1,7 @@
 import { Button } from '@material-ui/core';
 import React from 'react'
 import Webcam from "react-webcam";
-//import Webcam from 'webcam-easy';
+import swal from 'sweetalert';
 import { useHistory } from 'react-router-dom';
 const ValidatePage = () => {
 
@@ -15,7 +15,7 @@ const ValidatePage = () => {
   // Alert on Tab Changed within the Same browser Window
   function handleVisibilityChange() {
     if (document.hidden) {
-      alert("You changed tab within the same browser window");
+      swal("Tab Change Detected", "Action has been Recorded", "error");
       // the page is hidden
     } else {
       // the page is visible
