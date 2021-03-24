@@ -1,7 +1,8 @@
 import React from 'react';
 import Webcam from "react-webcam";
 import QuestionPage from './Questions';
-import { Button } from '@material-ui/core';
+import Detection from './Detections'
+  ; import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 
 // const WebcamComponent = () => <Webcam />;
@@ -28,7 +29,7 @@ const Dashboard = () => {
 
 
   // To make sure the user does not open any other App or lose Focus from the test Window
-  window.onblur = function() {
+  window.onblur = function () {
     alert("Focus here");
   }
 
@@ -90,7 +91,12 @@ const Dashboard = () => {
 
           </div>
           {/* Can Section ends Here */}
+          
+          {/* Detection Section Starts here*/}
+          <Detection>
 
+          </Detection>
+          {/*Detection Section ends here */}
 
           {/* Form Section Starts here */}
           <div>

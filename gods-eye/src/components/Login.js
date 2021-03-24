@@ -38,7 +38,8 @@ const LoginPage = () => {
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 
     auth.login(() => {
-      history.push("/systemcheck")
+    history.push("/dashboard");  {/*Change back to System Check, after the exam code bug is fixed*/}
+      // history.push("/systemcheck")
     });
   };
 
