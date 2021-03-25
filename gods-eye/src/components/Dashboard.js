@@ -39,10 +39,6 @@ const Dashboard = () => {
     history.push('/thankyou')
   }
 
-  const webcamRef = React.useRef(null);
-  const [imgSrc, setImgSrc] = React.useState(null);
-
-
   if (document.fullscreenElement) {
     console.log("In Full");
   } else {
@@ -70,29 +66,7 @@ const Dashboard = () => {
             </center>
           </h3>
         </header>
-
-
         <body>
-
-          {/* Cam Section Starts here */}
-          <div id="camSection">
-            <p>
-              Cam Section
-          </p>
-            <Webcam className="Cam-live"
-              audio={false}
-              ref={webcamRef}
-              screenshotFormat="image/jpeg"
-            />
-            {imgSrc && (
-              <img alt="Here you see"
-                src={imgSrc}
-              />
-            )}
-
-          </div>
-          {/* Can Section ends Here */}
-
           {/* Detection Section Starts here*/}
           <Detection>
 
