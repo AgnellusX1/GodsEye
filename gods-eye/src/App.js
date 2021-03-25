@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect, } from 'react-router-dom'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+  
 
 // Pages
 // Here is where all the pages are connected to each other
@@ -25,6 +27,7 @@ import Formvalid from './components/formvalid.js'
 class App extends Component {
   render() {
     return (
+      
       <Router>
         <Switch>
           <Route exact path="/" component={MainPage} />

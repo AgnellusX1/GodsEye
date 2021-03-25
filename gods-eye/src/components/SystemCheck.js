@@ -3,7 +3,8 @@ import React from 'react'
 import {useHistory} from 'react-router-dom';
 import browser from 'browser-detect';
 import SpeedTester from 'browser-speed-test';
- 
+import "./SystemCheck.css"
+import icon from "./icon.png"
 const SystemCheck = () => {
 
     if (navigator.mediaDevices && navigator.mediaDevices.enumerateDevices) {
@@ -168,36 +169,42 @@ const history=useHistory();
 
 
 
-  return (<div>
-    <center>
-      <h3>
-        SystemCheck Page
-        </h3>
-            <p>
-                Here the Page will Check the System and Ask for Permissions
-      </p>
-            <p>
-                If Permissions are not provided the user will not be allowed to move ahead
-      </p>
-            <p>
-                The Permissions include: WebCamera, ScreenShare, Audio
-      </p>
-       
+  return (
+    <body>
+  <div class="main">
+    <p class="sign" align="center">System Compatibility Check</p>
+        <table align="center">
+            <tbody><tr>
+                <td class="text-center">
+                    <div>
+                        <img src={icon} id="classIcon" />
+                    </div>
+                </td>
+                <td>
+                    <ul>
+                        <li class="test">
+                            <span ><b>OS</b>  {"- " + JSON.stringify(result["os"],null,2 ).slice(1,-1)} </span>
+                        </li>
+                        <li class="test">
+                            <span><b>Browser</b> {"- " + JSON.stringify(result["name"],null,2 ).slice(1,-1) +" "+ JSON.stringify(result["version"],null,2 ).slice(1,3) } </span>
+                        </li>
+                        <li class="test">
+                            <span><b>Internet connection</b> {"- " + JSON.stringify(net,null,2 ).slice(1,-1) } </span>
+                        </li>
+                        
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
-      {/* <Button variant="contained" onClick={openFullscreen}>On Successful Check of the System</Button> */}
-    </center>
 
-        <center> <Button variant="contained" onClick={handleClick}>On Successful Check of the System</Button></center>
-
-        <center>
-            <pre>{"The Browser you are using is " + JSON.stringify(result,null,2 ) }</pre>
-            <pre>{"Your Browser Speed is " + JSON.stringify(tester,null,2 ) }</pre>
-            <pre>{"Your Network Speed is " + JSON.stringify(net,null,2 ) }</pre>
             
-            
-        </center>
-        
-  </div>
+                
+    </div>
+     
+</body>
+
   )
 }
 
