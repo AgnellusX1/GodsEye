@@ -16,7 +16,9 @@ class Detection extends React.Component {
         .getUserMedia({
           audio: false,
           video: {
-            facingMode: "user"
+            facingMode: "user",
+            width: 600,
+            height: 500
           }
         })
         .then(stream => {
@@ -105,14 +107,14 @@ class Detection extends React.Component {
           playsInline
           muted
           ref={this.videoRef}
-          width="600"
-          height="500"
+          width="400"
+          height="300"
         />
         <canvas
           className="size"
           ref={this.canvasRef}
-          width="600"
-          height="500"
+          width="400"
+          height="300"
         />
       </div>
     );
