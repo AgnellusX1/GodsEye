@@ -229,15 +229,11 @@ navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUsermedia
                 </td>
             </tr>
         </tbody>
-<<<<<<< Updated upstream
     </table>
 
 
-    <Button variant='contained' onClick={handleClick}>Validate</Button>          
+    <center><Button variant='contained' onClick={handleClick}>Validate</Button></center>       
                 
-=======
-    </table>           
->>>>>>> Stashed changes
     </div>
      
 </body>
