@@ -199,7 +199,7 @@ const history=useHistory();
     </table>
 
 
-            
+    <Button variant='contained' onClick={handleClick}>Validate</Button>          
                 
     </div>
      

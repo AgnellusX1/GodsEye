@@ -3,8 +3,7 @@ import { Redirect } from 'react-router-dom';
 import "./Dashboard.css"
 import "./formvalid"
 import swal from 'sweetalert';
-var form_link = sessionStorage.getItem("form_link")
-console.log(form_link)
+
 function endit() {
 
     return <Redirect to="/thankyou" />
@@ -76,6 +75,8 @@ export default class Timer extends Component {
 
         const { minutes, seconds } = this.state
         const col = { color: 'red' };
+        var form_link = sessionStorage.getItem("form_link")
+        console.log(form_link)
         return (
             <div className="timesec">
 
