@@ -17,8 +17,8 @@ class Detection extends React.Component {
           audio: false,
           video: {
             facingMode: "user",
-            width: 600,
-            height: 500
+            width: 500,
+            height: 300
           }
         })
         .then(stream => {
@@ -66,13 +66,13 @@ class Detection extends React.Component {
       const height = prediction.bbox[3];
       // Draw the bounding box.
       ctx.strokeStyle = "#00FFFF";
-      ctx.lineWidth = 4;
+      ctx.lineWidth = 2;
       ctx.strokeRect(x, y, width, height);
       // Draw the label background.
       ctx.fillStyle = "#00FFFF";
       const textWidth = ctx.measureText(prediction.class).width;
       const textHeight = parseInt(font, 10); // base 10
-      ctx.fillRect(x, y, textWidth + 4, textHeight + 4);
+      ctx.fillRect(x, y, textWidth + 8, textHeight + 8);
       for (let i = 0; i < predictions.length; i++) {
         if (predictions[i].class === "cell phone") {
           swal("Cell Phone Detected", "Action has been Recorded", "error");
@@ -107,13 +107,13 @@ class Detection extends React.Component {
           playsInline
           muted
           ref={this.videoRef}
-          width="400"
+          width="500"
           height="300"
         />
         <canvas
           className="size"
           ref={this.canvasRef}
-          width="400"
+          width="500"
           height="300"
         />
       </div>
