@@ -6,7 +6,7 @@ import * as cocoSsd from "@tensorflow-models/coco-ssd";
 import "@tensorflow/tfjs";
 import "./Detections.css";
 
-class Detection extends React.Component {
+export default class Detection extends React.Component {
   videoRef = React.createRef();
   canvasRef = React.createRef();
 
@@ -120,8 +120,3 @@ class Detection extends React.Component {
     );
   }
 }
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(<Detection />, rootElement);
-
-export default Detection;
