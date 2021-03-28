@@ -5,6 +5,7 @@ import firebase from "firebase/app";
 import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 const Admin = () => {
+  const history = useHistory();
 
   const [examcode, setTitle] = useState('')
   const [formlink, setFormlink] = useState('')
@@ -17,28 +18,43 @@ const Admin = () => {
   };
 
   function handleClicksub() {
-    alert("The form was submitted");
+    
     const con_db = firebase.database().ref("con_dbs");
     //const condb={examcode:examcode,formlink:formlink};
     //con_db.set(condb);
-    con_db.child(examcode).set({
-      formlink: formlink
-    });
+    con_db.on('value', (snapshot) => {
+  
+      var s = snapshot.val()
+      console.log(s)
+      con_db.child(examcode).set({
+        formlink: formlink
+      });
+      alert("The form was submitted");
+      history.push("/");
+  
+    
+  });
+
+  
+    
+  
+  
 
   };
   return (
+    <body style={{backgroundColor:'#282c34'}}>
     <p>
       <center>
-        <h1>
-          Welcome to admin Page
+        <h1 style={{color:'white'}}>
+          Welcome Admin
     </h1>
         <br></br>
-        <h3>
-          Enter a unique code for the test
+        <h3 style={{color:'white'}}>
+          Enter a unique code for the exam
     </h3>
         <br></br>
         <input type="text" id="examcode" name="examcode" value={examcode} onChange={onChangeexamcode}></input><br></br>
-        <h3>Enter Form Link </h3>
+        <h3 style={{color:'white'}}>Enter Form Link </h3>
         <input type="text" id="formlink" name="formlink" value={formlink} onChange={onChangeformlink}></input>
         <br></br>
         <br></br>
@@ -46,6 +62,7 @@ const Admin = () => {
         <br></br>
       </center>
     </p>
+    </body>
   )
 }
 export default Admin;
