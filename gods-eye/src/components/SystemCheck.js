@@ -185,17 +185,13 @@ console.log('Networkspeed', net);
 const history=useHistory();
 
 //Camera Detection
-var video = document.querySelector("#videoElement");
-var ans='asd'
-navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUsermedia 
-    || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+var DetectRTC = require('detectrtc');
 
-                    if(navigator.getUserMedia){
-                      ans='Yes'      
-                    }else{
-                        ans="no"
-                    }
-                    console.log(ans);
+DetectRTC.load(function(){
+
+    var webcam=DetectRTC.isWebsiteHasWebcamPermissions;
+
+});
                     
 
 
@@ -213,16 +209,16 @@ navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUsermedia
                 <td>
                     <ul>
                         <li class="test">
-                            <span ><b>OS</b>  {"- " + JSON.stringify(result["os"],null,2 ).slice(1,-1)} </span>
+                            <span ><b>OS:</b>  {"- " + JSON.stringify(result["os"],null,2 ).slice(1,-1)} </span>
                         </li>
                         <li class="test">
-                            <span><b>Browser</b> {"- " + JSON.stringify(result["name"],null,2 ).slice(1,-1) +" "+ JSON.stringify(result["version"],null,2 ).slice(1,3) } </span>
+                            <span><b>Browser:</b> {"- " + JSON.stringify(result["name"],null,2 ).slice(1,-1) +" "+ JSON.stringify(result["version"],null,2 ).slice(1,3) } </span>
                         </li>
                         <li class="test">
-                            <span><b>Internet connection</b> {"- " + JSON.stringify(net,null,2 ).slice(1,-1) } </span>
+                            <span><b>Internet Speed:</b> {"- " + JSON.stringify(net,null,2 ).slice(1,-1) } </span>
                         </li>
                          <li class="test">
-                            <span><b>Has Webcam</b> {ans} </span>
+                         <span><b>Webcam:</b> {"- "+JSON.stringify(DetectRTC.isWebsiteHasWebcamPermissions)} </span>
                         </li>
                         
                     </ul>
