@@ -8,8 +8,9 @@ import swal from 'sweetalert';
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 const minuteSeconds = 60;
 const hourSeconds = 3600;
+// const daySeconds = 86400;
 
-// const WebcamComponent = () => <Webcam />;
+
 const Dashboard = () => {
 
   //Disable Right click
@@ -76,27 +77,44 @@ const Dashboard = () => {
 //For minutes, seconds
 const getTimeSeconds = (time) => (minuteSeconds - time) | 0;
 const getTimeMinutes = (time) => ((time % hourSeconds) / minuteSeconds) | 0;
+//const getTimeHours = (time) => ((time % daySeconds) / hourSeconds) | 0;
 // export default function App() {
   const stratTime = Date.now() / 1000; // use UNIX timestamp in seconds
   const endTime = stratTime + 243248; // use UNIX timestamp in seconds
-
   const remainingTime = endTime - stratTime;
   // const days = Math.ceil(remainingTime / daySeconds);
-  //const daysDuration = days * daySeconds;
+  // const daysDuration = days * daySeconds;
 
 
 
  return (
     <div className="App-header" id="Dash">
         <header>
-          <h3>
+          {/* <h3>
             <center>
               Dashboard
             </center>
-          </h3>
+          </h3> */}
          
         <div className="timer">
           <div class="row">
+          {/* <div class="column">
+          <CountdownCircleTimer
+        {...timerProps}
+        colors={[["#D14081"]]}
+        duration={daySeconds}
+        initialRemainingTime={remainingTime % daySeconds}
+        onComplete={(totalElapsedTime) => [
+          remainingTime - totalElapsedTime > hourSeconds
+        ]}
+      >
+        {({ elapsedTime }) =>
+          renderTime("hours", getTimeHours(daySeconds - elapsedTime))
+        }
+      </CountdownCircleTimer> */}
+         
+          {/* </div> */}
+
           <div class="column">
          <CountdownCircleTimer
          {...timerProps}
@@ -132,29 +150,41 @@ const getTimeMinutes = (time) => ((time % hourSeconds) / minuteSeconds) | 0;
 
       </div>
       </div>
-      </header>
-       
-       
-        <body>
-            {/* Detection Section Starts here*/}
+
+      <div className="detect">
+        {/* Detection Section Starts here*/}
           <Detection>
         
-           </Detection>
-           {/*Detection Section ends here */}
+          </Detection>
+        {/*Detection Section ends here */}
+
+          </div>
+
+        <div className="text">
+          <p>Remaining Time!!</p>
+        </div>
+           
   
 
-        
+        <div className="quest">
         {/* Form Section Starts here */}
-        
           <QuestionPage>
 
           </QuestionPage>
     
         {/* Form Section ends here */}
         
-      <br />
+        
+        </div>
+        
+      <div className="button">
+        <p>Submit here!!</p>
         <center><Button variant="contained" onClick={onAccept}>Submit</Button></center>
-        </body>
+         </div> 
+      </header>
+       
+       
+       
     </div>
   )
 }
