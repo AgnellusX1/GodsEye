@@ -8,19 +8,13 @@ import swal from 'sweetalert';
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 const minuteSeconds = 60;
 const hourSeconds = 3600;
-// const daySeconds = 86400;
-
-
 const Dashboard = () => {
-
   //Disable Right click
   if (document.addEventListener) {
     document.addEventListener('contextmenu', function (e) {
       e.preventDefault();
     }, false);
   }
-
-
   // Alert on Tab Changed within the Same browser Window
   function handleVisibilityChange() {
     if (document.hidden) {
@@ -31,7 +25,6 @@ const Dashboard = () => {
     }
   }
   document.addEventListener("visibilitychange", handleVisibilityChange, false);
-
 
   // To make sure the user does not open any other App or lose Focus from the test Window
   window.onblur = function () {
@@ -50,9 +43,6 @@ const Dashboard = () => {
   }
 
   document.addEventListener('fullscreenchange', (event) => {
-    // document.fullscreenElement will point to the element that
-    // is in fullscreen mode if there is one. If there isn't one,
-    // the value of the property is null.
     if (document.fullscreenElement) {
       console.log(`Element: ${document.fullscreenElement.id} entered full-screen mode.`);
     } else {
@@ -77,16 +67,9 @@ const Dashboard = () => {
 //For minutes, seconds
 const getTimeSeconds = (time) => (minuteSeconds - time) | 0;
 const getTimeMinutes = (time) => ((time % hourSeconds) / minuteSeconds) | 0;
-//const getTimeHours = (time) => ((time % daySeconds) / hourSeconds) | 0;
-// export default function App() {
-  const stratTime = Date.now() / 1000; // use UNIX timestamp in seconds
-  const endTime = stratTime + 243248; // use UNIX timestamp in seconds
-  const remainingTime = endTime - stratTime;
-  // const days = Math.ceil(remainingTime / daySeconds);
-  // const daysDuration = days * daySeconds;
-
-
-
+const stratTime = Date.now() / 1000; // use UNIX timestamp in seconds
+const endTime = stratTime + 243248; 
+const remainingTime = endTime - stratTime;
  return (
     <div className="App-header" id="Dash">
         <header>
@@ -98,22 +81,6 @@ const getTimeMinutes = (time) => ((time % hourSeconds) / minuteSeconds) | 0;
          
         <div className="timer">
           <div class="row">
-          {/* <div class="column">
-          <CountdownCircleTimer
-        {...timerProps}
-        colors={[["#D14081"]]}
-        duration={daySeconds}
-        initialRemainingTime={remainingTime % daySeconds}
-        onComplete={(totalElapsedTime) => [
-          remainingTime - totalElapsedTime > hourSeconds
-        ]}
-      >
-        {({ elapsedTime }) =>
-          renderTime("hours", getTimeHours(daySeconds - elapsedTime))
-        }
-      </CountdownCircleTimer> */}
-         
-          {/* </div> */}
 
           <div class="column">
          <CountdownCircleTimer
