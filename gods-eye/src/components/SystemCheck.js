@@ -260,7 +260,8 @@ if (webcam===false){
     </table>
 
 
-    <center><Button disabled={aggi}variant='contained' onClick={handleClick}>Validate</Button></center>       
+    <center><Button disabled={aggi}variant='contained' onClick={handleClick}>Validate</Button></center>  
+    <center><Button variant='contained' onClick={handleClick}>Testing Button</Button></center>     
                 
     </div>
      
