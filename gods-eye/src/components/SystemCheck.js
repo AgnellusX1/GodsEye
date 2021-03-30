@@ -178,9 +178,12 @@ const result = browser();
 console.log('Browserdetect:',result);
 
 //Network speed
-const net = `${navigator.connection.downlink} Mbps`
+const net = `${navigator.connection.downlink}`
 console.log('Networkspeed', net);
 <div id="debugDiv"></div>
+
+
+
 
 const history=useHistory();
 
@@ -190,13 +193,15 @@ var DetectRTC = require('detectrtc');
 DetectRTC.load(function(){
 
     var webcam=DetectRTC.isWebsiteHasWebcamPermissions;
-    if (webcam==false){
+    if (webcam===false){
+         
         var video = document.querySelector("#videoElement");
         if (navigator.mediaDevices.getUserMedia) {
             navigator.mediaDevices.getUserMedia({ video: true })
               .then(function (stream) {
                 video.srcObject = stream;
               })
+              
               .catch(function (err0r) {
                 console.log("Something went wrong!");
               });
@@ -204,8 +209,23 @@ DetectRTC.load(function(){
     }
 
 });
-                    
 
+var aggi = false;
+//browser
+if(result["version"].slice(0,2) <= 86){
+    console.log("Update Chrome");
+    aggi = true;
+}
+
+if(net <= 1 ){
+    console.log("Please Continue", net);
+    aggi = true;
+}
+var webcam=DetectRTC.isWebsiteHasWebcamPermissions;
+if (webcam===false){
+  console.log("On your camera");
+  aggi = true;
+}
 
   return (
     <body>
@@ -227,7 +247,7 @@ DetectRTC.load(function(){
                             <span><b>Browser:</b> {"- " + JSON.stringify(result["name"],null,2 ).slice(1,-1) +" "+ JSON.stringify(result["version"],null,2 ).slice(1,3) } </span>
                         </li>
                         <li class="test">
-                            <span><b>Internet Speed:</b> {"- " + JSON.stringify(net,null,2 ).slice(1,-1) } </span>
+                            <span><b>Internet Speed:</b> {"- " + JSON.stringify(net,null,2 ).slice(1,-1) + " Mbps" } </span>
                         </li>
                          <li class="test">
                          <span><b>Webcam:</b> {"- "+JSON.stringify(DetectRTC.isWebsiteHasWebcamPermissions)} </span>
@@ -240,7 +260,7 @@ DetectRTC.load(function(){
     </table>
 
 
-    <center><Button variant='contained' onClick={handleClick}>Validate</Button></center>       
+    <center><Button disabled={aggi}variant='contained' onClick={handleClick}>Validate</Button></center>       
                 
     </div>
      
