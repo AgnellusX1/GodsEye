@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import firebase from "firebase/app";
 import { useHistory } from 'react-router-dom'
 import { Button } from '@material-ui/core';
-
+import "./formvalid.css"
 const Formvalid = () => {
   const history = useHistory();
 
@@ -41,10 +41,13 @@ const Formvalid = () => {
   return (<div>
     <center>
       <h3>
-        Enter Exam Code To Proceed
+        <p class="sign" align="center">Enter Exam Code To Proceed</p>
         </h3>
-      <input type="text" id="formvalid" name="formvalid" value={formvalid} onChange={onChangeformvalid}></input><br></br>
-      <Button variant="contained" onClick={handleClickformvalid}>Submit</Button>
+        
+        <td class="text-center">
+          <input type="text" id="formvalid" name="formvalid" value={formvalid} onChange={onChangeformvalid}></input><br></br>
+          <Button variant="contained" onClick={handleClickformvalid}>Submit</Button>
+        </td>
       <br></br>
     </center>
   </div>

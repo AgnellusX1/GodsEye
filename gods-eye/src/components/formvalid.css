@@ -1,0 +1,11 @@
+/* p.ex1{
+    padding-top: 50%;
+} */
+.sign {
+    padding-top: 20px;
+    padding-bottom: 50px;
+    color: #000000;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
