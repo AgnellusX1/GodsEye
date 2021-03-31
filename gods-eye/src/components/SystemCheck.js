@@ -8,146 +8,6 @@ import icon from "./icon.png"
 
 const SystemCheck = () => {
 
-//     if (navigator.mediaDevices && navigator.mediaDevices.enumerateDevices) {
-//         // Firefox 38+ seems having support of enumerateDevicesx
-//         navigator.enumerateDevices = function (callback) {
-//             navigator.mediaDevices.enumerateDevices().then(callback);
-//         };
-//     }
-
-//     var MediaDevices = [];
-//     var isHTTPs = Location.protocol === 'https:';
-//     var canEnumerate = false;
-
-//     if (typeof MediaStreamTrack !== 'undefined' && 'getSources' in MediaStreamTrack) {
-//         canEnumerate = true;
-//     } else if (navigator.mediaDevices && !!navigator.mediaDevices.enumerateDevices) {
-//         canEnumerate = true;
-//     }
-
- 
-
-//     var hasMicrophone = false;
-//     var hasSpeakers = false;
-//     var hasWebcam = false;
-
-//     var isMicrophoneAlreadyCaptured = false;
-//     var isWebcamAlreadyCaptured = false;
-
-
-//     var check = function isCamAlreadyActive(){
-// navigator.mediaDevices.getUserMedia({video: true}).then(function(stream){
-//     result = stream.getVideoTracks().some(function (track) {
-//                 return track.enabled && track.readyState === 'live';
-//             });
-//     if(result){
-//         return "On";
-//     }else{
-//         return "Off";
-//     }
-// }).catch(function(err) { console.log(err.name + ": " + err.message); });
-// }
-
-//     function checkDeviceSupport(callback) {
-//         if (!canEnumerate) {
-//             return;
-//         }
-
-//         if (!navigator.enumerateDevices && window.MediaStreamTrack && window.MediaStreamTrack.getSources) {
-//             navigator.enumerateDevices = window.MediaStreamTrack.getSources.bind(window.MediaStreamTrack);
-//         }
-
-//         if (!navigator.enumerateDevices && navigator.enumerateDevices) {
-//             navigator.enumerateDevices = navigator.enumerateDevices.bind(navigator);
-//         }
-
-//         if (!navigator.enumerateDevices) {
-//             if (callback) {
-//                 callback();
-//             }
-//             return;
-//         }
-
-
-
-//         MediaDevices = [];
-//         navigator.enumerateDevices(function (devices) {
-//             devices.forEach(function (_device) {
-//                 var device = {};
-//                 for (var d in _device) {
-//                     device[d] = _device[d];
-//                 }
-
-//                 if (device.kind === 'audio') {
-//                     device.kind = 'audioinput';
-//                     console.log("checkcam: ","lolo3");
-//                 }
-
-//                 if (device.kind === 'video') {
-//                     device.kind = 'videoinput';
-//                 }
-
-//                 var skip;
-//                 MediaDevices.forEach(function (d) {
-//                     if (d.id === device.id && d.kind === device.kind) {
-//                         skip = true;
-//                     }
-//                 });
-
-//                 if (skip) {
-//                     return;
-//                 }
-
-//                 if (!device.deviceId) {
-//                     device.deviceId = device.id;
-//                 }
-
-//                 if (!device.id) {
-//                     device.id = device.deviceId;
-//                 }
-
-//                 if (!device.label) {
-//                     device.label = 'Please invoke getUserMedia once.';
-//                      console.log("checkcam: ","lolo1");
-//                     if (!isHTTPs) {
-//                         device.label = 'HTTPs is required to get label of this ' + device.kind + ' device.';
-//                          console.log("checkcam: ","lolo2");
-//                     }
-                    
-//                 } else {
-//                     if (device.kind === 'videoinput' && !isWebcamAlreadyCaptured) {
-//                         console.log("checkcam: ","lolo");
-//                         isWebcamAlreadyCaptured = true;
-//                     }
-
-//                     if (device.kind === 'audioinput' && !isMicrophoneAlreadyCaptured) {
-//                         isMicrophoneAlreadyCaptured = true;
-//                     }
-//                 }
-
-//                 if (device.kind === 'audioinput') {
-//                     hasMicrophone = true;
-//                 }
-
-//                 if (device.kind === 'audiooutput') {
-//                     hasSpeakers = true;
-//                 }
-
-//                 if (device.kind === 'videoinput') {
-//                     hasWebcam = true;
-//                 }
-
-//                 // there is no 'videoouput' in the spec.
-
-//                 MediaDevices.push(device);
-//             });
-                
-//             if (callback) {
-//                 callback();
-//             }
-//         });
-//     }
-
 function handleClick(){
   history.push("/validate");
 }
@@ -182,9 +42,6 @@ const net = `${navigator.connection.downlink}`
 console.log('Networkspeed', net);
 <div id="debugDiv"></div>
 
-
-
-
 const history=useHistory();
 
 //Camera Detection
@@ -216,16 +73,31 @@ if(result["version"].slice(0,2) <= 86){
     console.log("Update Chrome");
     aggi = true;
 }
-
+//Net Speed
 if(net <= 1 ){
     console.log("Please Continue", net);
     aggi = true;
 }
+//Cam Detection
 var webcam=DetectRTC.isWebsiteHasWebcamPermissions;
 if (webcam===false){
   console.log("On your camera");
   aggi = true;
 }
+
+//Permission to Camera
+function ActivateCam(){
+  var now = Date.now();
+navigator.mediaDevices.getUserMedia({video: true})
+.then(function(stream) {
+  console.log('Got stream, time diff :', Date.now() - now);
+  handleClick();
+})
+
+
+
+}
+
 
   return (
     <body>
@@ -260,8 +132,9 @@ if (webcam===false){
     </table>
 
 
-    <center><Button disabled={aggi}variant='contained' onClick={handleClick}>Validate</Button></center>  
-    <center><Button variant='contained' onClick={handleClick}>Testing Button</Button></center>     
+    <center><Button disabled={aggi} variant='contained' onClick={handleClick}>Validate</Button></center>  
+    
+    <center><Button variant='contained' onClick={ActivateCam}>Activate Your WebCam</Button></center>     
                 
     </div>
      
