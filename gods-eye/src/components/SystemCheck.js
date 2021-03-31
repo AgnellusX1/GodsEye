@@ -12,21 +12,21 @@ function handleClick(){
   history.push("/validate");
 }
     
-//     var elem = document.documentElement;
+    var elem = document.documentElement;
 
-// /* View in fullscreen */
-// function openFullscreen() {
-//   if (elem.requestFullscreen) {
-//     elem.requestFullscreen();
-//     history.push("/instructions")
-//   } else if (elem.webkitRequestFullscreen) { /* Safari */
-//     elem.webkitRequestFullscreen();
-//     history.push("/instructions")
-//   } else if (elem.msRequestFullscreen) { /* IE11 */
-//     elem.msRequestFullscreen();
-//     history.push("/instructions")
-//   }
-// }
+/* View in fullscreen */
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+    history.push("/instructions")
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+    history.push("/instructions")
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+    history.push("/instructions")
+  }
+}
 
 //browser speed test
 const tester = new SpeedTester({ });
@@ -132,7 +132,7 @@ navigator.mediaDevices.getUserMedia({video: true})
     </table>
 
 
-    <center><Button disabled={aggi} variant='contained' onClick={handleClick}>Validate</Button></center>  
+    <center><Button disabled={aggi} variant='contained' onClick={openFullscreen}>Validate</Button></center>  
     
     <center><Button variant='contained' onClick={ActivateCam}>Activate Your WebCam</Button></center>     
                 

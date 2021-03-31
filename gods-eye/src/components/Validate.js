@@ -50,7 +50,7 @@ function openFullscreen() {
   }
 }
 function handleClick(){
-  history.push("/instructions");
+  history.push("/systemcheck");
 }
  
 
@@ -68,13 +68,13 @@ function handleClick(){
         ref={webcamRef}
         screenshotFormat="image/jpeg"
       />
-      <center><button onClick={capture}>Capture photo</button></center>
+      {/* <center><button onClick={capture}>Capture photo</button></center> */}
       {imgSrc && (
         <img
           src={imgSrc}
               />
             )}
-            <center><Button variant="contained" onClick={openFullscreen}>Photo Captured Successfully</Button></center>
+            <center><Button variant="contained" onClick={handleClick}>Confirm Validation</Button></center>
             {/* <center> <Button variant="contained" onClick={handleClick}>Photo Captured Successfully</Button></center> */}
     
     </center>
