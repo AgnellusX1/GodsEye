@@ -6,6 +6,8 @@ import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
+var count_fullscreen=0;
+var count_tabchange=0;
 const minuteSeconds = 60;
 const hourSeconds = 3600;
 const Dashboard = () => {
@@ -20,6 +22,11 @@ const Dashboard = () => {
     if (document.hidden) {
       swal("Changed Tab Detected", "Action has been Recorded", "error");
       // the page is hidden
+      //var count_tabchange = sessionStorage.getItem("count_tabchange")
+      count_tabchange=count_tabchange+1
+      sessionStorage.setItem("count_tabchange", count_tabchange);
+      
+
     } else {
       // the page is visible
     }
@@ -46,8 +53,14 @@ const Dashboard = () => {
     if (document.fullscreenElement) {
       console.log(`Element: ${document.fullscreenElement.id} entered full-screen mode.`);
     } else {
+      
       history.push("/fullscreenalert")
+      //var count_fullscreen = sessionStorage.getItem("count_fullscreen")
+      count_fullscreen=count_fullscreen+1;
+      sessionStorage.setItem("count_fullscreen", count_fullscreen);
+
     }
+    
   });
 
   //For timer
@@ -120,7 +133,7 @@ const remainingTime = endTime - stratTime;
 
       <div className="detect">
         {/* Detection Section Starts here*/}
-          <Detection>
+          <Detection> 
         
           </Detection>
         {/*Detection Section ends here */}

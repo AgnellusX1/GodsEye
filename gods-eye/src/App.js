@@ -23,6 +23,7 @@ import FullScreenAlertPage from './components/FullScreenAlert'
 import { ProtectedRoute } from './components/Protected.Route';
 import Admin from './components/Admin'
 import Formvalid from './components/formvalid.js'
+var count=100;
 
 class App extends Component {
   render() {

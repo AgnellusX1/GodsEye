@@ -77,4 +77,6 @@ const LoginPage = () => {
     </div>
   );
 }
+//const count=0;
+//export default count;
 export default LoginPage;

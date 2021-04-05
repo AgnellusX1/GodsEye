@@ -1,16 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import swal from 'sweetalert';
-
+//import count from './Login';
 import * as cocoSsd from "@tensorflow-models/coco-ssd";
 import "@tensorflow/tfjs";
 import "./Detections.css";
+var count_facedetect=0;
 
 export default class Detection extends React.Component {
   videoRef = React.createRef();
   canvasRef = React.createRef();
 
   componentDidMount() {
+    
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       const webCamPromise = navigator.mediaDevices
         .getUserMedia({
@@ -53,13 +55,16 @@ export default class Detection extends React.Component {
   };
 
   renderPredictions = predictions => {
+    //var count=100;
     const ctx = this.canvasRef.current.getContext("2d");
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     // Font options.
     const font = "16px sans-serif";
     ctx.font = font;
     ctx.textBaseline = "top";
+    
     predictions.forEach(prediction => {
+      
       const x = prediction.bbox[0];
       const y = prediction.bbox[1];
       const width = prediction.bbox[2];
@@ -73,22 +78,28 @@ export default class Detection extends React.Component {
       const textWidth = ctx.measureText(prediction.class).width;
       const textHeight = parseInt(font, 10); // base 10
       ctx.fillRect(x, y, textWidth + 8, textHeight + 8);
+      
       for (let i = 0; i < predictions.length; i++) {
         if (predictions[i].class === "cell phone") {
           swal("Cell Phone Detected", "Action has been Recorded", "error");
+          count_facedetect=count_facedetect+1;
         }
         else if (predictions[i].class === "book") {
           swal("Notebook Detected", "Action has been Recorded", "error");
+          count_facedetect=count_facedetect+1;
         }
         else if (predictions[i].class === "laptop") {
           swal("Laptop Detected", "Action has been Recorded", "error");
+          count_facedetect=count_facedetect+1;
         }
         else if (predictions[i].class !== "person") {
           swal("Face Not Visible", "Action has been Recorded", "error");
+          count_facedetect=count_facedetect+1;
         }
       }
+      console.log(count_facedetect);
     });
-
+    
     predictions.forEach(prediction => {
       const x = prediction.bbox[0];
       const y = prediction.bbox[1];
@@ -96,7 +107,14 @@ export default class Detection extends React.Component {
       ctx.fillStyle = "#000000";
       ctx.fillText(prediction.class, x, y);
     });
+    console.log("final")
+    console.log(count_facedetect)
+    sessionStorage.setItem("count_facedetect", count_facedetect);
+
   };
+  
+
+
 
   render() {
     return (

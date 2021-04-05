@@ -2,8 +2,9 @@ import React from 'react'
 import Button from '@material-ui/core/Button';
 import { useHistory } from 'react-router-dom'
 import swal from 'sweetalert';
+var count_browser=0;
 
-const FullScreenAlert = () => {
+const FullScreenAlert = (props) => {
 
   //Disable Right click
   if (document.addEventListener) {
@@ -16,11 +17,13 @@ const FullScreenAlert = () => {
   function handleVisibilityChange() {
     if (document.hidden) {
       swal("Tab Change Detected", "You clicked the button!", "error");
+      count_browser=count_browser+1;
       // the page is hidden
     } else {
       // the page is visible
     }
   }
+  sessionStorage.setItem("count_browser", count_browser);
 
   document.addEventListener("visibilitychange", handleVisibilityChange, false);
 
