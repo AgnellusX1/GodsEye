@@ -30,10 +30,19 @@ const Formvalid = () => {
     con_db.on('value', (snapshot) => {
       var s = snapshot.val()
       var d = s[formvalid]
+      console.log("check1")
+      console.log(d)
+      if(d!=null)
+      {
       var form_link = d["formlink"]
       console.log(form_link);
       sessionStorage.setItem("form_link", form_link);
       history.push("/Dashboard");
+      }
+      else
+      {
+        alert("Please Enter A Valid Examcode")
+      }
 
     });
   };
