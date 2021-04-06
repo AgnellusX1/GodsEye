@@ -34,8 +34,10 @@ tester.start();
 console.log('Browserspeed:', tester)
 
 //Browser detection
-const result = browser();
-console.log('Browserdetect:',result);
+// const result = browser();
+// const result= window.navigator.userAgent
+// const result=window. navigator.appVersion
+// console.log('Browserdetect:',result);
 
 //Network speed
 const net = `${navigator.connection.downlink}`
@@ -46,7 +48,6 @@ const history=useHistory();
 
 //Camera Detection
 var DetectRTC = require('detectrtc');
-
 DetectRTC.load(function(){
 
     var webcam=DetectRTC.isWebsiteHasWebcamPermissions;
@@ -69,8 +70,8 @@ DetectRTC.load(function(){
 
 var aggi = false;
 //browser
-if(result["version"].slice(0,2) <= 86){
-    console.log("Update Chrome");
+if(DetectRTC.osVersion<= 86){
+    console.log("Update Browser");
     aggi = true;
 }
 //Net Speed
@@ -113,10 +114,10 @@ navigator.mediaDevices.getUserMedia({video: true})
                 <td>
                     <ul>
                         <li class="test">
-                            <span ><b>OS:</b>  {"- " + JSON.stringify(result["os"],null,2 ).slice(1,-1)} </span>
+                            <span ><b>OS:</b>  {"- " + JSON.stringify( DetectRTC.osName)+" " + JSON.stringify(DetectRTC.osVersion)} </span>
                         </li>
                         <li class="test">
-                            <span><b>Browser:</b> {"- " + JSON.stringify(result["name"],null,2 ).slice(1,-1) +" "+ JSON.stringify(result["version"],null,2 ).slice(1,3) } </span>
+                            <span><b>Browser:</b> {"- " + JSON.stringify(DetectRTC.browser.name === 'Edge' || 'Chrome' || 'Firefox') +" "+ JSON.stringify(DetectRTC.browser.version) } </span>
                         </li>
                         <li class="test">
                             <span><b>Internet Speed:</b> {"- " + JSON.stringify(net,null,2 ).slice(1,-1) + " Mbps" } </span>
