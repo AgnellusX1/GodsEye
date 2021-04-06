@@ -105,7 +105,12 @@ export default class Detection extends React.Component {
       const y = prediction.bbox[1];
       // Draw the text last to ensure it's on top.
       ctx.fillStyle = "#000000";
+      console.log(prediction.class);
+      
+      if(prediction.class=="person" || prediction.class=="cell phone" || prediction.class=="book" || prediction.class=="laptop")
+      {
       ctx.fillText(prediction.class, x, y);
+      }
     });
     console.log("final")
     console.log(count_facedetect)

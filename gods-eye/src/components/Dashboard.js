@@ -57,6 +57,8 @@ const Dashboard = () => {
       history.push("/fullscreenalert")
       //var count_fullscreen = sessionStorage.getItem("count_fullscreen")
       count_fullscreen=count_fullscreen+1;
+      console.log("count_fullscreen")
+      console.log(count_fullscreen)
       sessionStorage.setItem("count_fullscreen", count_fullscreen);
 
     }
