@@ -34,9 +34,21 @@ const Dashboard = () => {
   document.addEventListener("visibilitychange", handleVisibilityChange, false);
 
   //To make sure the user does not open any other App or lose Focus from the test Window
-  window.onblur = function () {
-    swal("You left the Secure Exam Window", "Action has been Recorded", "error");
-  }
+  var i= 0;
+  
+    window.onfocus = function () {
+    console.log("Show exit");
+    swal("You left the Secure Exam Window","Donot Click Out of the Form" , "Action has been Recorded", "error");
+    i = i+1;
+    if(i>3)
+    history.push('/thankyou')
+      // return <Redirect to='/thankyou'/>
+    
+    }
+    
+  
+  
+  
 
   const history = useHistory();
   function onAccept() {
@@ -85,7 +97,13 @@ const getTimeMinutes = (time) => ((time % hourSeconds) / minuteSeconds) | 0;
 const stratTime = Date.now() / 1000; // use UNIX timestamp in seconds
 const endTime = stratTime + 243248; 
 const remainingTime = endTime - stratTime;
+
+
  return (
+     
+  
+  
+    
     <div className="App-header" id="Dash">
         <header>
           {/* <h3>

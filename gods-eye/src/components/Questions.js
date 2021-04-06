@@ -92,15 +92,13 @@ export default class Timer extends Component {
                     minutes === 0 && seconds === 0 ? endit() : null
                 }*/}
 
-
-                <div className="qsection"><iframe src={form_link} id='form' width="650" height="700" frameBorder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                <div className="qsection"><iframe src ={form_link} id='form' width="850" height="700" frameBorder="0" marginheight="0" marginwidth="0">Loading…</iframe >
                 </div>
             </div>
 
         )
 
     }
-
 }
 
 
