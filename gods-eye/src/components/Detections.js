@@ -78,8 +78,17 @@ export default class Detection extends React.Component {
       const textWidth = ctx.measureText(prediction.class).width;
       const textHeight = parseInt(font, 10); // base 10
       ctx.fillRect(x, y, textWidth + 8, textHeight + 8);
-      
+      var multiple_face=0
       for (let i = 0; i < predictions.length; i++) {
+        if(prediction.class=="person")
+        {
+          multiple_face=multiple_face+1
+          if(multiple_face>=2)
+          {
+            swal("Multiple Face Detection", "Action has been Recorded", "error");
+          }
+        }
+
         if (predictions[i].class === "cell phone") {
           swal("Cell Phone Detected", "Action has been Recorded", "error");
           count_facedetect=count_facedetect+1;
@@ -103,6 +112,7 @@ export default class Detection extends React.Component {
     predictions.forEach(prediction => {
       const x = prediction.bbox[0];
       const y = prediction.bbox[1];
+      console.log(predictions)
       // Draw the text last to ensure it's on top.
       ctx.fillStyle = "#000000";
       console.log(prediction.class);
