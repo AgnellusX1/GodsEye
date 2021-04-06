@@ -34,9 +34,9 @@ const Dashboard = () => {
   document.addEventListener("visibilitychange", handleVisibilityChange, false);
 
   // To make sure the user does not open any other App or lose Focus from the test Window
-  window.onblur = function () {
-    swal("You left the Secure Exam Window", "Action has been Recorded", "error");
-  }
+  // window.onblur = function () {
+  //   swal("You left the Secure Exam Window", "Action has been Recorded", "error");
+  // }
 
   const history = useHistory();
   function onAccept() {

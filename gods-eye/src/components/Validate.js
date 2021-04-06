@@ -75,7 +75,7 @@ function handleClick(){
               />
             )}
             <center><Button variant="contained" onClick={handleClick}>Confirm Validation</Button></center>
-            {/* <center> <Button variant="contained" onClick={handleClick}>Photo Captured Successfully</Button></center> */}
+            
     
     </center>
   </div>
