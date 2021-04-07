@@ -26,6 +26,7 @@ const Dashboard = () => {
       //var count_tabchange = sessionStorage.getItem("count_tabchange")
       count_tabchange = count_tabchange + 1
       sessionStorage.setItem("count_tabchange", count_tabchange);
+
     } else {
       // the page is visible
     }
@@ -35,9 +36,9 @@ const Dashboard = () => {
   //To make sure the user does not open any other App or lose Focus from the test Window
   var i = 0;
 
-  window.onblur = function () {
-    swal("Escaped Secure Window", "Action has been Recorded", "error");
-  }
+  // window.onblur = function () {
+  //   swal("Escaped Secure Window", "Action has been Recorded", "error");
+  // }
 
   const history = useHistory();
   function onAccept() {
@@ -83,6 +84,14 @@ const Dashboard = () => {
   const stratTime = Date.now() / 1000; // use UNIX timestamp in seconds
   const endTime = stratTime + 243248;
   const remainingTime = endTime - stratTime;
+
+
+  document.addEventListener('keydown', function(event){
+		console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
+    if(event.key === 'Alt'){
+      swal('Alt Keypress Detected');
+  }
+  });
 
   return (
 
