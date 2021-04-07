@@ -10,6 +10,7 @@ var count_fullscreen = 0;
 var count_tabchange = 0;
 const minuteSeconds = 60;
 const hourSeconds = 3600;
+var countalt = 0;
 
 const Dashboard = () => {
   //Disable Right click
@@ -90,6 +91,8 @@ const Dashboard = () => {
 		console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
     if(event.key === 'Alt'){
       swal('Alt Keypress Detected');
+      countalt = countalt+1;
+      sessionStorage.setItem("countalt", countalt);
   }
   });
 

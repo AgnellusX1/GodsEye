@@ -31,6 +31,7 @@ import count_facedetect from './Detections.js';
         console.log(count_facedetect)
         var count_fullscreen = sessionStorage.getItem("count_fullscreen")
         var count_tabchange = sessionStorage.getItem("count_tabchange")
+        var countalt = sessionStorage.getItem("countalt")
     
     return (<div className="App-header">
         <center>
@@ -48,8 +49,11 @@ import count_facedetect from './Detections.js';
 
             Tab Change Detection: {count_tabchange}
             <br></br>
+
+            ALT Tab Key Pressed: {countalt}
+            <br></br>
                 
-                
+               
         </h3>
         </center>
     </div>
