@@ -70,7 +70,7 @@ DetectRTC.load(function(){
 
 var aggi = false;
 //browser
-if(DetectRTC.osVersion<= 86){
+if(DetectRTC.browser.version<= 86){
     console.log("Update Browser");
     aggi = true;
 }
