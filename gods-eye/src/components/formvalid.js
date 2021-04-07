@@ -1,9 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
 import firebase from "firebase/app";
 import { useHistory } from 'react-router-dom'
 import { Button } from '@material-ui/core';
 import "./formvalid.css"
+import swal from 'sweetalert';
+
 const Formvalid = () => {
   const history = useHistory();
 
@@ -22,7 +23,6 @@ const Formvalid = () => {
 
 
   function handleClickformvalid() {
-    console.log("heloooooooooooooooo")
     console.log(formvalid)
     const con_db = firebase.database().ref("con_dbs");
 
@@ -32,16 +32,14 @@ const Formvalid = () => {
       var d = s[formvalid]
       console.log("check1")
       console.log(d)
-      if(d!=null)
-      {
-      var form_link = d["formlink"]
-      console.log(form_link);
-      sessionStorage.setItem("form_link", form_link);
-      history.push("/Dashboard");
+      if (d != null) {
+        var form_link = d["formlink"]
+        console.log(form_link);
+        sessionStorage.setItem("form_link", form_link);
+        history.push("/Dashboard");
       }
-      else
-      {
-        alert("Please Enter A Valid Examcode")
+      else {
+        swal("Invalid Exam Code", "Please Enter A Valid Examcode", "error");
       }
 
     });
@@ -51,12 +49,12 @@ const Formvalid = () => {
     <center>
       <h3>
         <p class="sign" align="center">Enter Exam Code To Proceed</p>
-        </h3>
-        
-        <td class="text-center">
-          <input type="text" id="formvalid" name="formvalid" value={formvalid} onChange={onChangeformvalid}></input><br></br>
-          <Button variant="contained" onClick={handleClickformvalid}>Submit</Button>
-        </td>
+      </h3>
+
+      <td class="text-center">
+        <input type="text" id="formvalid" name="formvalid" value={formvalid} onChange={onChangeformvalid}></input><br></br>
+        <Button variant="contained" onClick={handleClickformvalid}>Submit</Button>
+      </td>
       <br></br>
     </center>
   </div>
