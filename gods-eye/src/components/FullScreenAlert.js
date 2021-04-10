@@ -2,7 +2,7 @@ import React from 'react'
 import Button from '@material-ui/core/Button';
 import { useHistory } from 'react-router-dom'
 import swal from 'sweetalert';
-var count_browser=0;
+var count_browser = 0;
 
 const FullScreenAlert = (props) => {
 
@@ -13,19 +13,20 @@ const FullScreenAlert = (props) => {
     }, false);
   }
 
-  // Alert on Tab Changed within the Same browser Window
-  function handleVisibilityChange() {
-    if (document.hidden) {
-      swal("Tab Change Detected", "You clicked the button!", "error");
-      count_browser=count_browser+1;
-      // the page is hidden
-    } else {
-      // the page is visible
-    }
-  }
-  sessionStorage.setItem("count_browser", count_browser);
+  // // Alert on Tab Changed within the Same browser Window
+  // function handleVisibilityChange() {
+  //   if (document.hidden) {
+  //     swal("Tab Change Detected", "You clicked the button!", "error");
+  //     count_browser=count_browser+1;
+  //     // the page is hidden
+  //   } else {
+  //     // the page is visible
+  //   }
+  // }
 
-  document.addEventListener("visibilitychange", handleVisibilityChange, false);
+  // document.addEventListener("visibilitychange", handleVisibilityChange, false);
+
+  sessionStorage.setItem("count_browser", count_browser);
 
   var elem = document.documentElement;
   const history = useHistory();
