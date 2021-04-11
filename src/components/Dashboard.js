@@ -10,7 +10,7 @@ var count_fullscreen = 0;
 var count_tabchange = 0;
 const minuteSeconds = 60;
 const hourSeconds = 3600;
-var countalt = 0;
+
 
 const Dashboard = () => {
   //Disable Right click
@@ -86,7 +86,7 @@ const Dashboard = () => {
   const endTime = stratTime + 243248;
   const remainingTime = endTime - stratTime;
 
-
+  var countalt = 0;
   document.addEventListener('keydown', function(event){
 		console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
     if(event.key === 'Alt'){
