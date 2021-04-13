@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import { render } from 'react-dom';
 import swal from 'sweetalert';
 import count_facedetect from './Detections.js';
+import checkname from './Login.js';
+import checkemail from './Login.js';
 //console.log(count_facedetect);
 
 
@@ -32,15 +34,23 @@ import count_facedetect from './Detections.js';
         var count_fullscreen = sessionStorage.getItem("count_fullscreen")
         var count_tabchange = sessionStorage.getItem("count_tabchange")
         var countalt = sessionStorage.getItem("countalt")
+        var checkn = sessionStorage.getItem("checkname")
+        var checke = sessionStorage.getItem("checkemail")
     
     return (<div className="App-header">
         <center>
             <h3>
                 Thankyou for giving the test nice seeing you
-        </h3>
+            </h3>
         <h2>Cheat Score</h2>
         <br></br>
             <h3>
+             User Name :{checkn}
+            <br></br>
+
+            User Email :{checke}
+            <br></br>
+
             Face Detection: {count_facedetect}
             <br></br>
 
@@ -52,7 +62,7 @@ import count_facedetect from './Detections.js';
 
             ALT Tab Key Pressed: {countalt}
             <br></br>
-                
+               
                
         </h3>
         </center>

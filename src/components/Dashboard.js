@@ -10,6 +10,8 @@ var count_fullscreen = 0;
 var count_tabchange = 0;
 const minuteSeconds = 60;
 const hourSeconds = 3600;
+var checkn ="";
+var checke = "";
 
 
 const Dashboard = () => {
