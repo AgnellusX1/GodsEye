@@ -1,18 +1,17 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import swal from 'sweetalert';
 //import count from './Login';
 import * as cocoSsd from "@tensorflow-models/coco-ssd";
 import "@tensorflow/tfjs";
 import "./Detections.css";
-var count_facedetect=0;
+var count_facedetect = 0;
 
 export default class Detection extends React.Component {
   videoRef = React.createRef();
   canvasRef = React.createRef();
 
   componentDidMount() {
-    
+
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       const webCamPromise = navigator.mediaDevices
         .getUserMedia({
@@ -43,14 +42,17 @@ export default class Detection extends React.Component {
     }
   }
 
-
-
   detectFrame = (video, model) => {
     model.detect(video).then(predictions => {
-      this.renderPredictions(predictions);
-      requestAnimationFrame(() => {
-        this.detectFrame(video, model);
-      });
+      if (this.canvasRef.current) {
+
+        this.renderPredictions(predictions);
+        requestAnimationFrame(() => {
+          this.detectFrame(video, model);
+        });
+      } else {
+        return false;
+      }
     });
   };
 
@@ -62,9 +64,9 @@ export default class Detection extends React.Component {
     const font = "16px sans-serif";
     ctx.font = font;
     ctx.textBaseline = "top";
-    
+
     predictions.forEach(prediction => {
-      
+
       const x = prediction.bbox[0];
       const y = prediction.bbox[1];
       const width = prediction.bbox[2];
@@ -78,37 +80,35 @@ export default class Detection extends React.Component {
       const textWidth = ctx.measureText(prediction.class).width;
       const textHeight = parseInt(font, 10); // base 10
       ctx.fillRect(x, y, textWidth + 8, textHeight + 8);
-      var multiple_face=0
+      var multiple_face = 0
       for (let i = 0; i < predictions.length; i++) {
-        if(prediction.class=="person")
-        {
-          multiple_face=multiple_face+1
-          if(multiple_face>=2)
-          {
+        if (prediction.class == "person") {
+          multiple_face = multiple_face + 1
+          if (multiple_face >= 2) {
             swal("Multiple Face Detection", "Action has been Recorded", "error");
           }
         }
 
         if (predictions[i].class === "cell phone") {
           swal("Cell Phone Detected", "Action has been Recorded", "error");
-          count_facedetect=count_facedetect+1;
+          count_facedetect = count_facedetect + 1;
         }
         else if (predictions[i].class === "book") {
           swal("Object Detected", "Action has been Recorded", "error");
-          count_facedetect=count_facedetect+1;
+          count_facedetect = count_facedetect + 1;
         }
         else if (predictions[i].class === "laptop") {
           swal("Object Detected", "Action has been Recorded", "error");
-          count_facedetect=count_facedetect+1;
+          count_facedetect = count_facedetect + 1;
         }
         else if (predictions[i].class !== "person") {
           swal("Face Not Visible", "Action has been Recorded", "error");
-          count_facedetect=count_facedetect+1;
+          count_facedetect = count_facedetect + 1;
         }
       }
       console.log(count_facedetect);
     });
-    
+
     predictions.forEach(prediction => {
       const x = prediction.bbox[0];
       const y = prediction.bbox[1];
@@ -116,10 +116,9 @@ export default class Detection extends React.Component {
       // Draw the text last to ensure it's on top.
       ctx.fillStyle = "#000000";
       console.log(prediction.class);
-      
-      if(prediction.class=="person" || prediction.class=="cell phone" || prediction.class=="book" || prediction.class=="laptop")
-      {
-      ctx.fillText(prediction.class, x, y);
+
+      if (prediction.class == "person" || prediction.class == "cell phone" || prediction.class == "book" || prediction.class == "laptop") {
+        ctx.fillText(prediction.class, x, y);
       }
     });
     console.log("final")
@@ -127,9 +126,6 @@ export default class Detection extends React.Component {
     sessionStorage.setItem("count_facedetect", count_facedetect);
 
   };
-  
-
-
 
   render() {
     return (
