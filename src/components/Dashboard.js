@@ -5,16 +5,20 @@ import Detection from './Detections';
 import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
+import firebase from "firebase/app";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 var count_fullscreen = 0;
 var count_tabchange = 0;
 const minuteSeconds = 60;
 const hourSeconds = 3600;
-var checkn ="";
+var checkn = "";
 var checke = "";
 
 
 const Dashboard = () => {
+
+
+
   //Disable Right click
   if (document.addEventListener) {
     document.addEventListener('contextmenu', function (e) {
@@ -89,14 +93,41 @@ const Dashboard = () => {
   const remainingTime = endTime - stratTime;
 
   var countalt = 0;
-  document.addEventListener('keydown', function(event){
-		console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
-    if(event.key === 'Alt'){
+  document.addEventListener('keydown', function (event) {
+    console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
+    if (event.key === 'Alt') {
       swal('Alt Keypress Detected');
-      countalt = countalt+1;
+      countalt = countalt + 1;
       sessionStorage.setItem("countalt", countalt);
-  }
+    }
   });
+
+  function handleClicksub() {
+    var PIDs = sessionStorage.getItem("checkname").slice(-6)
+    console.log(PIDs)
+    var count_facedetect = sessionStorage.getItem("count_facedetect")
+    var count_fullscreen = sessionStorage.getItem("count_fullscreen")
+    var count_tabchange = sessionStorage.getItem("count_tabchange")
+    var countalt = sessionStorage.getItem("countalt")
+    var checkn = sessionStorage.getItem("checkname")
+    var checke = sessionStorage.getItem("checkemail")
+
+    const con_db = firebase.database().ref("stud_records");
+    con_db.on('value', (snapshot) => {
+
+      var s = snapshot.val()
+      console.log(s)
+      con_db.child(PIDs).set({
+        alt: countalt,
+        face: count_facedetect,
+        fullscreen: count_fullscreen,
+        semail: checke,
+        sname: checkn
+      });
+    });
+
+    history.push('/thankyou')
+  };
 
   return (
 
@@ -167,7 +198,7 @@ const Dashboard = () => {
 
         <div className="button">
           <p>Submit here!!</p>
-          <center><Button variant="contained" onClick={onAccept}>Submit</Button></center>
+          <center><Button variant="contained" onClick={handleClicksub}>Submit</Button></center>
         </div>
       </header>
 
