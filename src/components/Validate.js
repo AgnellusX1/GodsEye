@@ -59,10 +59,14 @@ const ValidatePage = () => {
       <h3>
         Validate Page
     </h3>
-      <p>
+    </center>
+      <p style={{align:"right"}}><b>Instructions to Follow:</b></p>
+      <li>
         When the user Successfully Signs in, the user will have to do a Validation by capturing his initial photo into the System
-    </p>
-      <p>The lighting in the room must be bright enough to be considered “daylight” quality. Overhead lighting is preferred. If overhead lighting is not available, the source of light must not be behind you.</p>
+    </li>
+      
+      <li>The lighting in the room must be bright enough to be considered “daylight” quality. Overhead lighting is preferred. If overhead lighting is not available, the source of light must not be behind you.</li>
+      <center>
       <Webcam
         audio={false}
         ref={webcamRef}
@@ -74,6 +78,8 @@ const ValidatePage = () => {
           src={imgSrc}
         />
       )}
+       <br />
+     
       <center><Button variant="contained" onClick={handleClick}>Confirm Validation</Button></center>
 
 
