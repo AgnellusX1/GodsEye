@@ -31,14 +31,13 @@ const Admin = () => {
       });
       alert("The form was submitted");
       history.push("/");
-  
     
   });
-
-  
+  }
     
   
-  
+   function results(){
+    history.push('/results');
 
   };
   return (
@@ -59,6 +58,10 @@ const Admin = () => {
         <br></br>
         <br></br>
         <Button variant="contained" onClick={handleClicksub}>Submit</Button>
+        <br></br>
+        <br></br>
+        <br></br>
+        <Button variant="contained" onClick={results}>Results</Button>
         <br></br>
       </center>
     </p>
