@@ -1,94 +1,52 @@
 import React, { Component } from 'react'
-//import React from 'react'
-import { render } from 'react-dom';
-import swal from 'sweetalert';
-import { Button } from '@material-ui/core';
-import count_facedetect from './Detections.js';
-import checkname from './Login.js';
-import checkemail from './Login.js';
-
-//console.log(count_facedetect);
+import Button from '@material-ui/core/Button';
 
 
-    // //Disable Right click
-    // if (document.addEventListener) {
-    //     document.addEventListener('contextmenu', function (e) {
-    //         e.preventDefault();
-    //     }, false);
-    // }
+const Thankyou = () => {
 
-    // // Alert on Tab Changed within the Same browser Window
-    // function handleVisibilityChange() {
-    //     if (document.hidden) {
-    //         swal("Tab Change Detected", "Action has been Recorded", "error");
-    //         // the page is hidden
-    //     } else {
-    //         // the page is visible
-    //     }
-    // }
+    function handleClickExit() {
+        window.close()
+    }
 
-    // document.addEventListener("visibilitychange", handleVisibilityChange, false);
-    export default class Timer extends Component {
-    render(){
+    var count_facedetect = sessionStorage.getItem("count_facedetect")
+    console.log(count_facedetect)
+    var count_fullscreen = sessionStorage.getItem("count_fullscreen")
+    var count_tabchange = sessionStorage.getItem("count_tabchange")
+    var countalt = sessionStorage.getItem("countalt")
+    var checkn = sessionStorage.getItem("checkname")
+    var checke = sessionStorage.getItem("checkemail")
 
-        var count_facedetect = sessionStorage.getItem("count_facedetect")
-        console.log(count_facedetect)
-        var count_fullscreen = sessionStorage.getItem("count_fullscreen")
-        var count_tabchange = sessionStorage.getItem("count_tabchange")
-        var countalt = sessionStorage.getItem("countalt")
-        var checkn = sessionStorage.getItem("checkname")
-        var checke = sessionStorage.getItem("checkemail")
-
-    function closetab(){
-        const onClose = () => {
-        window.opener = null;
-        window.open("", "_self");
-        window.close();
-    };
-}
-
-//     function windowClose() {
-// window.open('','_parent','');
-// window.close();
-// }
-
-    
-    
-
-    
-    return (<div className="App-header">
-        <center>
-            <h3>
-                Thankyou for giving the test nice seeing you
+    return (
+        <div className="App-header">
+            <center>
+                <h3>
+                    Thankyou for giving the test nice seeing you
             </h3>
-        <h2>Cheat Score</h2>
-        <br></br>
-            <h3>
-             User Name :{checkn}
-            <br></br>
+                <h2>Cheat Score</h2>
+                <br></br>
+                <h3>
+                    User Name :{checkn}
+                    <br></br>
 
             User Email :{checke}
-            <br></br>
+                    <br></br>
 
             Face Detection: {count_facedetect}
-            <br></br>
+                    <br></br>
 
             Fullscreen Cheat Detection: {count_fullscreen}
-            <br></br>
+                    <br></br>
 
             Tab Change Detection: {count_tabchange}
-            <br></br>
+                    <br></br>
 
             ALT Tab Key Pressed: {countalt}
-            <br></br>
-            
-        </h3>
-        </center>
-        <Button variant="contained" onClick={closetab()}>Exit</Button> 
-    </div>
+                    <br></br>
+                </h3>
+
+                <Button variant="contained" onClick={handleClickExit}>Exit Secure Window</Button>
+            </center>
+        </div>
     )
 }
-}
-
-
-//export default Thankyou;
+export default Thankyou;
