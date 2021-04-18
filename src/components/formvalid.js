@@ -45,14 +45,14 @@ const Formvalid = () => {
     });
   };
 
-  return (<div>
+  return (
+  <div>
     <center>
-      <h3>
-        <p class="sign" align="center">Enter Exam Code To Proceed</p>
-      </h3>
-
+      <h3><p class="sign" align="center" >Enter Exam Code To Proceed</p></h3>
       <td class="text-center">
-        <input type="text" id="formvalid" name="formvalid" value={formvalid} onChange={onChangeformvalid}></input><br></br>
+        <input type="text" id="formvalid" name="formvalid" value={formvalid} onChange={onChangeformvalid}></input>
+        <br></br>
+        <br></br>
         <Button variant="contained" onClick={handleClickformvalid}>Submit</Button>
       </td>
       <br></br>

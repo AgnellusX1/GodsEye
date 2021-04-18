@@ -57,16 +57,16 @@ need to be alone to take your exams.
                         Close all programs on your computer and turn off cell phones.
                         </li>
                         <li >
-                        Do NOT leave the computer during the exam or answer the phone for ANY reason.
+                        DO NOT leave the computer during the exam or answer the phone for ANY reason.
                         </li>
                          <li>
                          You must have a clear desk and clear workspace. No drinks or scrap paper.
                         </li>
                         <li>
-                        Do not wear hoodies, sweatshirts, jackets, neckties, or hats
+                        Do not wear hoodies, sweatshirts, jackets, neckties, headphoes/earphones or hats.
                         </li>
                         <li>
-                        Do not speak to anyone during the exam
+                        Do not speak to anyone during the exam.
                         </li>
                         <li>
                         If any suspicious act is encountered, it will be counted as violation. After certain number of warnings, system will Logout your assessment.

@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 //import React from 'react'
 import { render } from 'react-dom';
 import swal from 'sweetalert';
+import { Button } from '@material-ui/core';
 import count_facedetect from './Detections.js';
 import checkname from './Login.js';
 import checkemail from './Login.js';
+
 //console.log(count_facedetect);
 
 
@@ -36,6 +38,23 @@ import checkemail from './Login.js';
         var countalt = sessionStorage.getItem("countalt")
         var checkn = sessionStorage.getItem("checkname")
         var checke = sessionStorage.getItem("checkemail")
+
+    function closetab(){
+        const onClose = () => {
+        window.opener = null;
+        window.open("", "_self");
+        window.close();
+    };
+}
+
+//     function windowClose() {
+// window.open('','_parent','');
+// window.close();
+// }
+
+    
+    
+
     
     return (<div className="App-header">
         <center>
@@ -62,10 +81,10 @@ import checkemail from './Login.js';
 
             ALT Tab Key Pressed: {countalt}
             <br></br>
-               
-               
+            
         </h3>
         </center>
+        <Button variant="contained" onClick={closetab()}>Exit</Button> 
     </div>
     )
 }
