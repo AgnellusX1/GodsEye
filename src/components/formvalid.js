@@ -16,11 +16,13 @@ const Formvalid = () => {
   }
 
   const [formvalid, setFormvalid] = useState('');
+  
 
   function onChangeformvalid(e) {
     setFormvalid(e.target.value);
   }
-
+  
+  
 
   function handleClickformvalid() {
     console.log(formvalid)
@@ -30,12 +32,16 @@ const Formvalid = () => {
     con_db.on('value', (snapshot) => {
       var s = snapshot.val()
       var d = s[formvalid]
+      //var e = s[examtimer]
       console.log("check1")
-      console.log(d)
+      //console.log(e)
       if (d != null) {
         var form_link = d["formlink"]
+        var exam_timer = d["examtimer"]
+        console.log(exam_timer);
         console.log(form_link);
         sessionStorage.setItem("form_link", form_link);
+        sessionStorage.setItem("exam_timer",exam_timer);
         history.push("/Dashboard");
       }
       else {

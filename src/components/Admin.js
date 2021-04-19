@@ -9,6 +9,8 @@ const Admin = () => {
 
   const [examcode, setTitle] = useState('')
   const [formlink, setFormlink] = useState('')
+  const [examtimer, setTimer] = useState('')
+  //
 
   const onChangeexamcode = (e) => {
     setTitle(e.target.value);
@@ -16,6 +18,10 @@ const Admin = () => {
   const onChangeformlink = (e) => {
     setFormlink(e.target.value);
   };
+  const onChangeTimer = (e) => {
+    setTimer(e.target.value);
+  };
+  //
 
   function handleClicksub() {
     
@@ -27,7 +33,8 @@ const Admin = () => {
       var s = snapshot.val()
       console.log(s)
       con_db.child(examcode).set({
-        formlink: formlink
+        formlink: formlink,
+        examtimer: examtimer
       });
       alert("The form was submitted");
       history.push("/");
@@ -55,6 +62,10 @@ const Admin = () => {
         <input type="text" id="examcode" name="examcode" value={examcode} onChange={onChangeexamcode}></input><br></br>
         <h3 style={{color:'white'}}>Enter Form Link </h3>
         <input type="text" id="formlink" name="formlink" value={formlink} onChange={onChangeformlink}></input>
+        <br></br>
+        <br></br>
+        <h3 style={{color:'white'}}>Enter The Time Slot of The Exam In Minutes</h3>
+        <input type="text" id="examtimer" name="examtimer" value={examtimer} onChange={onChangeTimer}></input>
         <br></br>
         <br></br>
         <Button variant="contained" onClick={handleClicksub}>Submit</Button>

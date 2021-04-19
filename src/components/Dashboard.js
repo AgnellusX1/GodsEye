@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Webcam from "react-webcam";
 import QuestionPage from './Questions';
@@ -5,19 +6,21 @@ import Detection from './Detections';
 import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
+import exam_timer from './formvalid';
 import firebase from "firebase/app";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 var count_fullscreen = 0;
 var count_tabchange = 0;
 const minuteSeconds = 60;
-const hourSeconds = 3600;
+const timeslot = exam_timer;
+const hourseconds = 3600;
 var checkn = "";
 var checke = "";
 
 
 const Dashboard = () => {
 
-
+var timeslot = sessionStorage.getItem("exam_timer")
 
   //Disable Right click
   if (document.addEventListener) {
@@ -86,8 +89,8 @@ const Dashboard = () => {
     );
   };
   //For minutes, seconds
-  const getTimeSeconds = (time) => (minuteSeconds - time) | 0;
-  const getTimeMinutes = (time) => ((time % hourSeconds) / minuteSeconds) | 0;
+  //const getTimeSeconds = (time) => (minuteSeconds - time) | 0;
+  const getTimeMinutes = (time) => ((time % hourseconds) / minuteSeconds) | 0;
   const stratTime = Date.now() / 1000; // use UNIX timestamp in seconds
   const endTime = stratTime + 243248;
   const remainingTime = endTime - stratTime;
@@ -111,6 +114,7 @@ const Dashboard = () => {
     var countalt = sessionStorage.getItem("countalt")
     var checkn = sessionStorage.getItem("checkname")
     var checke = sessionStorage.getItem("checkemail")
+    
 
     const con_db = firebase.database().ref("stud_records");
     con_db.on('value', (snapshot) => {
@@ -146,19 +150,19 @@ const Dashboard = () => {
               <CountdownCircleTimer
                 {...timerProps}
                 colors={[["#EF798A"]]}
-                duration={hourSeconds}
-                initialRemainingTime={remainingTime % hourSeconds}
+                duration={hourseconds}
+                initialRemainingTime={remainingTime % hourseconds}
                 onComplete={(totalElapsedTime) => [
                   remainingTime - totalElapsedTime > minuteSeconds
                 ]}
               >
                 {({ elapsedTime }) =>
-                  renderTime("minutes", getTimeMinutes(hourSeconds - elapsedTime))
+                  renderTime("minutes", getTimeMinutes(hourseconds - elapsedTime))
                 }
               </CountdownCircleTimer>
             </div>
 
-            <div class="column">
+            {/* <div class="column">
               <CountdownCircleTimer
                 {...timerProps}
                 colors={[["#218380"]]}
@@ -168,11 +172,12 @@ const Dashboard = () => {
                   remainingTime - totalElapsedTime > 0
                 ]}
               >
-                {({ elapsedTime }) =>
+                {/* {({ elapsedTime }) =>
                   renderTime("seconds", getTimeSeconds(elapsedTime))
-                }
-              </CountdownCircleTimer>
-            </div>
+                } */}
+              {/* </CountdownCircleTimer>
+            </div> */}
+             
           </div>
         </div>
 
