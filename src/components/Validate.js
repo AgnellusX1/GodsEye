@@ -82,8 +82,8 @@ const ValidatePage = () => {
           src={imgSrc}
         />
       )}
-       <br></br>
-       <br></br>
+       <br/>
+      
      
       <center><Button variant="contained" onClick={handleClick}>Confirm Validation</Button></center>
 

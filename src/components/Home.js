@@ -41,13 +41,13 @@ const MainPage = () => {
         <br />
         <Button variant="contained" onClick={handleClick}>All the Best</Button>
         <br />
-        <br />
-        <Button variant="contained" onClick={handleClickDetect}>Detections</Button>
-        <br />
-        <br />
-        <Button variant="contained" onClick={handleClickDetect2}>Detections2</Button>
-        <br />
-        <br />
+        
+        {/* <Button variant="contained" onClick={handleClickDetect}>Detections</Button> */}
+        {/* <br /> */}
+      
+        {/* <Button variant="contained" onClick={handleClickDetect2}>Detections2</Button> */}
+        {/* <br /> */}
+        
         <Button variant="contained" onClick={handleClickAdmin}>Admin</Button>
       </header>
     </div>

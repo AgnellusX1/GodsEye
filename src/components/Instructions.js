@@ -45,8 +45,18 @@ const Instructions = () => {
                 </td>
                 <td>
                     <ul>
+                        
                         <li>
-                        The lighting in the room must be bright enough to be considered “daylight” quality. Overhead lighting is preferred. If overhead lighting is not available, the source of light must not be behind you.
+                        The lighting in the room must be bright enough to be considered “daylight” quality. Overhead lighting is preferred. 
+                        </li>
+                        <li>
+                        You are advised to be at the location where there is a good internet connectivity.
+                        </li>
+                        <li>
+                        Make sure that the gadget which you are using is fully charged before the commencement of the examination
+                        </li>
+                        <li>
+                        Your Webcam should be on throughout the exam.
                         </li>
 
                         <li>
@@ -57,7 +67,7 @@ need to be alone to take your exams.
                         Close all programs on your computer and turn off cell phones.
                         </li>
                         <li >
-                        DO NOT leave the computer during the exam or answer the phone for ANY reason.
+                        You are not allowed to leave your seat during complete examination time.
                         </li>
                          <li>
                          You must have a clear desk and clear workspace. No drinks or scrap paper.
@@ -67,6 +77,15 @@ need to be alone to take your exams.
                         </li>
                         <li>
                         Do not speak to anyone during the exam.
+                        </li>
+                        <li>
+                        Following activities during examination will be treated as unfair means / malpractice case
+                        <br/>
+a. Moving away from the screen.
+<br/>
+b. Browsing other websites,opening multiple tabs and sharing the same with any other person or on social media
+<br/>
+c. Running any other application on the gadget through which you are appearing for the examination
                         </li>
                         <li>
                         If any suspicious act is encountered, it will be counted as violation. After certain number of warnings, system will Logout your assessment.

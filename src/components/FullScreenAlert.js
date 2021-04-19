@@ -49,7 +49,7 @@ const FullScreenAlert = (props) => {
         You tried to Exit Full Screen
         </h3>
       <small>
-        This acton has been recorded
+        This action has been recorded
         </small>
       <p>
         Another Atempt to do so will get you debared from the test
