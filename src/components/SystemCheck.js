@@ -76,7 +76,7 @@ if(browser<= 86){
     aggi = true;
 }
 //Net Speed
-if(net <= 1 ){
+if(net <= 0.3 ){
     console.log("Please Continue", net);
     aggi = true;
 }
@@ -95,8 +95,6 @@ navigator.mediaDevices.getUserMedia({video: true})
   console.log('Got stream, time diff :', Date.now() - now);
   handleClick();
 })
-
-
 
 }
 

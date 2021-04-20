@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { useState, useEffect } from 'react';
 import Webcam from "react-webcam";
 import QuestionPage from './Questions';
 import Detection from './Detections';
@@ -18,7 +18,7 @@ var checkn = "";
 var checke = "";
 
 
-const Dashboard = () => {
+const Dashboard = (props:any) => {
 
 var timeslot = sessionStorage.getItem("exam_timer")
 
@@ -45,10 +45,6 @@ var timeslot = sessionStorage.getItem("exam_timer")
 
   //To make sure the user does not open any other App or lose Focus from the test Window
   var i = 0;
-
-  // window.onblur = function () {
-  //   swal("Escaped Secure Window", "Action has been Recorded", "error");
-  // }
 
   const history = useHistory();
   function onAccept() {
@@ -88,12 +84,31 @@ var timeslot = sessionStorage.getItem("exam_timer")
       </div>
     );
   };
-  //For minutes, seconds
-  //const getTimeSeconds = (time) => (minuteSeconds - time) | 0;
-  const getTimeMinutes = (time) => ((time % hourseconds) / minuteSeconds) | 0;
-  const stratTime = Date.now() / 1000; // use UNIX timestamp in seconds
-  const endTime = stratTime + 243248;
-  const remainingTime = endTime - stratTime;
+
+    const {initialMinute = 1,initialSeconds = 5} = props;
+    
+    const [ minutes, setMinutes ] = useState(initialMinute);
+    const [seconds, setSeconds ] =  useState(initialSeconds);
+    useEffect(()=>{
+    let myInterval = setInterval(() => {
+            if (seconds > 0) {
+                setSeconds(seconds - 1);
+            }
+            if (seconds === 0) {
+                if (minutes === 0) {
+                    clearInterval(myInterval)
+                } else {
+                    setMinutes(minutes - 1);
+                    setSeconds(59);
+                }
+            } 
+        }, 1000)
+         
+        return ()=> {
+            clearInterval(myInterval);
+          };
+    });
+
 
   var countalt = 0;
   document.addEventListener('keydown', function (event) {
@@ -133,54 +148,21 @@ var timeslot = sessionStorage.getItem("exam_timer")
     history.push('/thankyou')
   };
 
-  return (
 
+ if (minutes === 1 && seconds === 1){
+        swal("Only 1 Minute Left, Please Submit or else Answers WONT BE SAVED ");
+      }
+
+      if (minutes === 0 && seconds === 1){
+        history.push('/thankyou')
+      }
+
+  return (
+   
+ 
     <div className="App-header" id="Dash">
       <header>
-        {/* <h3>
-            <center>
-              Dashboard
-            </center>
-          </h3> */}
-
-        <div className="timer">
-          <div class="row">
-
-            <div class="column">
-              <CountdownCircleTimer
-                {...timerProps}
-                colors={[["#EF798A"]]}
-                duration={hourseconds}
-                initialRemainingTime={remainingTime % hourseconds}
-                onComplete={(totalElapsedTime) => [
-                  remainingTime - totalElapsedTime > minuteSeconds
-                ]}
-              >
-                {({ elapsedTime }) =>
-                  renderTime("minutes", getTimeMinutes(hourseconds - elapsedTime))
-                }
-              </CountdownCircleTimer>
-            </div>
-
-            {/* <div class="column">
-              <CountdownCircleTimer
-                {...timerProps}
-                colors={[["#218380"]]}
-                duration={minuteSeconds}
-                initialRemainingTime={remainingTime % minuteSeconds}
-                onComplete={(totalElapsedTime) => [
-                  remainingTime - totalElapsedTime > 0
-                ]}
-              >
-                {/* {({ elapsedTime }) =>
-                  renderTime("seconds", getTimeSeconds(elapsedTime))
-                } */}
-              {/* </CountdownCircleTimer>
-            </div> */}
-             
-          </div>
-        </div>
-
+      
         <div className="detect">
           {/* Detection Section Starts here*/}
           <Detection>
@@ -189,10 +171,7 @@ var timeslot = sessionStorage.getItem("exam_timer")
           {/*Detection Section ends here */}
         </div>
 
-        <div className="text">
-          <p>Remaining Time!!</p>
-        </div>
-
+        
         <div className="quest">
           {/* Form Section Starts here */}
           <QuestionPage>
@@ -200,6 +179,14 @@ var timeslot = sessionStorage.getItem("exam_timer")
           </QuestionPage>
           {/* Form Section ends here */}
         </div>
+
+      <div className="leftClass">
+        <p align ="left">Timer</p>   
+        
+          { minutes === 0 && seconds === 0 ? null : <h1 align = "left">  {minutes}:{seconds < 10 ?  `0${seconds}` : seconds}</h1> 
+          }
+                
+      </div>
 
         <div className="button">
           <p>Submit here!!</p>
@@ -210,4 +197,5 @@ var timeslot = sessionStorage.getItem("exam_timer")
     </div>
   )
 }
+
 export default Dashboard;
