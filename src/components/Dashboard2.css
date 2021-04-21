@@ -1,0 +1,55 @@
+  /* #mlVideo{
+    position:fixed;
+    top: 0;
+    left: 0;
+    height: 30%;
+    width: 30%;
+  }
+
+  #mlCanvas{
+    position:fixed;
+    top: 0;
+    left: 0;
+    height: 30%;
+    width: 30%;
+  } */
+  .timer{
+    position: fixed;
+    top:55%;
+    left:5%;
+  }
+  .row {
+    display: flex;
+  }
+  
+  /* Create two equal columns that sits next to each other */
+  .column {
+    flex: 50%;
+    padding: 10px;
+   
+  }
+
+  .detect{
+    height: 100px;
+    width: 100px;
+  }
+
+  .button{
+    position:absolute;
+    top: 80%;
+    left: 10%;
+  }
+  
+  .text{
+    position:absolute;
+    top:45%;
+    left: 10%;
+  }
+
+  #form{
+      top: 0;
+      bottom: 0;
+      position:fixed; 
+      height: 100%;
+      width: 50%;
+  }

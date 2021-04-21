@@ -24,6 +24,7 @@ import { ProtectedRoute } from './components/Protected.Route';
 import Admin from './components/Admin'
 import Formvalid from './components/formvalid'
 import Results from './components/Results'
+import Dashboard2 from './components/Dashboard2'
 var count=100;
 
 class App extends Component {
@@ -46,6 +47,7 @@ class App extends Component {
           <Route exact path="/admin" component={Admin} />
           <Route exact path="/formvalid" component={Formvalid} />
           <Route exact path="/results" component={Results} />
+          <Route exact path="/dashboard2" component={Dashboard2} />
 
           <Route exact path="/404" component={PageNotFound} />
           <Redirect to="/404" />
