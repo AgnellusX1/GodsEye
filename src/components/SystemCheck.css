@@ -16,14 +16,15 @@ body {
 .sign {
     padding-top: 40px;
     padding-bottom: 100px;
-    color: #8C55AA;
+    /* color: #8C55AA; */
+    color:black;
     font-family: 'Ubuntu', sans-serif;
     font-weight: bold;
     font-size: 30px;
 }
 
 .test{
-    color: #8C55AA;
+    color:black;
     padding-bottom: 10px;
     font-size: 24px;
 }

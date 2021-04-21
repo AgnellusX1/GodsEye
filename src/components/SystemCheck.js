@@ -80,11 +80,13 @@ if(net <= 0.3 ){
     console.log("Please Continue", net);
     aggi = true;
 }
+
 //Cam Detection
 var webcam=DetectRTC.isWebsiteHasWebcamPermissions;
 if (webcam===false){
-  console.log("On your camera");
+  console.log("Not Activated",webcam);
   aggi = true;
+  console.log("Activated Successfully",webcam)
 }
 
 //Permission to Camera
@@ -134,7 +136,6 @@ navigator.mediaDevices.getUserMedia({video: true})
 
     <center><Button disabled={aggi} variant='contained' onClick={openFullscreen}>Validate</Button></center>  
     <br></br>
-   
     <center><Button variant='contained' onClick={ActivateCam}>Activate Your WebCam</Button></center>     
                 
     </div>

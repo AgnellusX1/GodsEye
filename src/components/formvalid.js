@@ -52,9 +52,11 @@ const Formvalid = () => {
   };
 
   return (
-  <div className="App-header">
-    <center>
-      <h3><p class="sign" align="center" >Enter Exam Code To Proceed</p></h3>
+    // <h3><p  align="center" color="white" >Enter Exam Code To Proceed</p></h3>
+    <div className="App-header1">
+      <h3><p  align="center" style={{color:'white'}} >Enter Exam Code To Proceed</p></h3>
+      <center>
+      
       <td class="text-center">
         <input type="text" id="formvalid" name="formvalid" value={formvalid} onChange={onChangeformvalid}></input>
         <br></br>
@@ -63,7 +65,11 @@ const Formvalid = () => {
       </td>
       <br></br>
     </center>
-  </div>
+    </div>
+      
+
+  
+  
   )
 }
 

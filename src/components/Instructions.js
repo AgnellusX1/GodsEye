@@ -98,11 +98,13 @@ c. Running any other application on the gadget through which you are appearing f
     </table>
             <center>
                 <small>
-                    Click here to proceed!
+                    Accept To Proceed!!
                 </small>
             </center>
             <br />
             <Button variant="contained" onClick={onAccept}>I Accept</Button>
+            <br/>
+            <br/>
 
 
         </div>

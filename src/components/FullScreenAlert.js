@@ -2,6 +2,7 @@ import React from 'react'
 import Button from '@material-ui/core/Button';
 import { useHistory } from 'react-router-dom'
 import swal from 'sweetalert';
+import warning from "./warning.jpg"
 var count_browser = 0;
 
 const FullScreenAlert = (props) => {
@@ -45,6 +46,9 @@ const FullScreenAlert = (props) => {
 
   return (<div className="App-header">
     <center>
+    <div>
+      <img src={warning} id="warningIcon" />
+      </div>
       <h3>
         You tried to Exit Full Screen
         </h3>

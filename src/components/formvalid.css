@@ -2,8 +2,22 @@
 .sign {
     padding-top: 20px;
     padding-bottom: 50px;
-    color: #000000;
+    color: white;
     font-family: 'Ubuntu', sans-serif;
-    font-weight: bold;
+    font-weight: bold; 
     font-size: 30px;
+}
+
+
+
+.App-header1{
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color:black;
+
 }
