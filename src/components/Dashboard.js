@@ -11,16 +11,11 @@ import firebase from "firebase/app";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 var count_fullscreen = 0;
 var count_tabchange = 0;
-const minuteSeconds = 60;
-const timeslot = exam_timer;
-const hourseconds = 3600;
 var checkn = "";
 var checke = "";
 
 
 const Dashboard = (props:any) => {
-
-var timeslot = sessionStorage.getItem("exam_timer")
 
   //Disable Right click
   if (document.addEventListener) {
@@ -51,6 +46,8 @@ var timeslot = sessionStorage.getItem("exam_timer")
     history.push('/thankyou')
   }
 
+  // Count number of times escaped Fullscreen
+
   if (document.fullscreenElement) {
     console.log("In Full");
   } else {
@@ -70,22 +67,15 @@ var timeslot = sessionStorage.getItem("exam_timer")
     }
   });
 
-  //For timer
+  //Timer Code------> Begins from here 
   const timerProps = {
     isPlaying: true,
     size: 120,
     strokeWidth: 6
   };
-  const renderTime = (dimension, time) => {
-    return (
-      <div className="time-wrapper">
-        <div className="time">{time}</div>
-        <div>{dimension}</div>
-      </div>
-    );
-  };
-
-    const {initialMinute = 1,initialSeconds = 5} = props;
+    // Fetches the timer provided by Admin in Admin page to Dashboard
+    var get_time = sessionStorage.getItem("exam_timer", exam_timer);
+    const {initialMinute = get_time , initialSeconds = 0} = props;
     
     const [ minutes, setMinutes ] = useState(initialMinute);
     const [seconds, setSeconds ] =  useState(initialSeconds);
@@ -109,7 +99,17 @@ var timeslot = sessionStorage.getItem("exam_timer")
           };
     });
 
+    // Give ALert when 1 minute left 
+    if (minutes === 1 && seconds === 1){
+        swal("Only 1 Minute Left, Please Submit or else Answers WONT BE SAVED ");
+    }
+  // Once timer is 0, push to thankyou page
+    if (minutes === 0 && seconds === 1){
+        history.push('/thankyou')
+    }
+  // Timer Code------------> Ends here
 
+  // Count number of times Alt key pressed
   var countalt = 0;
   document.addEventListener('keydown', function (event) {
     console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
@@ -120,6 +120,7 @@ var timeslot = sessionStorage.getItem("exam_timer")
     }
   });
 
+  //Displays Score in Thankyou page
   function handleClicksub() {
     var PIDs = sessionStorage.getItem("checkname").slice(-6)
     console.log(PIDs)
@@ -130,7 +131,7 @@ var timeslot = sessionStorage.getItem("exam_timer")
     var checkn = sessionStorage.getItem("checkname")
     var checke = sessionStorage.getItem("checkemail")
     
-
+  //Fetching data from FireBase
     const con_db = firebase.database().ref("stud_records");
     con_db.on('value', (snapshot) => {
 
@@ -148,14 +149,6 @@ var timeslot = sessionStorage.getItem("exam_timer")
     history.push('/thankyou')
   };
 
-
- if (minutes === 1 && seconds === 1){
-        swal("Only 1 Minute Left, Please Submit or else Answers WONT BE SAVED ");
-      }
-
-      if (minutes === 0 && seconds === 1){
-        history.push('/thankyou')
-      }
 
   return (
    
