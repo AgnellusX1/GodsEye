@@ -43,7 +43,7 @@ const FullScreenAlert = (props) => {
     }
   }
 
-  return (<div>
+  return (<div className="App-header">
     <center>
       <h3>
         You tried to Exit Full Screen

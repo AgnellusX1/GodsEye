@@ -1,11 +1,11 @@
 
 body {
-    background-color: #F3EBF6;
+    background-color: #282c34;
     font-family: 'Ubuntu', sans-serif;
 }
 
 .main {
-    background-color: #FFFFFF;
+    background-color: #f6ebf6;
     width: 700px;
     height: 500px;
     margin: 7em auto;
@@ -23,6 +23,7 @@ body {
 }
 
 .test{
+    color: #8C55AA;
     padding-bottom: 10px;
     font-size: 24px;
 }

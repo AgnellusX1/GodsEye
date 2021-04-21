@@ -100,7 +100,7 @@ navigator.mediaDevices.getUserMedia({video: true})
 
 
   return (
-    <body>
+    <body class="App-header">
   <div class="main">
     <p class="sign" align="center">System Compatibility Check</p>
         <table align="center">
@@ -134,7 +134,7 @@ navigator.mediaDevices.getUserMedia({video: true})
 
     <center><Button disabled={aggi} variant='contained' onClick={openFullscreen}>Validate</Button></center>  
     <br></br>
-    <br></br>
+   
     <center><Button variant='contained' onClick={ActivateCam}>Activate Your WebCam</Button></center>     
                 
     </div>

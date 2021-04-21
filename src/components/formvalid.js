@@ -52,7 +52,7 @@ const Formvalid = () => {
   };
 
   return (
-  <div>
+  <div className="App-header">
     <center>
       <h3><p class="sign" align="center" >Enter Exam Code To Proceed</p></h3>
       <td class="text-center">

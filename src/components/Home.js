@@ -35,7 +35,7 @@ const MainPage = () => {
           Welcome to GodsEye
         </p>
         <small>
-          Ai enabled Virtual Examination System
+          AI Enabled Virtual Examination System
         </small>
 
         <br />

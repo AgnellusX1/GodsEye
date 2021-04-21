@@ -23,25 +23,26 @@ const Thankyou = () => {
                     Thankyou for giving the test nice seeing you
             </h3>
                 <h2>Cheat Score</h2>
-                <br></br>
+                <br/>
                 <h3>
                     User Name :{checkn}
-                    <br></br>
+                    <br/>
+                    
 
             User Email :{checke}
-                    <br></br>
+            <br/>
 
             Face Detection: {count_facedetect}
-                    <br></br>
+            <br/>
 
             Fullscreen Cheat Detection: {count_fullscreen}
-                    <br></br>
+            <br/>
 
             Tab Change Detection: {count_tabchange}
-                    <br></br>
+            <br/>
 
             ALT Tab Key Pressed: {countalt}
-                    <br></br>
+            <br/>
                 </h3>
 
                 <Button variant="contained" onClick={handleClickExit}>Exit Secure Window</Button>

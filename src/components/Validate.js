@@ -54,22 +54,19 @@ const ValidatePage = () => {
   }
 
 
-  return (<div>
+  return (<div className="App-header">
+    
     <center>
-      <h3>
+      {/* <h3>
         Validate Page
-    </h3>
+    </h3> */}
     </center>
     <br></br>
       <p align ="center"><b>Instructions to Follow:</b></p>
-      
-      <br></br>
-      
       <li align = "center"><strong>The lighting in the room must be bright enough to be considered “daylight” quality. Overhead lighting is preferred. </strong></li>
-      <br></br>
-      <li align ="center"><strong>If overhead lighting is not available, the source of light must not be behind you.</strong></li>
+      
+      <li align ="left"><strong>If overhead lighting is not available, the source of light must not be behind you.</strong></li>
       <center>
-      <br></br>
       <br></br>
       <Webcam
         audio={false}
@@ -89,6 +86,9 @@ const ValidatePage = () => {
 
 
     </center>
+
+    
+    
   </div>
   )
 }
