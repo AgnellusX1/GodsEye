@@ -130,6 +130,7 @@ const Dashboard = (props:any) => {
     var countalt = sessionStorage.getItem("countalt")
     var checkn = sessionStorage.getItem("checkname")
     var checke = sessionStorage.getItem("checkemail")
+ 
     
   //Fetching data from FireBase
     const con_db = firebase.database().ref("stud_records");
