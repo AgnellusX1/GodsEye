@@ -42,7 +42,7 @@ const Formvalid = () => {
         console.log(form_link);
         sessionStorage.setItem("form_link", form_link);
         sessionStorage.setItem("exam_timer",exam_timer);
-        history.push("/Dashboard");
+        history.push("/dashboard");
       }
       else {
         swal("Invalid Exam Code", "Please Enter A Valid Examcode", "error");

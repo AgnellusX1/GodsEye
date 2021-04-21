@@ -1,13 +1,12 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import Webcam from "react-webcam";
-import QuestionPage from './Questions';
 import Detection from './Detections';
 import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
 import exam_timer from './formvalid';
 import firebase from "firebase/app";
+import "./Dashboard2.css";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 var count_fullscreen = 0;
 var count_tabchange = 0;
@@ -16,6 +15,8 @@ var checke = "";
 
 
 const Dashboard = (props:any) => {
+
+  var form_link = sessionStorage.getItem("form_link");
 
   //Disable Right click
   if (document.addEventListener) {
@@ -165,15 +166,6 @@ const Dashboard = (props:any) => {
           {/*Detection Section ends here */}
         </div>
 
-        
-        <div className="quest">
-          {/* Form Section Starts here */}
-          <QuestionPage>
-
-          </QuestionPage>
-          {/* Form Section ends here */}
-        </div>
-
       <div className="leftClass">
         <p align ="left">Timer</p>   
         
@@ -186,6 +178,9 @@ const Dashboard = (props:any) => {
           <p>Submit here!!</p>
           <center><Button variant="contained" onClick={handleClicksub}>Submit</Button></center>
         </div>
+
+        <iframe src={form_link} id='form'>Loading…</iframe >
+
       </header>
 
     </div>
