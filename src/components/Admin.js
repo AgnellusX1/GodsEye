@@ -48,7 +48,8 @@ const Admin = () => {
 
   };
   return (
-    <body style={{backgroundColor:'#282c34'}}>
+    <div className="App-header">
+      <body style={{backgroundColor:'#282c34'}}>
     <p>
       <center>
         <h1 style={{color:'white'}}>
@@ -77,6 +78,8 @@ const Admin = () => {
       </center>
     </p>
     </body>
+    </div>
+    
   )
 }
 export default Admin;
