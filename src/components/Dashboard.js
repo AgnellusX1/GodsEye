@@ -5,6 +5,7 @@ import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
 import exam_timer from './formvalid';
+import formvalid from './formvalid';
 import firebase from "firebase/app";
 import "./Dashboard2.css";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
@@ -137,18 +138,23 @@ const Dashboard = (props:any) => {
     const con_db = firebase.database().ref("stud_records");
     con_db.on('value', (snapshot) => {
 
-      var s = snapshot.val()
-      console.log(s)
-      con_db.child(PIDs).set({
+
+var s = snapshot.val()
+var codeexam = sessionStorage.getItem("formvalid", formvalid);
+//var codeexam =  s[d]
+console.log(s)
+con_db.child(codeexam).child(PIDs).set({
         alt: countalt,
+        tab: count_tabchange,
         face: count_facedetect,
         fullscreen: count_fullscreen,
         semail: checke,
         sname: checkn
-      });
-    });
 
-    history.push('/thankyou')
+      })
+});
+
+  history.push('/thankyou')
   };
 
 

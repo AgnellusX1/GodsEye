@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import firebase from "firebase/app";
 import { useHistory } from 'react-router-dom'
@@ -32,9 +33,7 @@ const Formvalid = () => {
     con_db.on('value', (snapshot) => {
       var s = snapshot.val()
       var d = s[formvalid]
-      //var e = s[examtimer]
-      console.log("check1")
-      //console.log(e)
+    
       if (d != null) {
         var form_link = d["formlink"]
         var exam_timer = d["examtimer"]
@@ -42,7 +41,8 @@ const Formvalid = () => {
         console.log(form_link);
         sessionStorage.setItem("form_link", form_link);
         sessionStorage.setItem("exam_timer",exam_timer);
-        history.push("/dashboard");
+        sessionStorage.setItem("formvalid",formvalid);
+        history.push("/Dashboard");
       }
       else {
         swal("Invalid Exam Code", "Please Enter A Valid Examcode", "error");
@@ -52,7 +52,7 @@ const Formvalid = () => {
   };
 
   return (
-    // <h3><p  align="center" color="white" >Enter Exam Code To Proceed</p></h3>
+    
     <div className="App-header1">
       <h3><p  align="center" style={{color:'white'}} >Enter Exam Code To Proceed</p></h3>
       <center>
