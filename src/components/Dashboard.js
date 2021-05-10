@@ -8,7 +8,6 @@ import exam_timer from './formvalid';
 import formvalid from './formvalid';
 import firebase from "firebase/app";
 import "./Dashboard2.css";
-import { CountdownCircleTimer } from "react-countdown-circle-timer";
 var count_fullscreen = 0;
 var count_tabchange = 0;
 var checkn = "";

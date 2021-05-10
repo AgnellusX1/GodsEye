@@ -1,7 +1,10 @@
-import React from 'react';
+import config from "../config";
+import React ,{useContext}from 'react';
 import { useHistory } from 'react-router-dom'
 import logo from './../logo.png';
 import './../App.css';
+import { Redirect } from "react-router-dom";
+import { AuthContext } from "./Auth";
 import Button from '@material-ui/core/Button';
 
 
@@ -22,7 +25,8 @@ const MainPage = () => {
     history.push("/detections2")
   }
   function handleClickAdmin() {
-    history.push("/admin")
+    history.push("/adminsignup")
+  
   }
 
   return (

@@ -2,15 +2,27 @@ import React from 'react'
 import swal from 'sweetalert';
 import config from "../config";
 import firebase from "firebase/app";
+import AdminSignUp from "./AdminSignUp";
+//import signout from "./AdminSignUp";
 //Calling Bootstrap 4.5 css
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+ 
+   
 class Results extends React.Component {
+   
+
 constructor(props) {
     
     super(props);
-   
+   //this.logout = this.logout.bind(this);
     this.state = {studentslist : []}
     }
+
+  //  logout(){
+  //   config.auth().signOut();
+//}
     
   componentDidMount() {
    
@@ -24,9 +36,21 @@ constructor(props) {
         });
         this.setState({ studentslist: studentlist });
       });
-    
-    
+      
  }
+
+// const signout=()=> {
+//  config.auth().signOut().then(function() {
+//   // Sign-out successful.
+// }).catch(function(error) {
+//   // An error happened.
+// });
+// }
+
+// const handleLogout=() =>{
+//     config.auth.signOut();
+//   };
+  
   
   render(){
   return (
@@ -66,7 +90,9 @@ constructor(props) {
             </tbody>
             
          </table>
-          
+
+         {/* <button onClick = {this.logout}> LogOut</button> */}
+          {/* <button onClick = {signout}> LogOut</button> */}
      </div>
     </div>
   );
