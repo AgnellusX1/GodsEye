@@ -42,17 +42,8 @@ const MainPage = () => {
           AI Enabled Virtual Examination System
         </small>
 
-        <br />
-        <Button variant="contained" onClick={handleClick}>All the Best</Button>
-        <br />
-        
-        {/* <Button variant="contained" onClick={handleClickDetect}>Detections</Button> */}
-        {/* <br /> */}
-      
-        {/* <Button variant="contained" onClick={handleClickDetect2}>Detections2</Button> */}
-        {/* <br /> */}
-        
-        <Button variant="contained" onClick={handleClickAdmin}>Admin</Button>
+        <Button id="homeButtons" variant="contained" onClick={handleClick}>All the Best</Button>
+        <Button id="homeButtons" variant="contained" onClick={handleClickAdmin}>Admin</Button>
       </header>
     </div>
   );

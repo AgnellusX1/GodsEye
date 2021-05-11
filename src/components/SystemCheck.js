@@ -90,15 +90,15 @@ if (webcam===false){
 }
 
 //Permission to Camera
-function ActivateCam(){
-  var now = Date.now();
-navigator.mediaDevices.getUserMedia({video: true})
-.then(function(stream) {
-  console.log('Got stream, time diff :', Date.now() - now);
-  handleClick();
-})
+// function ActivateCam(){
+//   var now = Date.now();
+// navigator.mediaDevices.getUserMedia({video: true})
+// .then(function(stream) {
+//   console.log('Got stream, time diff :', Date.now() - now);
+//   handleClick();
+// })
 
-}
+// }
 
 
   return (
@@ -136,7 +136,7 @@ navigator.mediaDevices.getUserMedia({video: true})
 
     <center><Button disabled={aggi} variant='contained' onClick={openFullscreen}>Validate</Button></center>  
     <br></br>
-    <center><Button variant='contained' onClick={ActivateCam}>Activate Your WebCam</Button></center>     
+    <center><Button variant='contained' onClick={handleClick}>Activate Your WebCam</Button></center>     
                 
     </div>
      

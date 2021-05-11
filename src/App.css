@@ -41,3 +41,8 @@
 .Cam-live {
   align-self: auto;
 }
+
+/* Home Page */
+#homeButtons{
+  margin: 10px 0 10px 0;
+}

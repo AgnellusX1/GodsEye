@@ -91,6 +91,8 @@ const Dashboard = (props:any) => {
                 } else {
                     setMinutes(minutes - 1);
                     setSeconds(59);
+                    var currectTime=minutes-1
+                    sessionStorage.setItem("exam_timer",currectTime);
                 }
             } 
         }, 1000)
