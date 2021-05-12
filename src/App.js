@@ -26,6 +26,7 @@ import Formvalid from './components/formvalid'
 import Results from './components/Results'
 import Dashboard2 from './components/Dashboard2'
 import AdminSignUp from './components/AdminSignUp'
+import PosenetPage from './components/Posenet';
 
 
 
@@ -53,6 +54,7 @@ class App extends Component {
           <Route exact path="/results" component={Results} />
           <Route exact path="/dashboard2" component={Dashboard2} />
           <Route exact path="/adminsignup" component={AdminSignUp} />
+          <Route exact path="/posenet" component={PosenetPage} />
         
 
 

@@ -29,6 +29,10 @@ const MainPage = () => {
   
   }
 
+  function headpose(){
+    history.push("/posenet")
+  }
+
   return (
     <div>
 
@@ -44,6 +48,7 @@ const MainPage = () => {
 
         <Button id="homeButtons" variant="contained" onClick={handleClick}>All the Best</Button>
         <Button id="homeButtons" variant="contained" onClick={handleClickAdmin}>Admin</Button>
+        <Button id="homeButtons" variant="contained" onClick={headpose}>Headpose</Button>
       </header>
     </div>
   );
