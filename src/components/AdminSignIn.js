@@ -41,7 +41,7 @@ const AdminSignIn = () => {
  
    
   return (
-    <>
+    
       <div className="App-header1">
       <h1>Sign In</h1>
       <form onSubmit={handleSubmit} >
@@ -56,7 +56,7 @@ const AdminSignIn = () => {
         {/* <button type="submit" align="center">Submit</button> */}
       </form>
       </div>
-    </>
+    
   );
 }
 
