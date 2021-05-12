@@ -39,16 +39,25 @@ const AdminSignUp = () => {
  
    
   return (
-    <>
+    <div className='App-header'>
+      <center>
       <h1>Sign Up</h1>
+      <br/>
+      <br/>
       <form onSubmit={handleSubmit} >
-        <label for="email">Email</label>
+        <label for="email">Email:</label>
         <input type="email" name="email" placeholder="Email" />
-        <label for="password">Password</label>
+        <br/>
+        <br/>
+        <label for="password">Password:</label>
         <input type="password" name="password" placeholder="Password" />
-        <button type="submit" >Submit</button>
+        <br/>
+        <br/>
+        <button style={{color:'black'}}  type="submit" >Submit</button>
       </form>
-    </>
+      </center>
+      
+    </div>
   );
 }
 
