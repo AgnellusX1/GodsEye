@@ -11,29 +11,19 @@ const ValidatePage = () => {
       e.preventDefault();
     }, false);
   }
-
-  // // Alert on Tab Changed within the Same browser Window
-  // function handleVisibilityChange() {
-  //   if (document.hidden) {
-  //     swal("Tab Change Detected", "Action has been Recorded", "error");
-  //     // the page is hidden
-  //   } else {
-  //     // the page is visible
-  //   }
-  // }
   // document.addEventListener("visibilitychange", handleVisibilityChange, false);
   //for capturing image
   const webcamRef = React.useRef(null);
   const [imgSrc, setImgSrc] = React.useState(null);
   const capture = React.useCallback(() => {
-    const imageSrc = webcamRef.current.getScreenshot();
+  const imageSrc = webcamRef.current.getScreenshot();
     setImgSrc(imageSrc);
   }, [webcamRef, setImgSrc]);
-
+  
+  //image as base64
+  console.log(imgSrc);
 
   const history = useHistory();
-
-
   var elem = document.documentElement;
 
   /* View in fullscreen */
@@ -50,16 +40,10 @@ const ValidatePage = () => {
     }
   }
   function handleClick() {
-    history.push("/systemcheck");
+  history.push("/systemcheck");
   }
-
-
   return (<div className="App-header">
-    
     <center>
-      {/* <h3>
-        Validate Page
-    </h3> */}
     </center>
     <br></br>
       <p align ="center"><b>Instructions to Follow:</b></p>
@@ -68,27 +52,26 @@ const ValidatePage = () => {
       <li align ="left"><strong>If overhead lighting is not available, the source of light must not be behind you.</strong></li>
       <center>
       <br></br>
-      <Webcam
+       <Webcam
         audio={false}
         ref={webcamRef}
         screenshotFormat="image/jpeg"
-      />
-      {/* <center><button onClick={capture}>Capture photo</button></center> */}
+      /> 
+     <center><button style={{color:'black'}} onClick={capture}>Capture photo</button></center>
       {imgSrc && (
         <img
           src={imgSrc}
-        />
-      )}
-       <br/>
+        /> 
+      )} 
       
-     
+      
       <center><Button variant="contained" onClick={handleClick}>Confirm Validation</Button></center>
 
 
     </center>
 
     
-    
+   
   </div>
   )
 }
