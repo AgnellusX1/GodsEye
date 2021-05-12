@@ -25,7 +25,7 @@ const MainPage = () => {
     history.push("/detections2")
   }
   function handleClickAdmin() {
-    history.push("/adminsignup")
+    history.push("/adminsignin")
   
   }
 

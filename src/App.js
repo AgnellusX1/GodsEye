@@ -25,8 +25,9 @@ import Admin from './components/Admin'
 import Formvalid from './components/formvalid'
 import Results from './components/Results'
 import Dashboard2 from './components/Dashboard2'
-import AdminSignUp from './components/AdminSignUp'
+import AdminSignIn from './components/AdminSignIn'
 import PosenetPage from './components/Posenet';
+import CodeCheck from './components/CodeCheck'
 
 
 
@@ -53,8 +54,9 @@ class App extends Component {
           <Route exact path="/formvalid" component={Formvalid} />
           <Route exact path="/results" component={Results} />
           <Route exact path="/dashboard2" component={Dashboard2} />
-          <Route exact path="/adminsignup" component={AdminSignUp} />
+          <Route exact path="/adminsignin" component={AdminSignIn} />
           <Route exact path="/posenet" component={PosenetPage} />
+          <Route exact path="/codecheck" component={CodeCheck} />
         
 
 

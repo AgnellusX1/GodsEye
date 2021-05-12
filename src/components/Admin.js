@@ -21,13 +21,11 @@ const Admin = () => {
   const onChangeTimer = (e) => {
     setTimer(e.target.value);
   };
-  //
 
   function handleClicksub() {
     
     const con_db = firebase.database().ref("con_dbs");
-    //const condb={examcode:examcode,formlink:formlink};
-    //con_db.set(condb);
+
     con_db.on('value', (snapshot) => {
   
       var s = snapshot.val()
@@ -44,7 +42,7 @@ const Admin = () => {
     
   
    function results(){
-    history.push('/results');
+    history.push('/codecheck');
 
   };
   return (

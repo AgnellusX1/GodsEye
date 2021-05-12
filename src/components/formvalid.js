@@ -65,11 +65,7 @@ const Formvalid = () => {
       </td>
       <br></br>
     </center>
-    </div>
-      
-
-  
-  
+    </div> 
   )
 }
 

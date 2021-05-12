@@ -2,9 +2,10 @@ import React from 'react'
 import swal from 'sweetalert';
 import config from "../config";
 import firebase from "firebase/app";
-import AdminSignUp from "./AdminSignUp";
-//import signout from "./AdminSignUp";
-//Calling Bootstrap 4.5 css
+import AdminSignIn from "./AdminSignIn";
+import { Button } from '@material-ui/core';
+import CodeCheck from "./CodeCheck";
+import './Results.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -25,18 +26,19 @@ constructor(props) {
 //}
     
   componentDidMount() {
+  var  childcode = sessionStorage.getItem("inputcode");
+  console.log("Checktable", childcode);
    
-   
+      firebase.database().ref("stud_records").child(childcode).on("value", snapshot => {
      
-      firebase.database().ref("stud_records").on("value", snapshot => {
         let studentlist = [];
         snapshot.forEach(snap => {
-            // snap.val() is the dictionary with all your keys/values from the 'stud_records' path
+        // snap.val() is the dictionary with all your keys/values from the 'stud_records' path
             studentlist.push(snap.val());
+            console.log("Chekit" ,studentlist);
         });
         this.setState({ studentslist: studentlist });
-      });
-      
+      });     
  }
 
 // const signout=()=> {
@@ -47,6 +49,11 @@ constructor(props) {
 // });
 // }
 
+logout() {
+        localStorage.clear();
+        window.location.href = '/';
+    }
+
 // const handleLogout=() =>{
 //     config.auth.signOut();
 //   };
@@ -55,8 +62,9 @@ constructor(props) {
   render(){
   return (
     <div className="MainDiv">
-      <div class="jumbotron text-center bg-sky">
+      <div class="givecolor">
           <h3>Cheat Score Records</h3>
+           
       </div>
     
       <div className="container">
@@ -68,6 +76,7 @@ constructor(props) {
                     <th>Alt</th>
                     <th>Face</th>
                     <th>Fullscreen</th>
+                    <th>Tab</th>
                 </tr>
             </thead>
             <tbody>
@@ -80,6 +89,7 @@ constructor(props) {
                     <td>{data.alt}</td>
                     <td>{data.face}</td>
                     <td>{data.fullscreen}</td>
+                    <td>{data.tab}</td>
                     </tr>
                     
                 );
@@ -90,11 +100,10 @@ constructor(props) {
             </tbody>
             
          </table>
-
-         {/* <button onClick = {this.logout}> LogOut</button> */}
-          {/* <button onClick = {signout}> LogOut</button> */}
      </div>
+             <div className="center-block"><Button onClick = {this.logout} variant="contained"> LogOut </Button></div>
     </div>
+     
   );
 }
 }
