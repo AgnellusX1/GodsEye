@@ -37,7 +37,7 @@
   .button{
     position:fixed;
     top: 80%;
-    left: 0%;
+    left: 5%;
   }
   
   .text{
@@ -57,6 +57,6 @@
 .lame{
   /* text-align: left; */
   top:45%;
-  left:0%;
+  left:5%;
   position: fixed;
 }
