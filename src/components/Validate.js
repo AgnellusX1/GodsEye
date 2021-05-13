@@ -18,10 +18,12 @@ const ValidatePage = () => {
   const capture = React.useCallback(() => {
   const imageSrc = webcamRef.current.getScreenshot();
     setImgSrc(imageSrc);
+    sessionStorage.setItem("imageSrc", imageSrc);
   }, [webcamRef, setImgSrc]);
   
   //image as base64
   console.log(imgSrc);
+ 
 
   const history = useHistory();
   var elem = document.documentElement;
@@ -57,13 +59,17 @@ const ValidatePage = () => {
         ref={webcamRef}
         screenshotFormat="image/jpeg"
       /> 
-     <center><button style={{color:'black'}} onClick={capture}>Capture photo</button></center>
+      <br/>
+      <br/>
+     <center><Button variant="contained" onClick={capture}>Capture photo</Button></center>
       {imgSrc && (
         <img
           src={imgSrc}
         /> 
       )} 
       
+      <br/>
+      <br/>
       
       <center><Button variant="contained" onClick={handleClick}>Confirm Validation</Button></center>
 

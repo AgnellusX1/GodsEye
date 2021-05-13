@@ -16,7 +16,7 @@
   .timer{
     position: fixed;
     top:55%;
-    left:5%;
+    left:0%;
   }
   .row {
     display: flex;
@@ -35,9 +35,9 @@
   }
 
   .button{
-    position:absolute;
+    position:fixed;
     top: 80%;
-    left: 10%;
+    left: 0%;
   }
   
   .text{
@@ -53,3 +53,10 @@
       height: 100%;
       width: 50%;
   }
+
+.lame{
+  /* text-align: left; */
+  top:45%;
+  left:0%;
+  position: fixed;
+}

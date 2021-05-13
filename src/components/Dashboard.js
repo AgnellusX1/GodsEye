@@ -8,6 +8,7 @@ import exam_timer from './formvalid';
 import formvalid from './formvalid';
 import firebase from "firebase/app";
 import "./Dashboard2.css";
+import checkname from "./Login";
 var count_fullscreen = 0;
 var count_tabchange = 0;
 var checkn = "";
@@ -133,8 +134,7 @@ const Dashboard = (props:any) => {
     var countalt = sessionStorage.getItem("countalt")
     var checkn = sessionStorage.getItem("checkname")
     var checke = sessionStorage.getItem("checkemail")
- 
-    
+    var photo = sessionStorage.getItem("imageSrc")
   //Fetching data from FireBase
     const con_db = firebase.database().ref("stud_records");
     con_db.on('value', (snapshot) => {
@@ -150,7 +150,8 @@ con_db.child(codeexam).child(PIDs).set({
         face: count_facedetect,
         fullscreen: count_fullscreen,
         semail: checke,
-        sname: checkn
+        sname: checkn,
+        photo: photo
 
       })
 });
@@ -173,6 +174,10 @@ con_db.child(codeexam).child(PIDs).set({
           {/*Detection Section ends here */}
         </div>
 
+        <div className="lame">
+          <h3 align="left"> <span >Name :  {JSON.stringify(sessionStorage.getItem("checkname")).slice(1,-1)}</span></h3> 
+         </div>
+    
       <div className="leftClass">
         <p align ="left">Timer</p>   
         
@@ -183,7 +188,7 @@ con_db.child(codeexam).child(PIDs).set({
 
         <div className="button">
           <p>Submit here!!</p>
-          <center><Button variant="contained" onClick={handleClicksub}>Submit</Button></center>
+          <center><Button variant="contained" color="primary" size="medium" onClick={handleClicksub}>Submit</Button></center>
         </div>
 
         <iframe src={form_link} id='form'>Loading…</iframe >
