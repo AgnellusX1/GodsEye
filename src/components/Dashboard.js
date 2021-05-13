@@ -9,8 +9,6 @@ import formvalid from './formvalid';
 import firebase from "firebase/app";
 import "./Dashboard2.css";
 import checkname from "./Login";
-var count_fullscreen = 0;
-var count_tabchange = 0;
 var checkn = "";
 var checke = "";
 
@@ -26,6 +24,7 @@ const Dashboard = (props:any) => {
     }, false);
   }
   // Alert on Tab Changed within the Same browser Window
+  var count_tabchange = 0;
   function handleVisibilityChange() {
     if (document.hidden) {
       swal("Changed Tab Detected", "Action has been Recorded", "error");
@@ -56,6 +55,7 @@ const Dashboard = (props:any) => {
     history.push('fullscreenalert')
   }
 
+  var count_fullscreen = 0;
   document.addEventListener('fullscreenchange', (event) => {
     if (document.fullscreenElement) {
       console.log(`Element: ${document.fullscreenElement.id} entered full-screen mode.`);

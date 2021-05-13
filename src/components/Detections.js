@@ -4,8 +4,8 @@ import swal from 'sweetalert';
 import * as cocoSsd from "@tensorflow-models/coco-ssd";
 import "@tensorflow/tfjs";
 import "./Detections.css";
-var count_facedetect = 0;
 
+var count_facedetect = 0;
 export default class Detection extends React.Component {
   videoRef = React.createRef();
   canvasRef = React.createRef();
@@ -64,7 +64,6 @@ export default class Detection extends React.Component {
     const font = "16px sans-serif";
     ctx.font = font;
     ctx.textBaseline = "top";
-
     predictions.forEach(prediction => {
 
       const x = prediction.bbox[0];
@@ -88,7 +87,6 @@ export default class Detection extends React.Component {
             swal("Multiple Face Detection", "Action has been Recorded", "error");
           }
         }
-
         if (predictions[i].class === "cell phone") {
           swal("Cell Phone Detected", "Action has been Recorded", "error");
           count_facedetect = count_facedetect + 1;
