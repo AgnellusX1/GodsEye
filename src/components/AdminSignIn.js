@@ -43,12 +43,12 @@ const AdminSignIn = () => {
   return (
     
       <div className="App-header1">
-      <h1>Sign In</h1>
+      <h1 style={{color:'white'}}>Sign In</h1>
       <form onSubmit={handleSubmit} >
-        <label for="email">Email: </label><br/>
+        <label for="email" style={{color:'white'}}>Email: </label><br/>
         <input type="email" name="email" placeholder="Email" />
         <br/><br/>
-        <label for="password">Password: </label><br/>
+        <label for="password" style={{color:'white'}}>Password: </label><br/>
         <input type="password" name="password" placeholder="Password" />
         <br/><br/>
         <br/><br/>
