@@ -1,5 +1,5 @@
 import config from "../config";
-import React ,{useContext}from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom'
 import logo from './../logo.png';
 import './../App.css';
@@ -13,7 +13,7 @@ const MainPage = () => {
   const history = useHistory();
 
   function handleClick() {
-    var mywindow=window.open("/login","NewWindow","height=700,width=1720")
+    var mywindow = window.open("/login", "NewWindow", "height=700,width=1720")
     // history.push("/login");
   }
 
@@ -26,10 +26,10 @@ const MainPage = () => {
   }
   function handleClickAdmin() {
     history.push("/adminsignin")
-  
+
   }
 
-  function headpose(){
+  function headpose() {
     history.push("/posenet")
   }
 
@@ -46,7 +46,7 @@ const MainPage = () => {
           AI Enabled Virtual Examination System
         </small>
 
-        <Button id="homeButtons" variant="contained" onClick={handleClick}>All the Best</Button>
+        <Button id="homeButtons" style={{ fontSize: '25px' }} variant="contained" size="large" onClick={handleClick}>All the Best</Button>
         <Button id="homeButtons" variant="contained" onClick={handleClickAdmin}>Admin</Button>
         <Button id="homeButtons" variant="contained" onClick={headpose}>Headpose</Button>
       </header>

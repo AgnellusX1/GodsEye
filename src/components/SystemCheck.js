@@ -179,7 +179,7 @@ const SystemCheck = () => {
                   <span ><b>OS:</b>  {"- " + JSON.stringify(DetectRTC.osName, null, 2).slice(1, -1) + " " + JSON.stringify(DetectRTC.osVersion, null, 0).slice(1, -1)} </span>
                 </li>
                 <li class="test">
-                  <span><b>Browser:</b> {"- " + JSON.stringify(DetectRTC.browser.name).slice(1,-1) + " " + JSON.stringify(DetectRTC.browser.version)} </span>
+                  <span><b>Browser:</b> {"- " + JSON.stringify(DetectRTC.browser.name).slice(1, -1) + " " + JSON.stringify(DetectRTC.browser.version)} </span>
                 </li>
                 <li class="test">
                   <span><b>Internet Speed:</b> {"- " + sessionStorage.getItem("netspeed") + " mbps"} </span>
@@ -187,7 +187,6 @@ const SystemCheck = () => {
                 <li class="test">
                   <span><b>Webcam:</b> {"- " + JSON.stringify(DetectRTC.isWebsiteHasWebcamPermissions)} </span>
                 </li>
-
               </ul>
             </td>
           </tr>
@@ -195,9 +194,26 @@ const SystemCheck = () => {
         </table>
 
 
-        <center><Button disabled={buttonViewDisabled} variant='contained' onClick={openFullscreen}>Validate</Button></center>
-        <br></br>
-        <center><Button variant='contained' onClick={handleClick}>Activate Your WebCam</Button></center>
+        <center>
+          <Button
+
+            className="activateButton"
+            variant="contained"
+            color="secondary"
+            onClick={handleClick}>
+            Activate Your WebCam and Network Check
+            </Button>
+        </center>
+
+        <center>
+          <Button
+            size="large"
+            disabled={buttonViewDisabled}
+            variant='contained'
+            onClick={openFullscreen}>
+            Next
+            </Button>
+        </center>
 
       </div>
 

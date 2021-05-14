@@ -18,18 +18,6 @@ const LoginPage = () => {
     }, false);
   }
 
-  // Alert on Tab Changed within the Same browser Window
-  // function handleVisibilityChange() {
-  //   // if (document.hidden) {
-  //   //   swal("Tab Change Detected", "Action has been Recorded", "error");
-  //   //   // the page is hidden
-  //   // } else {
-  //   //   // the page is visible
-  //   //}
-  // }
-
-  // document.addEventListener("visibilitychange", handleVisibilityChange, false);
-
 
   const onSuccess = (googleUser) => {
     var profile = googleUser.getBasicProfile();
@@ -43,12 +31,12 @@ const LoginPage = () => {
     sessionStorage.setItem("checkemail", checkemail);
 
     auth.login(() => {
-    //history.push("/dashboard");  {/*Change back to System Check, after the exam code bug is fixed*/}
       history.push("/systemcheck")
     });
   };
 
   const onFaliure = (res) => {
+    swal("Login Failed", "Kindly try again using SFIT Google Account", "error");
     console.log('[Login Success] res:', res);
   };
 
@@ -66,6 +54,9 @@ const LoginPage = () => {
       </head>
       <header className="App-header">
         <h1>Login</h1>
+        <p>
+          Login using only your SFIT Gmail account
+        </p>
 
         <GoogleLogin
 
@@ -81,6 +72,5 @@ const LoginPage = () => {
     </div>
   );
 }
-//const count=0;
-//export default count;
+
 export default LoginPage;

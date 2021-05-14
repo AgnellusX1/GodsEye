@@ -15,7 +15,7 @@ var checkn = "";
 var checke = "";
 
 
-const Dashboard = (props:any) => {
+const Dashboard = (props: any) => {
 
   var form_link = sessionStorage.getItem("form_link");
 
@@ -69,16 +69,16 @@ const Dashboard = (props:any) => {
     }
   });
 
-   // Count number of times Alt key pressed
-   var countalt = 0;
-   document.addEventListener('keydown', function (event) {
-     console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
-     if (event.key === 'Alt') {
-       swal('Alt Keypress Detected');
-       countalt = countalt + 1;
-       sessionStorage.setItem("countalt", countalt);
-     }
-   });
+  // Count number of times Alt key pressed
+  var countalt = 0;
+  document.addEventListener('keydown', function (event) {
+    console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
+    if (event.key === 'Alt') {
+      swal('Alt Keypress Detected');
+      countalt = countalt + 1;
+      sessionStorage.setItem("countalt", countalt);
+    }
+  });
 
   //Timer Code------> Begins from here 
   // const timerProps = {
@@ -86,41 +86,41 @@ const Dashboard = (props:any) => {
   //   size: 120,
   //   strokeWidth: 6
   // };
-    // Fetches the timer provided by Admin in Admin page to Dashboard
-    var get_time = sessionStorage.getItem("exam_timer", exam_timer);
-    const {initialMinute = get_time , initialSeconds = 0} = props;
-    
-    const [ minutes, setMinutes ] = useState(initialMinute);
-    const [seconds, setSeconds ] =  useState(initialSeconds);
-    useEffect(()=>{
-    let myInterval = setInterval(() => {
-            if (seconds > 0) {
-                setSeconds(seconds - 1);
-            }
-            if (seconds === 0) {
-                if (minutes === 0) {
-                  clearInterval(myInterval)
-                } else {
-                    setMinutes(minutes - 1);
-                    setSeconds(59);
-                    var currectTime=minutes
-                    sessionStorage.setItem("exam_timer",currectTime);
-                }
-            } 
-        }, 1000)
-         
-        return ()=> {
-            clearInterval(myInterval);
-          };
-    });
+  // Fetches the timer provided by Admin in Admin page to Dashboard
+  var get_time = sessionStorage.getItem("exam_timer", exam_timer);
+  const { initialMinute = get_time, initialSeconds = 0 } = props;
 
-    // Give ALert when 1 minute left 
-    if (minutes === 1 && seconds === 1){
-        swal("Only 1 Minute Left, Please Submit or else Answers WONT BE SAVED ");
-    }
+  const [minutes, setMinutes] = useState(initialMinute);
+  const [seconds, setSeconds] = useState(initialSeconds);
+  useEffect(() => {
+    let myInterval = setInterval(() => {
+      if (seconds > 0) {
+        setSeconds(seconds - 1);
+      }
+      if (seconds === 0) {
+        if (minutes === 0) {
+          clearInterval(myInterval)
+        } else {
+          setMinutes(minutes - 1);
+          setSeconds(59);
+          var currectTime = minutes
+          sessionStorage.setItem("exam_timer", currectTime);
+        }
+      }
+    }, 1000)
+
+    return () => {
+      clearInterval(myInterval);
+    };
+  });
+
+  // Give ALert when 1 minute left 
+  if (minutes === 1 && seconds === 1) {
+    swal("Only 1 Minute Left, Please Submit or else Answers WONT BE SAVED ");
+  }
   // Timer Code------------> Ends here
 
- 
+
 
   //Displays Score in Thankyou page
   function handleClicksub() {
@@ -133,16 +133,16 @@ const Dashboard = (props:any) => {
     var checkn = sessionStorage.getItem("checkname")
     var checke = sessionStorage.getItem("checkemail")
     var photo = sessionStorage.getItem("imageSrc")
-  //Fetching data from FireBase
+    //Fetching data from FireBase
     const con_db = firebase.database().ref("stud_records");
     con_db.on('value', (snapshot) => {
 
 
-var s = snapshot.val()
-var codeexam = sessionStorage.getItem("formvalid", formvalid);
-//var codeexam =  s[d]
-console.log(s)
-con_db.child(codeexam).child(PIDs).set({
+      var s = snapshot.val()
+      var codeexam = sessionStorage.getItem("formvalid", formvalid);
+      //var codeexam =  s[d]
+      console.log(s)
+      con_db.child(codeexam).child(PIDs).set({
         alt: countalt,
         tab: count_tabchange,
         face: count_facedetect,
@@ -152,18 +152,18 @@ con_db.child(codeexam).child(PIDs).set({
         photo: photo
 
       })
-});
+    });
 
-  history.push('/thankyou')
+    history.push('/thankyou')
   };
 
 
   return (
-   
- 
+
+
     <div className="App-header" id="Dash">
       <header>
-      
+
         <div className="detect">
           {/* Detection Section Starts here*/}
           <Detection>
@@ -173,17 +173,27 @@ con_db.child(codeexam).child(PIDs).set({
         </div>
 
         <div className="lame">
-          <h3 align="left"> <span >Name :  {JSON.stringify(sessionStorage.getItem("checkname")).slice(1,-1)}</span></h3> 
-         </div>
-    
-      <div className="leftClass">
-        <p align ="left">Timer: { minutes === 0 && seconds === 1 ? history.push('/thankyou') : <h1 align = "left">  {minutes}:{seconds < 10 ?  `0${seconds}` : seconds}</h1> 
-          } </p>             
-      </div>
+          <h3 align="left">Name :  <span style={{ fontSize: '20px' }} > {JSON.stringify(sessionStorage.getItem("checkname")).slice(1, -8)}</span></h3>
+          <h3 align="left">PID :  <span style={{ fontSize: '20px' }} > {JSON.stringify(sessionStorage.getItem("checkname")).slice(-7).slice(0, -1)}</span></h3>
+        </div>
+
+        <div className="leftClass">
+          <p align="left">Timer: {minutes === 0 && seconds === 1 ? history.push('/thankyou') : <h1 align="left" style={{ fontSize: '69px' }}>  {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
+          } </p>
+        </div>
 
         <div className="button">
-          <p>Submit here!!</p>
-          <center><Button variant="contained" color="primary" size="medium" onClick={handleClicksub}>Submit</Button></center>
+          <p align="left" style={{ fontSize: '18px' }}>End Exam Window only after Submitting the Form</p>
+          <center>
+            <Button
+              style={{ fontSize: '30px' }}
+              variant="contained"
+              color="primary"
+              size="medium"
+              onClick={handleClicksub}>
+              Exit Exam Window
+              </Button>
+          </center>
         </div>
 
         <iframe src={form_link} id='form'>Loading…</iframe >
