@@ -81,11 +81,11 @@ const Dashboard = (props:any) => {
    });
 
   //Timer Code------> Begins from here 
-  const timerProps = {
-    isPlaying: true,
-    size: 120,
-    strokeWidth: 6
-  };
+  // const timerProps = {
+  //   isPlaying: true,
+  //   size: 120,
+  //   strokeWidth: 6
+  // };
     // Fetches the timer provided by Admin in Admin page to Dashboard
     var get_time = sessionStorage.getItem("exam_timer", exam_timer);
     const {initialMinute = get_time , initialSeconds = 0} = props;
@@ -99,11 +99,11 @@ const Dashboard = (props:any) => {
             }
             if (seconds === 0) {
                 if (minutes === 0) {
-                    clearInterval(myInterval)
+                  clearInterval(myInterval)
                 } else {
                     setMinutes(minutes - 1);
                     setSeconds(59);
-                    var currectTime=minutes-1
+                    var currectTime=minutes
                     sessionStorage.setItem("exam_timer",currectTime);
                 }
             } 
@@ -117,10 +117,6 @@ const Dashboard = (props:any) => {
     // Give ALert when 1 minute left 
     if (minutes === 1 && seconds === 1){
         swal("Only 1 Minute Left, Please Submit or else Answers WONT BE SAVED ");
-    }
-  // Once timer is 0, push to thankyou page
-    if (minutes === 0 && seconds === 1){
-        history.push('/thankyou')
     }
   // Timer Code------------> Ends here
 
@@ -181,11 +177,8 @@ con_db.child(codeexam).child(PIDs).set({
          </div>
     
       <div className="leftClass">
-        <p align ="left">Timer</p>   
-        
-          { minutes === 0 && seconds === 0 ? null : <h1 align = "left">  {minutes}:{seconds < 10 ?  `0${seconds}` : seconds}</h1> 
-          }
-                
+        <p align ="left">Timer: { minutes === 0 && seconds === 1 ? history.push('/thankyou') : <h1 align = "left">  {minutes}:{seconds < 10 ?  `0${seconds}` : seconds}</h1> 
+          } </p>             
       </div>
 
         <div className="button">

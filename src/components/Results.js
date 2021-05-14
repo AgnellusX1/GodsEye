@@ -8,23 +8,14 @@ import CodeCheck from "./CodeCheck";
 import './Results.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
- 
-   
 class Results extends React.Component {
-   
+
 
 constructor(props) {
-    
     super(props);
-   //this.logout = this.logout.bind(this);
     this.state = {studentslist : []}
     }
 
-  //  logout(){
-  //   config.auth().signOut();
-//}
-    
   componentDidMount() {
   var  childcode = sessionStorage.getItem("inputcode");
   console.log("Checktable", childcode);
@@ -41,24 +32,12 @@ constructor(props) {
       });     
  }
 
-// const signout=()=> {
-//  config.auth().signOut().then(function() {
-//   // Sign-out successful.
-// }).catch(function(error) {
-//   // An error happened.
-// });
-// }
 
 logout() {
         localStorage.clear();
         window.location.href = '/';
     }
 
-// const handleLogout=() =>{
-//     config.auth.signOut();
-//   };
-  
-  
   render(){
   return (
     <div className="MainDiv">
@@ -77,11 +56,13 @@ logout() {
                     <th>Face</th>
                     <th>Fullscreen</th>
                     <th>Tab</th>
+                    <th>Photo</th>
                 </tr>
             </thead>
             <tbody>
             {this.state.studentslist.map(data => {
-                
+               var base64 = data.photo; 
+               console.log("show name", base64);
                 return (
                     <tr>     
                     <td>{data.sname}</td>
@@ -90,13 +71,12 @@ logout() {
                     <td>{data.face}</td>
                     <td>{data.fullscreen}</td>
                     <td>{data.tab}</td>
-                    </tr>
-                    
-                );
-               
+                    <td> {<img src={data.photo} width="150px" height="100px"/>}
+                    </td>
+                    </tr>                 
+                );             
                 })}
-        
-               
+                   
             </tbody>
             
          </table>
