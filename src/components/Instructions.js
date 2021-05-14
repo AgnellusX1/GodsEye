@@ -50,6 +50,12 @@ const Instructions = () => {
                         The lighting in the room must be bright enough to be considered “daylight” quality. Overhead lighting is preferred. 
                         </li>
                         <li>
+                        Recommended to have a plain white background, no wall hangings, photo frames allowed.
+                        </li>
+                        <li>
+                        Recommended to use lastest version of Chrome or Edge for better experience throughout the exam.
+                        </li>
+                        <li>
                         You are advised to be at the location where there is a good internet connectivity.
                         </li>
                         <li>

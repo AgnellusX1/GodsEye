@@ -22,7 +22,7 @@ const Thankyou = () => {
                 <h3>
                     Thankyou for giving the test nice seeing you
             </h3>
-                <h2>Cheat Score</h2>
+                {/* <h2>Cheat Score</h2> */}
                 <br/>
                 <h3>
                     User Name :{checkn}
@@ -32,16 +32,16 @@ const Thankyou = () => {
             User Email :{checke}
             <br/>
 
-            Face,Object Detection: {count_facedetect} 
+            {/* Face,Object Detection: {count_facedetect}  */}
             <br/>
 
-            Fullscreen Cheat Detection: {count_fullscreen}
+            {/* Fullscreen Cheat Detection: {count_fullscreen} */}
             <br/>
 
-            Tab Change Detection: {count_tabchange}
+            {/* Tab Change Detection: {count_tabchange} */}
             <br/>
 
-            ALT Tab Key Pressed: {countalt}
+            {/* ALT Tab Key Pressed: {countalt} */}
             <br/>
                 </h3>
 
