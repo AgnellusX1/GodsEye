@@ -4,7 +4,7 @@ import Webcam from "react-webcam";
 import swal from 'sweetalert';
 import { useHistory } from 'react-router-dom';
 const ValidatePage = () => {
-
+var buttonfield = true;
   //Disable Right click
   if (document.addEventListener) {
     document.addEventListener('contextmenu', function (e) {
@@ -23,6 +23,10 @@ const ValidatePage = () => {
   
   //image as base64
   console.log(imgSrc);
+
+  if (imgSrc){
+    buttonfield=false;
+  }
  
 
   const history = useHistory();
@@ -61,17 +65,17 @@ const ValidatePage = () => {
       /> 
       <br/>
       <br/>
-     <center><Button variant="contained" onClick={capture}>Capture photo</Button></center>
-      {imgSrc && (
+     <center><Button variant="contained" onClick={capture}>Capture Photo</Button></center>
+     {imgSrc && (
         <img
           src={imgSrc}
         /> 
-      )} 
+      )}
       
       <br/>
       <br/>
       
-      <center><Button variant="contained" onClick={handleClick}>Confirm Validation</Button></center>
+      <center><Button disabled={buttonfield} variant="contained" onClick={handleClick}>Confirm Validation</Button></center>
 
 
     </center>
