@@ -115,7 +115,6 @@ function ValidateCheck() {
 
 
   // Final Approval
-
   if (isAllowed) {
     buttonViewDisabled = false
   } else {
@@ -180,7 +179,7 @@ const SystemCheck = () => {
                   <span ><b>OS:</b>  {"- " + JSON.stringify(DetectRTC.osName, null, 2).slice(1, -1) + " " + JSON.stringify(DetectRTC.osVersion, null, 0).slice(1, -1)} </span>
                 </li>
                 <li class="test">
-                  <span><b>Browser:</b> {"- " + JSON.stringify(DetectRTC.browser.name === 'Edge' || 'Chrome' || 'Firefox', null, 2).slice(1, -1) + " " + JSON.stringify(DetectRTC.browser.version)} </span>
+                  <span><b>Browser:</b> {"- " + JSON.stringify(DetectRTC.browser.name).slice(1,-1) + " " + JSON.stringify(DetectRTC.browser.version)} </span>
                 </li>
                 <li class="test">
                   <span><b>Internet Speed:</b> {"- " + sessionStorage.getItem("netspeed") + " mbps"} </span>
