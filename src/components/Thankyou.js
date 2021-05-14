@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Button from '@material-ui/core/Button';
-import thankyou6 from "./thankyou6.jpeg"
+import thanks from "./thanks.png"
 
 const Thankyou = () => {
 
@@ -22,14 +22,15 @@ const Thankyou = () => {
                 {/* <h3>
                     Thankyou for giving the test 
                 </h3> */}
-                <img src={thankyou6} id="thankyou"  height="400px"/>
+                <img src={thanks} id="thankyou"  height="400px"/>
                 {/* <h2>Cheat Score</h2> */}
                 <br/>
+                <br/>
                 <h3>
-                    {/* User Name :{checkn}
+                    User Name :{checkn}
                     <br/>
                     <br/>
-                    User Email :{checke} */}
+                    User Email :{checke}
                 </h3>
 
             
