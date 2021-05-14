@@ -32,7 +32,7 @@ const Thankyou = () => {
             User Email :{checke}
             <br/>
 
-            Face Detection: {count_facedetect}
+            Face,Object Detection: {count_facedetect} 
             <br/>
 
             Fullscreen Cheat Detection: {count_fullscreen}

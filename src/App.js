@@ -28,11 +28,6 @@ import Dashboard2 from './components/Dashboard2'
 import AdminSignIn from './components/AdminSignIn'
 import PosenetPage from './components/Posenet';
 import CodeCheck from './components/CodeCheck'
-
-
-
-var count=100;
-
 class App extends Component {
   render() {
     return (

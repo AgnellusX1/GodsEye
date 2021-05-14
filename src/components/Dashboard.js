@@ -9,6 +9,8 @@ import formvalid from './formvalid';
 import firebase from "firebase/app";
 import "./Dashboard2.css";
 import checkname from "./Login";
+
+
 var checkn = "";
 var checke = "";
 
@@ -23,16 +25,15 @@ const Dashboard = (props:any) => {
       e.preventDefault();
     }, false);
   }
+
   // Alert on Tab Changed within the Same browser Window
-  var count_tabchange = 0;
   function handleVisibilityChange() {
     if (document.hidden) {
+      var count_tabchange = 0;
       swal("Changed Tab Detected", "Action has been Recorded", "error");
       // the page is hidden
-      //var count_tabchange = sessionStorage.getItem("count_tabchange")
       count_tabchange = count_tabchange + 1
       sessionStorage.setItem("count_tabchange", count_tabchange);
-
     } else {
       // the page is visible
     }
@@ -55,19 +56,29 @@ const Dashboard = (props:any) => {
     history.push('fullscreenalert')
   }
 
-  var count_fullscreen = 0;
   document.addEventListener('fullscreenchange', (event) => {
+    var count_fullscreen = 0;
     if (document.fullscreenElement) {
       console.log(`Element: ${document.fullscreenElement.id} entered full-screen mode.`);
     } else {
       history.push("/fullscreenalert")
       //var count_fullscreen = sessionStorage.getItem("count_fullscreen")
       count_fullscreen = count_fullscreen + 1;
-      console.log("count_fullscreen")
       console.log(count_fullscreen)
       sessionStorage.setItem("count_fullscreen", count_fullscreen);
     }
   });
+
+   // Count number of times Alt key pressed
+   var countalt = 0;
+   document.addEventListener('keydown', function (event) {
+     console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
+     if (event.key === 'Alt') {
+       swal('Alt Keypress Detected');
+       countalt = countalt + 1;
+       sessionStorage.setItem("countalt", countalt);
+     }
+   });
 
   //Timer Code------> Begins from here 
   const timerProps = {
@@ -113,16 +124,7 @@ const Dashboard = (props:any) => {
     }
   // Timer Code------------> Ends here
 
-  // Count number of times Alt key pressed
-  var countalt = 0;
-  document.addEventListener('keydown', function (event) {
-    console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
-    if (event.key === 'Alt') {
-      swal('Alt Keypress Detected');
-      countalt = countalt + 1;
-      sessionStorage.setItem("countalt", countalt);
-    }
-  });
+ 
 
   //Displays Score in Thankyou page
   function handleClicksub() {

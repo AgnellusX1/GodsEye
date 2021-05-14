@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import { useHistory } from 'react-router-dom'
 import swal from 'sweetalert';
 import warning from "./warning.jpg"
-var count_browser = 0;
+//var count_browser = 0;
 
 const FullScreenAlert = (props) => {
 
@@ -27,7 +27,7 @@ const FullScreenAlert = (props) => {
 
   // document.addEventListener("visibilitychange", handleVisibilityChange, false);
 
-  sessionStorage.setItem("count_browser", count_browser);
+  //sessionStorage.setItem("count_browser", count_browser);
 
   var elem = document.documentElement;
   const history = useHistory();
