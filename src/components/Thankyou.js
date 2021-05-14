@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Button from '@material-ui/core/Button';
-
+import thankyou6 from "./thankyou6.jpeg"
 
 const Thankyou = () => {
 
@@ -19,31 +19,35 @@ const Thankyou = () => {
     return (
         <div className="App-header">
             <center>
-                <h3>
-                    Thankyou for giving the test nice seeing you
-            </h3>
+                {/* <h3>
+                    Thankyou for giving the test 
+                </h3> */}
+                <img src={thankyou6} id="thankyou"  height="400px"/>
                 {/* <h2>Cheat Score</h2> */}
                 <br/>
                 <h3>
-                    User Name :{checkn}
+                    {/* User Name :{checkn}
                     <br/>
-                    
-
-            User Email :{checke}
-            <br/>
-
-            {/* Face,Object Detection: {count_facedetect}  */}
-            <br/>
-
-            {/* Fullscreen Cheat Detection: {count_fullscreen} */}
-            <br/>
-
-            {/* Tab Change Detection: {count_tabchange} */}
-            <br/>
-
-            {/* ALT Tab Key Pressed: {countalt} */}
-            <br/>
+                    <br/>
+                    User Email :{checke} */}
                 </h3>
+
+            
+                    {/* <br/> */}
+
+                    {/* Face,Object Detection: {count_facedetect}  */}
+                    {/* <br/> */}
+
+                    {/* Fullscreen Cheat Detection: {count_fullscreen} */}
+                    {/* <br/> */}
+
+                    {/* Tab Change Detection: {count_tabchange} */}
+                    {/* <br/> */}
+
+                    {/* ALT Tab Key Pressed: {countalt} */}
+                    {/* <br/> */}
+                    <br/>
+                    <br/>
 
                 <Button variant="contained" onClick={handleClickExit}>Exit Secure Window</Button>
             </center>
