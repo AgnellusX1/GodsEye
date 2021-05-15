@@ -64,7 +64,7 @@ GoToAdmin() {
                var base64 = data.photo; 
                //console.log("show name", base64);
                 return (
-                    <tr>     
+                    <tr className="pool">     
                     <td>{data.sname}</td>
                     <td>{data.semail}</td>
                     <td>{data.alt}</td>
