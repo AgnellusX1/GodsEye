@@ -25,7 +25,7 @@ const ValidatePage = () => {
   }, [webcamRef, setImgSrc]);
 
   //image as base64
-  console.log(imgSrc);
+  //console.log(imgSrc);
 
   if (imgSrc) {
     buttonfield = false;
