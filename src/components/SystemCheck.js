@@ -203,13 +203,18 @@ const SystemCheck = () => {
             onClick={handleClick}>
             Activate Your WebCam and Network Check
             </Button>
+             <br/>
+             <br/>
         </center>
+
+       
 
         <center>
           <Button
             size="large"
             disabled={buttonViewDisabled}
             variant='contained'
+            color = "primary"
             onClick={openFullscreen}>
             Next
             </Button>

@@ -12,7 +12,7 @@ const Posenet = () => {
 //  Load posenet
 const runPosenet = async () => {
   const net = await posenet.load({
-    architecture: 'ResNet50',
+    architecture: 'MobileNetV1',
     quantBytes: 2,
     inputResolution: { width: 640, height: 480 },
     scale: 0.8,
@@ -42,7 +42,7 @@ const detect = async (net) => {
     const pose = await net.estimateSinglePose(video);
     // console.log(pose);
 
-    EarsDetect(pose["keypoints"], 0.6);
+    EarsDetect(pose["keypoints"], 0.8);
 
     // drawCanvas(pose, video, videoWidth, videoHeight, canvasRef);
   }
@@ -62,10 +62,10 @@ const EarsDetect=(keypoints, minConfidence) =>{
   const keypointEarR = keypoints[3];
   const keypointEarL = keypoints[4];
 
-  if(keypointEarL.score<minConfidence){
+  if(keypointEarL.score>minConfidence){
     swal("You looked away from the Screen (To the Right)")
   }
-  if (keypointEarR.score<minConfidence){
+  if (keypointEarR.score>minConfidence){
     swal("You looked away from the Screen (To the Left)")
   }
 }

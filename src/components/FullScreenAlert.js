@@ -50,14 +50,18 @@ const FullScreenAlert = (props) => {
       <img src={warning} id="warningIcon" />
       </div>
       <h3>
-        You tried to Exit Full Screen
+        SINCE YOU ESCAPED FULLSCREEN, YOUR ANSWERS ARE LOST!!
         </h3>
-      <small>
-        This action has been recorded
+        <br/>
+        <small>
+            Action has been Recorded!
         </small>
-      <p>
-        Another Atempt to do so will get you debared from the test
+        <br/>
+        <br/>
+        <p>
+        <i>Another Atempt to do so will get you Debared from the Test</i>
         </p>
+       
       <Button variant='contained' onClick={back2exam}>I Understand, get me back to Exam</Button>
     </center>
   </div>

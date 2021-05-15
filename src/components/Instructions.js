@@ -96,7 +96,9 @@ c. Running any other application on the gadget through which you are appearing f
                         <li>
                         If any suspicious act is encountered, it will be counted as violation. After certain number of warnings, system will Logout your assessment.
                         </li>
-                       
+                       <li>
+                        PLEASE DONOT ESCAPE FULLSCREEN ELSE ANSWERS WILL BE RESETTED !!!
+                      </li>
                     </ul>
                 </td>
             </tr>

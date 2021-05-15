@@ -183,10 +183,10 @@ const Dashboard = (props: any) => {
         </div>
 
         <div className="button">
-          <p align="left" style={{ fontSize: '18px' }}>End Exam Window only after Submitting the Form</p>
+          <p align="center" style={{ fontSize: '18px' }}>Exit Exam Window only after Submitting the Form</p>
           <center>
             <Button
-              style={{ fontSize: '30px' }}
+              style={{ fontSize: '15px' }}
               variant="contained"
               color="primary"
               size="medium"
@@ -194,6 +194,8 @@ const Dashboard = (props: any) => {
               Exit Exam Window
               </Button>
           </center>
+          <br/>
+          <p align="left" style={{ fontSize: '18px' }}><i>DONOT ESCAPE THIS PAGE ELSE ANSWERS WILL BE UNSAVED!!</i></p>
         </div>
 
         <iframe src={form_link} id='form'>Loading…</iframe >

@@ -27,10 +27,11 @@ const Thankyou = () => {
                 <br/>
                 <br/>
                 <h3>
-                    User Name :{checkn}
+                    Name : {checkn}
                     <br/>
                     <br/>
-                    User Email :{checke}
+                    
+                    Email : {checke}
                 </h3>
 
             
