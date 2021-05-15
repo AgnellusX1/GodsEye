@@ -49,6 +49,7 @@ const FullScreenAlert = (props) => {
     <div>
       <img src={warning} id="warningIcon" />
       </div>
+      <br/>
       <h3>
         SINCE YOU ESCAPED FULLSCREEN, YOUR ANSWERS ARE LOST!!
         </h3>

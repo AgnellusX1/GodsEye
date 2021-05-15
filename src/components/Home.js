@@ -46,9 +46,9 @@ const MainPage = () => {
           AI Enabled Virtual Examination System
         </small>
 
-        <Button id="homeButtons" style={{ fontSize: '10px' }} variant="contained" size="medium" onClick={handleClick}>All the Best</Button>
+        <Button id="homeButtons" style={{ fontSize: '15px' }} variant="contained" size="medium" onClick={handleClick}>All the Best</Button>
         <Button id="homeButtons" variant="contained" onClick={handleClickAdmin}>Admin</Button>
-        <Button id="homeButtons" variant="contained" onClick={headpose}>Headpose</Button>
+        {/* <Button id="homeButtons" variant="contained" onClick={headpose}>Headpose</Button> */}
       </header>
     </div>
   );

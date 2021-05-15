@@ -12,10 +12,10 @@ const Posenet = () => {
 //  Load posenet
 const runPosenet = async () => {
   const net = await posenet.load({
-    architecture: 'MobileNetV1',
+    architecture: 'ResNet50',
     quantBytes: 2,
     inputResolution: { width: 640, height: 480 },
-    scale: 0.8,
+    scale: 0.6,
   });
   //
   setInterval(() => {
@@ -62,10 +62,10 @@ const EarsDetect=(keypoints, minConfidence) =>{
   const keypointEarR = keypoints[3];
   const keypointEarL = keypoints[4];
 
-  if(keypointEarL.score>minConfidence){
+  if(keypointEarL.score<minConfidence){
     swal("You looked away from the Screen (To the Right)")
   }
-  if (keypointEarR.score>minConfidence){
+  if (keypointEarR.score<minConfidence){
     swal("You looked away from the Screen (To the Left)")
   }
 }
