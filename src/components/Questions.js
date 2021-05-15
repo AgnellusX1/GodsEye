@@ -67,7 +67,7 @@ export default class Timer extends Component {
     //const { minutes, seconds } = this.state
     //const col = { color: 'red' };
     var form_link = sessionStorage.getItem("form_link")
-    console.log(form_link)
+    //console.log(form_link)
     return (
       <div className="timesec">
 

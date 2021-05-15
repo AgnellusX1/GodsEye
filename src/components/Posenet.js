@@ -58,7 +58,7 @@ const detect = async (net) => {
 // };
 
 const EarsDetect=(keypoints, minConfidence) =>{
-  console.log("Checked")
+  //console.log("Checked")
   const keypointEarR = keypoints[3];
   const keypointEarL = keypoints[4];
 

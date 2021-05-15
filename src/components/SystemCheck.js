@@ -96,7 +96,7 @@ function ValidateCheck() {
           })
 
           .catch(function (err0r) {
-            console.log("Something went wrong!");
+            //console.log("Something went wrong!");
           });
       }
     }
@@ -106,7 +106,7 @@ function ValidateCheck() {
 
 
   const webcam = DetectRTC.isWebsiteHasWebcamPermissions;
-  console.log(webcam)
+  //console.log(webcam)
   if (webcam) {
     isAllowed = true;
   } else {

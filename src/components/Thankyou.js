@@ -9,7 +9,7 @@ const Thankyou = () => {
     }
 
     var count_facedetect = sessionStorage.getItem("count_facedetect")
-    console.log(count_facedetect)
+    //console.log(count_facedetect)
     var count_fullscreen = sessionStorage.getItem("count_fullscreen")
     var count_tabchange = sessionStorage.getItem("count_tabchange")
     var countalt = sessionStorage.getItem("countalt")

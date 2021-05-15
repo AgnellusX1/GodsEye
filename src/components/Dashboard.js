@@ -51,7 +51,7 @@ const Dashboard = (props: any) => {
   // Count number of times escaped Fullscreen
 
   if (document.fullscreenElement) {
-    console.log("In Full");
+    //console.log("In Full");
   } else {
     history.push('fullscreenalert')
   }
@@ -59,12 +59,12 @@ const Dashboard = (props: any) => {
   document.addEventListener('fullscreenchange', (event) => {
     var count_fullscreen = 0;
     if (document.fullscreenElement) {
-      console.log(`Element: ${document.fullscreenElement.id} entered full-screen mode.`);
+     // console.log(`Element: ${document.fullscreenElement.id} entered full-screen mode.`);
     } else {
       history.push("/fullscreenalert")
       //var count_fullscreen = sessionStorage.getItem("count_fullscreen")
       count_fullscreen = count_fullscreen + 1;
-      console.log(count_fullscreen)
+      //console.log(count_fullscreen)
       sessionStorage.setItem("count_fullscreen", count_fullscreen);
     }
   });
@@ -72,7 +72,7 @@ const Dashboard = (props: any) => {
   // Count number of times Alt key pressed
   var countalt = 0;
   document.addEventListener('keydown', function (event) {
-    console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
+    //console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
     if (event.key === 'Alt') {
       swal('Alt Keypress Detected');
       countalt = countalt + 1;
@@ -125,7 +125,7 @@ const Dashboard = (props: any) => {
   //Displays Score in Thankyou page
   function handleClicksub() {
     var PIDs = sessionStorage.getItem("checkname").slice(-6)
-    console.log(PIDs)
+    //console.log(PIDs)
     var count_facedetect = sessionStorage.getItem("count_facedetect")
     var count_fullscreen = sessionStorage.getItem("count_fullscreen")
     var count_tabchange = sessionStorage.getItem("count_tabchange")
@@ -141,7 +141,7 @@ const Dashboard = (props: any) => {
       var s = snapshot.val()
       var codeexam = sessionStorage.getItem("formvalid", formvalid);
       //var codeexam =  s[d]
-      console.log(s)
+      //console.log(s)
       con_db.child(codeexam).child(PIDs).set({
         alt: countalt,
         tab: count_tabchange,

@@ -26,7 +26,7 @@ const Formvalid = () => {
   
 
   function handleClickformvalid() {
-    console.log(formvalid)
+    //console.log(formvalid)
     const con_db = firebase.database().ref("con_dbs");
 
     //console.log(Object.keys(con_db))
@@ -37,8 +37,8 @@ const Formvalid = () => {
       if (d != null) {
         var form_link = d["formlink"]
         var exam_timer = d["examtimer"]
-        console.log(exam_timer);
-        console.log(form_link);
+        //console.log(exam_timer);
+        //console.log(form_link);
         sessionStorage.setItem("form_link", form_link);
         sessionStorage.setItem("exam_timer",exam_timer);
         sessionStorage.setItem("formvalid",formvalid);

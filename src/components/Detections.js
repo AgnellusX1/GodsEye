@@ -38,7 +38,7 @@ export default class Detection extends React.Component {
           this.detectFrame(this.videoRef.current, values[0]);
         })
         .catch(error => {
-          console.error(error);
+          //console.error(error);
         });
     }
   }
@@ -113,17 +113,17 @@ export default class Detection extends React.Component {
     predictions.forEach(prediction => {
       const x = prediction.bbox[0];
       const y = prediction.bbox[1];
-      console.log(predictions)
+      //console.log(predictions)
       // Draw the text last to ensure it's on top.
       ctx.fillStyle = "#000000";
-      console.log(prediction.class);
+      //console.log(prediction.class);
 
       if (prediction.class == "person" || prediction.class == "cell phone" || prediction.class == "book" || prediction.class == "laptop") {
         ctx.fillText(prediction.class, x, y);
       }
     });
     //console.log("final")
-    console.log(count_facedetect)
+    //console.log(count_facedetect)
     sessionStorage.setItem("count_facedetect", count_facedetect);
 
   };

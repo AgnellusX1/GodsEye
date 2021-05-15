@@ -19,11 +19,11 @@ const CodeCheck = () => {
         snapshot.forEach(function(snapshot) {
 
             var childKey = snapshot.key;
-            console.log("check childkey", childKey)
+            //console.log("check childkey", childKey)
             if(childKey === inputcode)
             {
               sessionStorage.setItem("inputcode", inputcode);
-              console.log("Show sucess" ,childKey);
+              //console.log("Show sucess" ,childKey);
               code_exist = true;
               swal("Success");
               history.push("/results"); 

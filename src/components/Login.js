@@ -21,12 +21,12 @@ const LoginPage = () => {
 
   const onSuccess = (googleUser) => {
     var profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
+    //console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    //console.log('Name: ' + profile.getName());
     var checkname = profile.getName();
     sessionStorage.setItem("checkname", checkname);
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    //console.log('Image URL: ' + profile.getImageUrl());
+    //console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
     var checkemail = profile.getEmail();
     sessionStorage.setItem("checkemail", checkemail);
 
@@ -37,7 +37,7 @@ const LoginPage = () => {
 
   const onFaliure = (res) => {
     swal("Login Failed", "Kindly try again using SFIT Google Account", "error");
-    console.log('[Login Success] res:', res);
+    //console.log('[Login Success] res:', res);
   };
 
   const history = useHistory();

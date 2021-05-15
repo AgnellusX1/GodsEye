@@ -18,7 +18,7 @@ constructor(props) {
 
   componentDidMount() {
   var  childcode = sessionStorage.getItem("inputcode");
-  console.log("Checktable", childcode);
+  //console.log("Checktable", childcode);
    
       firebase.database().ref("stud_records").child(childcode).on("value", snapshot => {
      
@@ -26,7 +26,7 @@ constructor(props) {
         snapshot.forEach(snap => {
         // snap.val() is the dictionary with all your keys/values from the 'stud_records' path
             studentlist.push(snap.val());
-            console.log("Chekit" ,studentlist);
+            //console.log("Chekit" ,studentlist);
         });
         this.setState({ studentslist: studentlist });
       });     
@@ -62,7 +62,7 @@ GoToAdmin() {
             <tbody>
             {this.state.studentslist.map(data => {
                var base64 = data.photo; 
-               console.log("show name", base64);
+               //console.log("show name", base64);
                 return (
                     <tr>     
                     <td>{data.sname}</td>
