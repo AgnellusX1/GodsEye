@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import config from "../config";
 import firebase from "firebase/app";
-
+import './Results.css';
 import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 const Admin = () => {
@@ -44,14 +44,20 @@ const Admin = () => {
    function results(){
     history.push('/codecheck');
 
-  };
+  }
+
+  function logout(){
+        localStorage.clear();
+        window.location.href = '/';
+    };
+
   return (
     <div className="App-header">
       <body style={{backgroundColor:'#282c34'}}>
     <p>
       <center>
-        <h1 style={{color:'white'}}>
-          Welcome Admin
+        <h1 style={{color:'white'}} >
+          <i>Welcome Admin</i>
     </h1>
         <br></br>
         <h3 style={{color:'white'}}>
@@ -67,12 +73,17 @@ const Admin = () => {
         <input type="text" id="examtimer" name="examtimer" value={examtimer} onChange={onChangeTimer}></input>
         <br></br>
         <br></br>
-        <Button variant="contained" onClick={handleClicksub}>Submit</Button>
+        <br></br>
+        <div className="side">
+            <Button variant="contained" onClick={handleClicksub} style={{ marginLeft: '10px' }} color="primary" >Submit</Button>
+        
+            <Button variant="contained" onClick={results} style={{ marginLeft: '60px' }} color="secondary">Results</Button>
+        </div>
+        
         <br></br>
         <br></br>
         <br></br>
-        <Button variant="contained" onClick={results}>Results</Button>
-        <br></br>
+        <Button onClick = {logout} variant="contained"> LogOut </Button>
       </center>
     </p>
     </body>

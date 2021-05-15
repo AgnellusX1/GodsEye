@@ -33,9 +33,9 @@ constructor(props) {
  }
 
 
-logout() {
+GoToAdmin() {
         localStorage.clear();
-        window.location.href = '/';
+        window.location.href = '/admin';
     }
 
   render(){
@@ -81,7 +81,7 @@ logout() {
             
          </table>
      </div>
-             <div className="center-block"><Button onClick = {this.logout} variant="contained"> LogOut </Button></div>
+             <div className="center-block"><Button onClick = {this.GoToAdmin} variant="contained" color="primary"> Return To Admin </Button></div>
     </div>
      
   );
