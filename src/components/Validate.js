@@ -23,7 +23,6 @@ const ValidatePage = () => {
     setImgSrc(imageSrc);
     sessionStorage.setItem("imageSrc", imageSrc);
   }, [webcamRef, setImgSrc]);
-  //getScreenshot({width: 400, height: 500});
 
   //image as base64
   console.log(imgSrc);
@@ -53,64 +52,37 @@ const ValidatePage = () => {
     history.push("/systemcheck");
   }
   return (<div className="App-header">
-    <br></br>
-    <p align="center"><b>Instructions to Follow:</b></p>
-    <li align="center"><strong>The lighting in the room must be bright enough to be considered “daylight” quality. Overhead lighting is preferred. </strong></li>
+    <center>
 
-    <li align="left"><strong>If overhead lighting is not available, the source of light must not be behind you.</strong></li>
-    <br></br>
+      <p ><b>Instructions to Follow:</b></p>
+      <li >The lighting in the room must be bright enough to be considered “daylight” quality. Overhead lighting is preferred.</li>
+
+    </center>
     <Container fluid>
       <Row>
-        <Col>
-
-          <Webcam
+        <Col sm={6} style={{ paddingLeft: 0, paddingRight: 0 }}>
+          <center><Webcam
             audio={false}
-            height={500}
-            width={400}
             ref={webcamRef}
             screenshotFormat="image/jpeg"
-          />
+          /></center>
+
         </Col>
-        <Col>
-          {imgSrc && (
-            <img
-              // height={300}
-              // width={400}
-              src={imgSrc}
-            />
-          )}
+        <Col sm={6}>
+          <center>
+            {imgSrc && (
+              <img
+                src={imgSrc}
+              />
+            )}</center>
+
         </Col>
       </Row>
     </Container>
 
-    {/* <div class= "row">
-        <div class="column"
-        className="webcamSide">
-        <Webcam
-        audio={false}
-        height={500}
-        width={400}
-        ref={webcamRef}
-        screenshotFormat="image/jpeg"
-      />
-        </div>
-      
-      <div class = "column"
-      className="captureSide">
-      {imgSrc && (
-        <img
-        // height={300}
-        // width={400}
-        src={imgSrc}
-        />
-        )}
+    <Button id="validateButtons" variant="contained" onClick={capture}>Capture Photo</Button>
 
-      </div>
-     
-      </div> */}
-    <center><Button variant="contained" onClick={capture}>Capture Photo</Button></center>
-    <br />
-    <center><Button disabled={buttonfield} variant="contained" onClick={handleClick}>Confirm Validation</Button></center>
+    <Button id="validateButtons" disabled={buttonfield} variant="contained" onClick={handleClick}>Confirm Validation</Button>
   </div>
   )
 }
