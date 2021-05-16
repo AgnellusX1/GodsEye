@@ -183,7 +183,7 @@ const Dashboard = (props: any) => {
         </div>
 
         <div className="button">
-          <p align="center" style={{ fontSize: '18px' }}>Exit Exam Window only after Submitting the Form</p>
+          <p align="center" style={{ fontSize: '18px' }}>To Save Your Attendance : Kindly Click <strong>Exit Exam Window</strong> After Submission Of Google Form </p>
           <center>
             <Button
               style={{ fontSize: '15px' }}
