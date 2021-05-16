@@ -79,6 +79,16 @@ const Dashboard = (props: any) => {
       sessionStorage.setItem("countalt", countalt);
     }
   });
+ 
+  var countctrl = 0;
+  document.addEventListener('keydown', function (event) {
+    //console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
+    if (event.ctrlKey && event.key === "t") {
+      swal('Keypress Detected');
+      countctrl = countctrl + 1;
+      sessionStorage.setItem("countctrl", countctrl);
+    }
+  });
 
   //Timer Code------> Begins from here 
   // const timerProps = {
@@ -178,12 +188,12 @@ const Dashboard = (props: any) => {
         </div>
 
         <div className="leftClass">
-          <p align="left">Timer: {minutes === 0 && seconds === 1 ? history.push('/thankyou') : <h1 align="left" style={{ fontSize: '69px' }}>  {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
+          <p>Timer: {minutes === 0 && seconds === 1 ? history.push('/thankyou') : <h1 align="center" style={{ fontSize: '69px' }}>  {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
           } </p>
         </div>
 
         <div className="button">
-          <p align="center" style={{ fontSize: '18px' }}>Exit Exam Window only after Submitting the Form</p>
+          <p align="center" style={{ fontSize: '18px' }}>To Save Your Attendance :<br/> Kindly Click <strong>Exit Exam Window</strong> After Submission Of Google Form </p>
           <center>
             <Button
               style={{ fontSize: '15px' }}
