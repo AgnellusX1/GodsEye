@@ -79,6 +79,16 @@ const Dashboard = (props: any) => {
       sessionStorage.setItem("countalt", countalt);
     }
   });
+ 
+  var countctrl = 0;
+  document.addEventListener('keydown', function (event) {
+    //console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
+    if (event.ctrlKey && event.key === "t") {
+      swal('Keypress Detected');
+      countctrl = countctrl + 1;
+      sessionStorage.setItem("countctrl", countctrl);
+    }
+  });
 
   //Timer Code------> Begins from here 
   // const timerProps = {
