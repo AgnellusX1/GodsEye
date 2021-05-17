@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Detection from './Detections';
 import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
+import DetectRTC from 'detectrtc';
 import swal from 'sweetalert';
 import exam_timer from './formvalid';
 import formvalid from './formvalid';
@@ -15,7 +16,7 @@ var checkn = "";
 var checke = "";
 
 
-const Dashboard = (props: any) => {
+const Dashboard = (props) => {
 
   var form_link = sessionStorage.getItem("form_link");
 
@@ -69,26 +70,44 @@ const Dashboard = (props: any) => {
     }
   });
 
+  
+  // document.addEventListener('keydown', function (event) {
+  //   //console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
+  //   if (event.altkey === 'Alt') {
+  //     swal('Alt Keypress Detected');
+  //     return false;
+  //     countalt = countalt + 1;
+  //     sessionStorage.setItem("countalt", countalt);
+  //   }
+  // });
   // Count number of times Alt key pressed
   var countalt = 0;
-  document.addEventListener('keydown', function (event) {
+  document.onkeydown = function (event) {
     //console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
-    if (event.key === 'Alt') {
-      swal('Alt Keypress Detected');
+    if (event.altKey) {
+      swal('Keypress Detected');
       countalt = countalt + 1;
       sessionStorage.setItem("countalt", countalt);
+      return false;
     }
-  });
+    else {
+      return true;
+    }
+  }
  
   var countctrl = 0;
-  document.addEventListener('keydown', function (event) {
+  document.onkeydown = function (event) {
     //console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
-    if (event.ctrlKey && event.key === "t") {
+    //if (event.ctrlKey && event.key === "t") {
+      if (event.ctrlKey){
       swal('Keypress Detected');
       countctrl = countctrl + 1;
       sessionStorage.setItem("countctrl", countctrl);
+      return false;
+    } else {
+      return true;
     }
-  });
+  }
 
   //Timer Code------> Begins from here 
   // const timerProps = {
@@ -140,6 +159,7 @@ const Dashboard = (props: any) => {
     var count_fullscreen = sessionStorage.getItem("count_fullscreen")
     var count_tabchange = sessionStorage.getItem("count_tabchange")
     var countalt = sessionStorage.getItem("countalt")
+    var countctrl = sessionStorage.getItem("countctrl")
     var checkn = sessionStorage.getItem("checkname")
     var checke = sessionStorage.getItem("checkemail")
     var photo = sessionStorage.getItem("imageSrc")
@@ -166,6 +186,45 @@ const Dashboard = (props: any) => {
 
     history.push('/thankyou')
   };
+
+  
+// Camera Permission
+  DetectRTC.load(function () {
+
+    const webcam = DetectRTC.isWebsiteHasWebcamPermissions;
+    if (!webcam) {
+      navigator.getUserMedia = navigator.getUserMedia ||
+        navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia;
+
+      var video = document.querySelector("#videoElement");
+      if (navigator.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true })
+          .then(function (stream) {
+            video.srcObject = stream;
+          })
+
+          .catch(function (err0r) {
+            //console.log("Something went wrong!");
+          });
+      }
+    }
+
+  });
+
+
+// enable/disable iframe according to camera permissions
+  const webcam = DetectRTC.isWebsiteHasWebcamPermissions;
+ 
+
+    if (webcam === true) {
+    var isAllowed = sessionStorage.getItem("form_link");;  
+  } 
+    else {
+    var isAllowed = '/components/404.js';
+    swal("Enable Your Camera");
+  }
+  
 
 
   return (
@@ -208,7 +267,7 @@ const Dashboard = (props: any) => {
           <p align="left" style={{ fontSize: '18px' }}><i>DONOT ESCAPE THIS PAGE ELSE ANSWERS WILL BE UNSAVED!!</i></p>
         </div>
 
-        <iframe src={form_link} id='form'>Loading…</iframe >
+        <iframe src={isAllowed} id='form'>Loading…</iframe >
 
       </header>
 

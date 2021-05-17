@@ -118,7 +118,7 @@ export default class Detection extends React.Component {
       ctx.fillStyle = "#000000";
       //console.log(prediction.class);
 
-      if (prediction.class == "person" || prediction.class == "cell phone" || prediction.class == "book" || prediction.class == "laptop") {
+      if (prediction.class === "person" || prediction.class === "cell phone" || prediction.class === "book" || prediction.class === "laptop") {
         ctx.fillText(prediction.class, x, y);
       }
     });
