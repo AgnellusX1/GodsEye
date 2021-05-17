@@ -1,7 +1,6 @@
 import React from 'react'
 import Button from '@material-ui/core/Button';
 import { useHistory } from 'react-router-dom'
-import swal from 'sweetalert';
 import warning from "./warning.jpg"
 //var count_browser = 0;
 

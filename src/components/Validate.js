@@ -1,7 +1,7 @@
 import { Button } from '@material-ui/core';
 import React from 'react'
 import Webcam from "react-webcam";
-import swal from 'sweetalert';
+//import swal from 'sweetalert';
 import { useHistory } from 'react-router-dom';
 import './validate.css';
 import { Container, Row, Col } from 'react-bootstrap'
@@ -33,21 +33,20 @@ const ValidatePage = () => {
 
 
   const history = useHistory();
-  var elem = document.documentElement;
 
-  /* View in fullscreen */
-  function openFullscreen() {
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen();
-      history.push("/instructions")
-    } else if (elem.webkitRequestFullscreen) { /* Safari */
-      elem.webkitRequestFullscreen();
-      history.push("/instructions")
-    } else if (elem.msRequestFullscreen) { /* IE11 */
-      elem.msRequestFullscreen();
-      history.push("/instructions")
-    }
-  }
+  // /* View in fullscreen */
+  // function openFullscreen() {
+  //   if (elem.requestFullscreen) {
+  //     elem.requestFullscreen();
+  //     history.push("/instructions")
+  //   } else if (elem.webkitRequestFullscreen) { /* Safari */
+  //     elem.webkitRequestFullscreen();
+  //     history.push("/instructions")
+  //   } else if (elem.msRequestFullscreen) { /* IE11 */
+  //     elem.msRequestFullscreen();
+  //     history.push("/instructions")
+  //   }
+  // }
   function handleClick() {
     history.push("/systemcheck");
   }

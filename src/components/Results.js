@@ -1,10 +1,6 @@
 import React from 'react'
-import swal from 'sweetalert';
-import config from "../config";
 import firebase from "firebase/app";
-import AdminSignIn from "./AdminSignIn";
 import { Button } from '@material-ui/core';
-import CodeCheck from "./CodeCheck";
 import './Results.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

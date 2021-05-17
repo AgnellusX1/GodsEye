@@ -1,5 +1,4 @@
 import React from 'react'
-import swal from 'sweetalert';
 const PageNotFound = () => {
 
   //Disable Right click

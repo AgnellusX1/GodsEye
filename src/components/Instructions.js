@@ -1,7 +1,6 @@
 import { Button } from '@material-ui/core'
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import swal from 'sweetalert';
 import instruction from "./instruction.jpg"
 const Instructions = () => {
 

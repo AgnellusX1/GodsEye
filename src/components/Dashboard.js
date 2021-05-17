@@ -45,9 +45,12 @@ const Dashboard = (props) => {
   var i = 0;
 
   const history = useHistory();
-  function onAccept() {
-    history.push('/thankyou')
-  }
+    
+
+    function onAccept() {
+      history.push('/thankyou')
+    }
+
 
   // Count number of times escaped Fullscreen
 
