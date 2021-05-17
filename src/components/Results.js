@@ -57,7 +57,7 @@ GoToAdmin() {
             </thead>
             <tbody>
             {this.state.studentslist.map(data => {
-               var base64 = data.photo; 
+              var base64 = data.photo; 
                //console.log("show name", base64);
                 return (
                     <tr className="pool">     

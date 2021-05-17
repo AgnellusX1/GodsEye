@@ -18,9 +18,9 @@ const MainPage = () => {
   }
   
 
-  function handleClickDetect2() {
-    history.push("/detections2")
-  }
+  // function handleClickDetect2() {
+  //   history.push("/detections2")
+  // }
   
   function handleClickAdmin() {
     history.push("/adminsignin")

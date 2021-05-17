@@ -9,11 +9,11 @@ import exam_timer from './formvalid';
 import formvalid from './formvalid';
 import firebase from "firebase/app";
 import "./Dashboard2.css";
-import checkname from "./Login";
+//import checkname from "./Login";
 
 
-var checkn = "";
-var checke = "";
+// var checkn = "";
+// var checke = "";
 
 
 const Dashboard = (props) => {
@@ -97,7 +97,7 @@ const Dashboard = (props) => {
       return true;
     }
   }
- 
+  
   var countctrl = 0;
   document.onkeydown = function (event) {
     //console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
