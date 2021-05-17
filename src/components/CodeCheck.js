@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import firebase from "firebase/app";
 import { useHistory } from 'react-router-dom'
 import { Button } from '@material-ui/core';
+<<<<<<< Updated upstream
+=======
+//import { Redirect } from "react-router-dom";
+>>>>>>> Stashed changes
 import swal from 'sweetalert';
 const CodeCheck = () => {
   const history = useHistory();
