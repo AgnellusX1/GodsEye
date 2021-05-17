@@ -158,6 +158,7 @@ const Dashboard = (props) => {
     var count_fullscreen = sessionStorage.getItem("count_fullscreen")
     var count_tabchange = sessionStorage.getItem("count_tabchange")
     var countalt = sessionStorage.getItem("countalt")
+    var countctrl = sessionStorage.getItem("countctrl")
     var checkn = sessionStorage.getItem("checkname")
     var checke = sessionStorage.getItem("checkemail")
     var photo = sessionStorage.getItem("imageSrc")
