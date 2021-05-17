@@ -2,6 +2,7 @@ import React from 'react'
 import Button from '@material-ui/core/Button';
 import { useHistory } from 'react-router-dom'
 import warning from "./warning.jpg"
+import { useState, useEffect } from 'react';
 //var count_browser = 0;
 
 const FullScreenAlert = (props) => {
@@ -42,6 +43,39 @@ const FullScreenAlert = (props) => {
       history.push("/dashboard")
     }
   }
+
+  //timer 
+  var get_time = sessionStorage.getItem("exam_timer");
+  var get_sec = sessionStorage.getItem("exam_sec");
+
+  if(get_sec === null){
+    get_sec = 0;
+  }
+ const { initialMinute = get_time, initialSeconds = get_sec } = props;
+  const myInterval = React.useRef();
+  const [minutes, setMinutes] = useState(initialMinute);
+  const [seconds, setSeconds] = useState(initialSeconds);
+  useEffect(() => {
+    let myInterval = setInterval(() => {
+      if (seconds > 0) {
+        setSeconds(seconds - 1);
+        var currectSec = seconds;
+         sessionStorage.setItem("exam_sec", currectSec);
+      }
+      else {
+         var currectTime = minutes-1;
+          sessionStorage.setItem("exam_timer", currectTime);
+          setMinutes(minutes - 1);
+          setSeconds(59);
+         
+        }
+
+  },1000);
+ 
+      return () => {
+      clearInterval(myInterval);
+    };
+  });
 
   return (<div className="App-header">
     <center>
