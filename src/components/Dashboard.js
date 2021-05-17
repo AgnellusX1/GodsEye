@@ -131,7 +131,7 @@ const Dashboard = (props) => {
         } else {
           setMinutes(minutes - 1);
           setSeconds(59);
-          var currectTime = minutes
+          var currectTime = minutes -1
           sessionStorage.setItem("exam_timer", currectTime);
         }
       }
@@ -206,12 +206,12 @@ const Dashboard = (props) => {
         </div>
 
         <div className="leftClass">
-          <p align="left">Timer: {minutes === 0 && seconds === 1 ? history.push('/thankyou') : <h1 align="left" style={{ fontSize: '69px' }}>  {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
+          <p>Timer: {minutes === 0 && seconds === 1 ? history.push('/thankyou') : <h1 align="center" style={{ fontSize: '69px' }}>  {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
           } </p>
         </div>
 
         <div className="button">
-          <p align="center" style={{ fontSize: '18px' }}>Exit Exam Window only after Submitting the Form</p>
+          <p align="center" style={{ fontSize: '18px' }}>To Save Your Attendance :<br/> Kindly Click <strong>Exit Exam Window</strong> After Submission Of Google Form </p>
           <center>
             <Button
               style={{ fontSize: '15px' }}
