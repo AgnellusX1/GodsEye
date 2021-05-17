@@ -15,7 +15,7 @@ var checkn = "";
 var checke = "";
 
 
-const Dashboard = (props: any) => {
+const Dashboard = (props) => {
 
   var form_link = sessionStorage.getItem("form_link");
 
@@ -69,26 +69,44 @@ const Dashboard = (props: any) => {
     }
   });
 
+  
+  // document.addEventListener('keydown', function (event) {
+  //   //console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
+  //   if (event.altkey === 'Alt') {
+  //     swal('Alt Keypress Detected');
+  //     return false;
+  //     countalt = countalt + 1;
+  //     sessionStorage.setItem("countalt", countalt);
+  //   }
+  // });
   // Count number of times Alt key pressed
   var countalt = 0;
-  document.addEventListener('keydown', function (event) {
+  document.onkeydown = function (event) {
     //console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
-    if (event.key === 'Alt') {
-      swal('Alt Keypress Detected');
+    if (event.altKey) {
+      swal('Keypress Detected');
       countalt = countalt + 1;
       sessionStorage.setItem("countalt", countalt);
+      return false;
     }
-  });
+    else {
+      return true;
+    }
+  }
  
   var countctrl = 0;
-  document.addEventListener('keydown', function (event) {
+  document.onkeydown = function (event) {
     //console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
-    if (event.ctrlKey && event.key === "t") {
+    //if (event.ctrlKey && event.key === "t") {
+      if (event.ctrlKey){
       swal('Keypress Detected');
       countctrl = countctrl + 1;
       sessionStorage.setItem("countctrl", countctrl);
+      return false;
+    } else {
+      return true;
     }
-  });
+  }
 
   //Timer Code------> Begins from here 
   // const timerProps = {
