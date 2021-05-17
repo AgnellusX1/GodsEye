@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Detection from './Detections';
 import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
+import DetectRTC from 'detectrtc';
 import swal from 'sweetalert';
 import exam_timer from './formvalid';
 import formvalid from './formvalid';
@@ -186,6 +187,45 @@ const Dashboard = (props) => {
     history.push('/thankyou')
   };
 
+  
+// Camera Permission
+  DetectRTC.load(function () {
+
+    const webcam = DetectRTC.isWebsiteHasWebcamPermissions;
+    if (!webcam) {
+      navigator.getUserMedia = navigator.getUserMedia ||
+        navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia;
+
+      var video = document.querySelector("#videoElement");
+      if (navigator.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true })
+          .then(function (stream) {
+            video.srcObject = stream;
+          })
+
+          .catch(function (err0r) {
+            //console.log("Something went wrong!");
+          });
+      }
+    }
+
+  });
+
+
+// enable/disable iframe according to camera permissions
+  const webcam = DetectRTC.isWebsiteHasWebcamPermissions;
+ 
+
+    if (webcam === true) {
+    var isAllowed = sessionStorage.getItem("form_link");;  
+  } 
+    else {
+    var isAllowed = '/components/404.js';
+    swal("Enable Your Camera");
+  }
+  
+
 
   return (
 
@@ -227,7 +267,7 @@ const Dashboard = (props) => {
           <p align="left" style={{ fontSize: '18px' }}><i>DONOT ESCAPE THIS PAGE ELSE ANSWERS WILL BE UNSAVED!!</i></p>
         </div>
 
-        <iframe src={form_link} id='form'>Loading…</iframe >
+        <iframe src={isAllowed} id='form'>Loading…</iframe >
 
       </header>
 
