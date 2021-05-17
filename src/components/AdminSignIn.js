@@ -1,17 +1,11 @@
 import config from "../config";
 import React, { useState } from "react";
-<<<<<<< Updated upstream
-import { Redirect } from "react-router-dom";
-import swal from 'sweetalert';
-import './Results.css';
-=======
 //import TextField from "@material-ui/core/TextField";
 //import { useHistory } from 'react-router-dom';
 import { Redirect } from "react-router-dom";
 import swal from 'sweetalert';
 import './Results.css';
 //import Button from '@material-ui/core/Button';
->>>>>>> Stashed changes
 import firebase from "firebase/app";
 // import Button from '@material-ui/core/Button';
 require('firebase/auth')

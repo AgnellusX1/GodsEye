@@ -1,15 +1,6 @@
 import React from 'react'
-<<<<<<< Updated upstream
 import firebase from "firebase/app";
 import { Button } from '@material-ui/core';
-=======
-import swal from 'sweetalert';
-//import config from "../config";
-import firebase from "firebase/app";
-//import AdminSignIn from "./AdminSignIn";
-import { Button } from '@material-ui/core';
-//import CodeCheck from "./CodeCheck";
->>>>>>> Stashed changes
 import './Results.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

@@ -9,13 +9,6 @@ import exam_timer from './formvalid';
 import formvalid from './formvalid';
 import firebase from "firebase/app";
 import "./Dashboard2.css";
-<<<<<<< Updated upstream
-//import checkname from "./Login";
-
-=======
-import checkname from "./Login";
-import { CountdownCircleTimer } from 'react-countdown-circle-timer';
->>>>>>> Stashed changes
 
 // var checkn = "";
 // var checke = "";
@@ -203,7 +196,7 @@ const Dashboard = (props) => {
          
         }
 
-        if (minutes === 1 && seconds === 1) {
+        if (minutes === 1 && seconds === 0) {
           swal("Only 1 Minute Left, Please Submit or else Answers WONT BE SAVED ");
         }
 

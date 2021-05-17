@@ -1,8 +1,3 @@
-<<<<<<< Updated upstream
-import { useHistory } from 'react-router-dom'
-import logo from './../logo.png';
-import './../App.css';
-=======
 //import config from "../config";
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom'
@@ -10,7 +5,6 @@ import logo from './../logo.png';
 import './../App.css';
 //import { Redirect } from "react-router-dom";
 //import { AuthContext } from "./Auth";
->>>>>>> Stashed changes
 import Button from '@material-ui/core/Button';
 
 
