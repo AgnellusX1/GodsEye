@@ -83,12 +83,6 @@ export default class Detection extends React.Component {
       
       var multiple_face = 0;
       for (let i = 0; i < predictions.length; i++) {
-        if (prediction.class == "person") {
-          multiple_face = multiple_face + 1
-          if (multiple_face >= 2) {
-            swal("Multiple Face Detection", "Action has been Recorded", "error");
-          }
-        }
 
         //Face,object detection
         if (predictions[i].class === "cell phone") {

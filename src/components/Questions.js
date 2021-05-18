@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom';
+//import { Redirect } from 'react-router-dom';
 import "./questionpg.css"
 import "./formvalid"
-import swal from 'sweetalert';
+//import swal from 'sweetalert';
 
 //Disable Right click
 if (document.addEventListener) {

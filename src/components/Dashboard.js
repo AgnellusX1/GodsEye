@@ -9,11 +9,9 @@ import exam_timer from './formvalid';
 import formvalid from './formvalid';
 import firebase from "firebase/app";
 import "./Dashboard2.css";
-import checkname from "./Login";
 
-
-var checkn = "";
-var checke = "";
+// var checkn = "";
+// var checke = "";
 
 
 const Dashboard = (props) => {
@@ -45,9 +43,12 @@ const Dashboard = (props) => {
   var i = 0;
 
   const history = useHistory();
-  function onAccept() {
-    history.push('/thankyou')
-  }
+    
+
+    function onAccept() {
+      history.push('/thankyou')
+    }
+
 
   // Count number of times escaped Fullscreen
 
@@ -63,24 +64,13 @@ const Dashboard = (props) => {
      // console.log(`Element: ${document.fullscreenElement.id} entered full-screen mode.`);
     } else {
       history.push("/fullscreenalert")
-      //var count_fullscreen = sessionStorage.getItem("count_fullscreen")
+
       count_fullscreen = count_fullscreen + 1;
       //console.log(count_fullscreen)
       sessionStorage.setItem("count_fullscreen", count_fullscreen);
     }
   });
 
-  
-  // document.addEventListener('keydown', function (event) {
-  //   //console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
-  //   if (event.altkey === 'Alt') {
-  //     swal('Alt Keypress Detected');
-  //     return false;
-  //     countalt = countalt + 1;
-  //     sessionStorage.setItem("countalt", countalt);
-  //   }
-  // });
-  // Count number of times Alt key pressed
   var countalt = 0;
   document.onkeydown = function (event) {
     //console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
@@ -94,11 +84,9 @@ const Dashboard = (props) => {
       return true;
     }
   }
- 
+  
   var countctrl = 0;
   document.onkeydown = function (event) {
-    //console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
-    //if (event.ctrlKey && event.key === "t") {
       if (event.ctrlKey){
       swal('Keypress Detected');
       countctrl = countctrl + 1;
@@ -108,48 +96,6 @@ const Dashboard = (props) => {
       return true;
     }
   }
-
-  //Timer Code------> Begins from here 
-  // const timerProps = {
-  //   isPlaying: true,
-  //   size: 120,
-  //   strokeWidth: 6
-  // };
-  // Fetches the timer provided by Admin in Admin page to Dashboard
-  var get_time = sessionStorage.getItem("exam_timer", exam_timer);
-  const { initialMinute = get_time, initialSeconds = 0 } = props;
-
-  const [minutes, setMinutes] = useState(initialMinute);
-  const [seconds, setSeconds] = useState(initialSeconds);
-  useEffect(() => {
-    let myInterval = setInterval(() => {
-      if (seconds > 0) {
-        setSeconds(seconds - 1);
-      }
-      if (seconds === 0) {
-        if (minutes === 0) {
-          clearInterval(myInterval)
-        } else {
-          setMinutes(minutes - 1);
-          setSeconds(59);
-          var currectTime = minutes -1
-          sessionStorage.setItem("exam_timer", currectTime);
-        }
-      }
-    }, 1000)
-
-    return () => {
-      clearInterval(myInterval);
-    };
-  });
-
-  // Give ALert when 1 minute left 
-  if (minutes === 1 && seconds === 1) {
-    swal("Only 1 Minute Left, Please Submit or else Answers WONT BE SAVED ");
-  }
-  // Timer Code------------> Ends here
-
-
 
   //Displays Score in Thankyou page
   function handleClicksub() {
@@ -225,8 +171,45 @@ const Dashboard = (props) => {
     swal("Enable Your Camera");
   }
   
+  // Fetches the timer provided by Admin in Admin page to Dashboard
+  var get_time = sessionStorage.getItem("exam_timer");
+  var get_sec = sessionStorage.getItem("exam_sec");
+  if(get_sec === null){
+    get_sec = 0;
+  }
+ const { initialMinute = get_time, initialSeconds = get_sec } = props;
+  const myInterval = React.useRef();
+  const [minutes, setMinutes] = useState(initialMinute);
+  const [seconds, setSeconds] = useState(initialSeconds);
+  useEffect(() => {
+    let myInterval = setInterval(() => {
+      if (seconds > 0) {
+        setSeconds(seconds - 1);
+        var currectSec = seconds;
+         sessionStorage.setItem("exam_sec", currectSec);
+      }
+      else {
+         var currectTime = minutes-1;
+          sessionStorage.setItem("exam_timer", currectTime);
+          setMinutes(minutes - 1);
+          setSeconds(59);
+         
+        }
 
+        if (minutes === 1 && seconds === 0) {
+          swal("Only 1 Minute Left, Please Submit or else Answers WONT BE SAVED ");
+        }
 
+      if (seconds <= 0 && minutes <= 0) {
+         history.push('/thankyou');
+        }
+  },1000);
+ 
+      return () => {
+      clearInterval(myInterval);
+    };
+  });
+ 
   return (
 
 
@@ -247,9 +230,15 @@ const Dashboard = (props) => {
         </div>
 
         <div className="leftClass">
-          <p>Timer: {minutes === 0 && seconds === 1 ? history.push('/thankyou') : <h1 align="center" style={{ fontSize: '69px' }}>  {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
+          <p>Timer: {minutes === 0 && seconds === 1 ? null : <h1 align="center" style={{ fontSize: '69px' }}>  {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
           } </p>
         </div>
+
+       {/* <div id="timer">
+        <strong id="minutes">-</strong> minutes and <strong id="seconds">-</strong> seconds.
+        </div> */}
+
+        {/* <Timer value={this.state.value} seconds={this.state.seconds} /> */}
 
         <div className="button">
           <p align="center" style={{ fontSize: '18px' }}>To Save Your Attendance :<br/> Kindly Click <strong>Exit Exam Window</strong> After Submission Of Google Form </p>

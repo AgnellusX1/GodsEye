@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import config from "../config";
+import React, { useState} from 'react';
+//import config from "../config";
 import firebase from "firebase/app";
 import './Results.css';
 import { Button } from '@material-ui/core';
