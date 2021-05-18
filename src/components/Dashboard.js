@@ -234,12 +234,6 @@ const Dashboard = (props) => {
           } </p>
         </div>
 
-       {/* <div id="timer">
-        <strong id="minutes">-</strong> minutes and <strong id="seconds">-</strong> seconds.
-        </div> */}
-
-        {/* <Timer value={this.state.value} seconds={this.state.seconds} /> */}
-
         <div className="button">
           <p align="center" style={{ fontSize: '18px' }}>To Save Your Attendance :<br/> Kindly Click <strong>Exit Exam Window</strong> After Submission Of Google Form </p>
           <center>
@@ -252,7 +246,7 @@ const Dashboard = (props) => {
               Exit Exam Window
               </Button>
           </center>
-          <br/>
+          {/* <br/> */}
           <p align="left" style={{ fontSize: '18px' }}><i>DONOT ESCAPE THIS PAGE ELSE ANSWERS WILL BE UNSAVED!!</i></p>
         </div>
 

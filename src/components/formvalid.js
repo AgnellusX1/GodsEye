@@ -42,6 +42,7 @@ const Formvalid = () => {
         sessionStorage.setItem("form_link", form_link);
         sessionStorage.setItem("exam_timer",exam_timer);
         sessionStorage.setItem("formvalid",formvalid);
+        
         history.push("/Dashboard");
       }
       else {

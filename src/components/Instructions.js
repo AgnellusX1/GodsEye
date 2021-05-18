@@ -2,6 +2,7 @@ import { Button } from '@material-ui/core'
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import instruction from "./instruction.jpg"
+import "./Dashboard2.css"
 const Instructions = () => {
 
     const history = useHistory();
@@ -43,8 +44,8 @@ const Instructions = () => {
                     </div>
                 </td>
                 <td>
-                    <ul>
-                        
+                    <ul className="givesize">
+                        <br/>
                         <li>
                         The lighting in the room must be bright enough to be considered “daylight” quality. Overhead lighting is preferred. 
                         </li>
