@@ -1,68 +1,87 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# GodsEye
+## Smart Virtual Exam System 
+### Abstract
+The Covid-19 Pandemic has been one of the defining events in recent history. It has affected millions of lives and has an impact on every sector of civilization. No matter the domain, the pandemic has forced it to implement radical and innovative reforms. Education and Academia has been identified as one such sector that has been impacted most adversely due to the Pandemic. Disrupting the age-old Classroom Design, the Pandemic has forced educational institutes and schools to implement ‘Online Classes’. A concept that has now been standardized, by many. However the evaluation aspect of education still  remains to be desired. There are no easy to use or accurate means of conducting examinations for students during this Covid-19 Pandemic. There are a few options available, but they are either too expensive for the institutes or inconvenient for the students to use.There needs to be a solution that not only goes hand in hand with the ‘e-learning Approach’ but also is convenient to use by all its users to help institutes validate their students' performance and prepare them for conducting any malpractices.
 
-In the project directory, you can run:
+### About the Project
+In this project we developed a solution that aims to provide a virtual examination environment to students with a cheating detection system which will help schools and colleges to supervise the exams fairly.
+The techniques used to detect the occurrences of malicious activities during examination:
 
-### `npm start`
+1.  To create a system that is a set of monitoring systems such as a webcam keeps track of the actions like face movements, object detection etc. of the candidate along with the system usage analysis.
+    
+2.  All these features are fed into a rule based system created which detects the occurrences of malicious activities that can happen. Thus it makes a decision on users’ actions.
+    
+3.  The main input modules includes the system compatibility check, video input processing, system analysis :
+	-   **System compatibility check**: Checking the latest browser version, internet speed, webcam availability etc.
+    
+	-   **Video input processing**: AI based cheating detection system that includes all the recognition modules face, object detection like whether the face is within the boundary and visible throughout the examination, detection of multiple faces, cell phone, book detection etc.
+    
+	-   **System usage analysis**: Detecting various browser and system related usage like exiting full screen mode, opening multiple tabs, minimizing the window, alt key press etc.
+	
+The output will be the warning which will be displayed on the screen which will be considered as malicious practice. Hence, all the techniques mentioned above help the students to give their exams honestly as well as help the teachers to solve the issue of holding online examinations in a supervised manner.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**FEATURES**
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+***Student Side***
 
-### `npm test`
+- Secure Login using Google Credentials API
+- System Check
+	- Operating System Check
+	- Browser Check
+	- Internet Speed Check
+	- Webcam Check
+- User  Validation through Image Capture
+- Face Detection
+- Multiple- Face Detection
+- Cell Phone Detection
+- Shortcut Keypress Detection
+- Full Screen Compulsion
+- Full Screen Escaping Detection
+- Tab Change Detection
+- Camera Blocking Detection
+- Head-Pose Detection
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+***Admin Side***
+- Restricted Access
+- Assign Unique Customizable Exam Code
+- Assign Any Google/Microsoft Form
+- Assign Customized Time Duration
+- Individual Exam Results
+- Comprehensive Results
+	- Name
+	- Email ID
+	- Cheat Scores
+		- Key Press Detections
+		- Face Detection
+		- Full Screen Triggers
+		- Tab Change Detections
+		- Examinee's Photo 
 
-### `npm run build`
+**Developers**
+ - [Agnellus Fernandes ](https://www.linkedin.com/in/agnellus-fernandes-81232b192)
+ - [Anisha Fernandes](https://www.linkedin.com/in/anisha-fernandes-9063651a1)
+ - [Clarice D'silva](https://www.linkedin.com/in/clarice-dsilva-1689151a7)
+-  [Sancia D'cunha](https://www.linkedin.com/in/sancia-d-cunha-291a94194)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Screenshots
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1.Clustering Based
 
-### `npm run eject`
+![](ScreenShots/Clustering.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+***
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2.Regression Based
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![](ScreenShots/Regression.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+***
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+**Tools used**  
+ - NodeJs
+ - TensorflowJS
+ - ReactJS
+ - Firebase Realtime Database
+ - Netlify
