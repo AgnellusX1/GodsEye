@@ -1,4 +1,6 @@
 
+<!-- <a href="url"><img src="" align="left" height="48" width="48" ></a> -->
+![](images/logo.png)
 # GodsEye
 ## Smart Virtual Exam System 
 ### Abstract
@@ -20,6 +22,15 @@ The techniques used to detect the occurrences of malicious activities during exa
 	-   **System usage analysis**: Detecting various browser and system related usage like exiting full screen mode, opening multiple tabs, minimizing the window, alt key press etc.
 	
 The output will be the warning which will be displayed on the screen which will be considered as malicious practice. Hence, all the techniques mentioned above help the students to give their exams honestly as well as help the teachers to solve the issue of holding online examinations in a supervised manner.
+
+
+**Architecture**
+
+![](images/architecture.png)
+
+**Workflow**
+
+![](images/workflow.png)
 
 **FEATURES**
 
@@ -67,15 +78,27 @@ The output will be the warning which will be displayed on the screen which will 
 ## Screenshots
 
 
-1.Clustering Based
+1. Alerts
 
-![](ScreenShots/Clustering.png)
+![](images/screenshots/alerts.png)
 
 ***
 
-2.Regression Based
+2.System Check
 
-![](ScreenShots/Regression.png)
+![](images/screenshots/systemcheck.png)
+
+***
+
+3.Fullscreen Alert
+
+![](images/screenshots/fullscreen.png)
+
+***
+
+4.Results
+
+![](images/screenshots/results.png)
 
 ***
 
